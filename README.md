@@ -101,7 +101,7 @@ Rarity alone does not determine difficulty; semantic distinctness matters more.
 |---|---|
 | [`thesis/`](thesis/) | The full thesis PDF, the working paper, the defense presentation, and conference posters. |
 | [`docs/`](docs/) | How the system works: data pipeline, model inference, key results. Start here. |
-| [`data/`](data/) | Schemas, corpus statistics, and a pseudonymized sample. **The corpus itself is not distributed — see [`data/README.md`](data/README.md).** |
+| [`data/`](data/) | Schemas, corpus statistics, and a pseudonymized sample. **The corpus itself is held privately — see [`data/README.md`](data/README.md).** |
 | [`pipeline/`](pipeline/) | The data processing pipeline: extraction, semantic cleaning, dataset construction (V1→V4). |
 | [`models/`](models/) | The AWARE architecture, training configuration, and the [model card](models/MODEL_CARD.md). |
 | [`experiments/`](experiments/) | The 2×2 factorial (scale × approach) plus baselines: configs, SLURM jobs, logs, results. |
@@ -112,8 +112,9 @@ Rarity alone does not determine difficulty; semantic distinctness matters more.
 
 Student reflective writing is personal. The essays discuss family, identity, faith, community,
 and adversity. Even with numeric IDs replacing names, essay content can be re-identified by
-anyone holding a course roster, so **the corpus is not published here** and model predictions
-carry the same confidentiality obligations as the essays themselves. Section 7.6 of the thesis
+anyone holding a course roster, so **the corpus is not published here** — it lives in a private
+companion repository available to approved collaborators — and model predictions carry the same
+confidentiality obligations as the essays themselves. Section 7.6 of the thesis
 states this in full; [`data/README.md`](data/README.md) explains what is available and how to
 request access through the ALMA team.
 

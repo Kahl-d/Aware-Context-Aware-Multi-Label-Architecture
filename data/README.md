@@ -17,8 +17,13 @@ describing their specific circumstances, in a named course and semester, is iden
 anyone with the roster. That risk does not expire, and it is not the author's alone to accept:
 the corpus belongs to the ALMA Project and its participants.
 
+**Where it lives.** The corpus is held in a **private companion repository**,
+[`Kahl-d/aware-data`](https://github.com/Kahl-d/aware-data) — the dataset lineage V1→V4, the
+train/validation/test splits, the DAPT corpus, and the dashboard's essay dump. Approved
+collaborators are added there directly.
+
 **Requesting access:** contact the ALMA Project research team at San Francisco State University.
-Access is governed by the project's IRB protocol.
+Access is governed by the project's IRB protocol, not by this repository.
 
 ## What is here
 
@@ -65,7 +70,8 @@ carry zero, one, or several themes at once.
 
 ## Reproducing the data locally
 
-With ALMA source access, run the pipeline in order — see
+With access to `aware-data`, clone it alongside this repository and point the pipeline and
+dashboard at it. Or, with ALMA source access, run the pipeline in order — see
 [`../pipeline/README.md`](../pipeline/README.md). The dashboard consumes the same V4 dataset
 the model trains on, so there is no version drift between what a researcher browses and what
 the model learned.
