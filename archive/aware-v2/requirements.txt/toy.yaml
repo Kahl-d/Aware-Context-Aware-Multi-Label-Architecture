@@ -1,0 +1,51 @@
+# AWARE v2 — Toy config for local testing
+# Usage: python scripts/train.py --config configs/toy.yaml --data_dir data/ --output_dir results/toy/ --toy
+
+mode: toy
+seed: 42
+
+model:
+  encoder_name: microsoft/deberta-v3-base
+  hidden_size: 768
+  lstm_hidden: 256
+  lstm_layers: 2
+  max_sentences: 32
+  max_seq_length: 512
+  num_labels: 11
+  dropout: 0.3
+
+loss:
+  asl_gamma_pos: 1.0
+  asl_gamma_neg: 4.0
+  asl_clip: 0.05
+  label_smoothing: 0.05
+  # theme_weights: auto-loaded from splits_stats.json
+
+training:
+  phase1_epochs: 2
+  phase2_epochs: 3
+  batch_size: 2
+  gradient_accumulation: 2
+  encoder_lr: 2.0e-5
+  decoder_lr: 1.0e-4
+  phase2_encoder_lr_scale: 0.1
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  warmup_ratio: 0.06
+  early_stopping_patience: 3
+  phase2_early_stopping_patience: 3
+  fp16: true
+  num_workers: 0
+
+augmentation:
+  enabled: true
+  aeda_prob: 0.3
+
+dapt:
+  mlm_probability: 0.15
+  epochs: 1
+  batch_size: 4
+  learning_rate: 5.0e-5
+  warmup_ratio: 0.1
+  fp16: true
+  eval_split: 0.1

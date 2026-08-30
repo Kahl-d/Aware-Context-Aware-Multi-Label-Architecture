@@ -1,0 +1,668 @@
+[
+  {
+    "essay_id": "852",
+    "sentence_id": 1,
+    "sentence": "The reason why I am here (PHYS 122) is that I want to learn or understand the topics of physics.",
+    "sentence_length": 96,
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "source_file": "merged_reconciled_annotations_complete.xlsx",
+    "coder": "reconciled",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 1,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "train",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "852",
+    "sentence_id": 2,
+    "sentence": "I am taking physic classes because I am majoring in Biology in Physiology as a focus.",
+    "sentence_length": 85,
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "source_file": "merged_reconciled_annotations_complete.xlsx",
+    "coder": "reconciled",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 1,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "train",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "852",
+    "sentence_id": 3,
+    "sentence": "After attending the San Francisco State University, I will transfer to Medical School because I want to become a dermatologist.",
+    "sentence_length": 127,
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "source_file": "merged_reconciled_annotations_complete.xlsx",
+    "coder": "reconciled",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 1,
+      "Navigational": 1,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "train",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "852",
+    "sentence_id": 4,
+    "sentence": "I want to transfer to UCSF or the University of Washington as my graduate school.",
+    "sentence_length": 81,
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "source_file": "merged_reconciled_annotations_complete.xlsx",
+    "coder": "reconciled",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 1,
+      "Navigational": 1,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "train",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "852",
+    "sentence_id": 5,
+    "sentence": "I want to study hard, get a good grade, and get in the Medical School that I want to get in.",
+    "sentence_length": 92,
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "source_file": "merged_reconciled_annotations_complete.xlsx",
+    "coder": "reconciled",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 1,
+      "Navigational": 1,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "train",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "852",
+    "sentence_id": 6,
+    "sentence": "However, most importantly, I want to understand the topics and use them in real life.",
+    "sentence_length": 85,
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "source_file": "merged_reconciled_annotations_complete.xlsx",
+    "coder": "reconciled",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 1,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "train",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "852",
+    "sentence_id": 7,
+    "sentence": "In this class, I want to improve my teamwork skills and communication skill.",
+    "sentence_length": 76,
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "source_file": "merged_reconciled_annotations_complete.xlsx",
+    "coder": "reconciled",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 1,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "train",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "852",
+    "sentence_id": 8,
+    "sentence": "I want to be a better person than yesterday's self and improve every day.",
+    "sentence_length": 73,
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "source_file": "merged_reconciled_annotations_complete.xlsx",
+    "coder": "reconciled",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 1,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "train",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "852",
+    "sentence_id": 9,
+    "sentence": "I want to be a good person, a good student, a good daughter, and a good future doctor.",
+    "sentence_length": 86,
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "source_file": "merged_reconciled_annotations_complete.xlsx",
+    "coder": "reconciled",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 1,
+      "Navigational": 1,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "train",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "97",
+    "sentence_id": 1,
+    "sentence": "This semester has been completely overwhelming and has destroyed me.",
+    "sentence_length": 68,
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "source_file": "KW NE AM - PHYS102-S25-when life gets challenging.xlsx",
+    "coder": "merged",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "test",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "97",
+    "sentence_id": 2,
+    "sentence": "I have lots of very hard classes, a lot of work, and just so many things.",
+    "sentence_length": 73,
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "source_file": "KW NE AM - PHYS102-S25-when life gets challenging.xlsx",
+    "coder": "merged",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "test",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "97",
+    "sentence_id": 3,
+    "sentence": "I have been trying to work on navigating all these things, but it is not going too well.",
+    "sentence_length": 88,
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "source_file": "KW NE AM - PHYS102-S25-when life gets challenging.xlsx",
+    "coder": "merged",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "test",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "97",
+    "sentence_id": 4,
+    "sentence": "What has been working the best for me has been just writing everything down.",
+    "sentence_length": 76,
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "source_file": "KW NE AM - PHYS102-S25-when life gets challenging.xlsx",
+    "coder": "merged",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "test",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "97",
+    "sentence_id": 5,
+    "sentence": "Having a physical calendar and to-do list. this semester is just killing me and im not sure if i can pass some of my classes which is freaking me out.",
+    "sentence_length": 150,
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "source_file": "KW NE AM - PHYS102-S25-when life gets challenging.xlsx",
+    "coder": "merged",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "test",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "97",
+    "sentence_id": 6,
+    "sentence": "I'm feeling very lost in my career and classes.",
+    "sentence_length": 47,
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "source_file": "KW NE AM - PHYS102-S25-when life gets challenging.xlsx",
+    "coder": "merged",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "test",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "97",
+    "sentence_id": 7,
+    "sentence": "Life is extremely challenging right now, and I'm not sure how to fix it without just giving up.",
+    "sentence_length": 95,
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "source_file": "KW NE AM - PHYS102-S25-when life gets challenging.xlsx",
+    "coder": "merged",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "test",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "97",
+    "sentence_id": 9,
+    "sentence": "I won't, I'm still trying to push through, but it's extremely hard and I can't wait for this semester to be over.",
+    "sentence_length": 113,
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "source_file": "KW NE AM - PHYS102-S25-when life gets challenging.xlsx",
+    "coder": "merged",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "test",
+      "dropped_reason": null
+    },
+    "predictions": null
+  },
+  {
+    "essay_id": "97",
+    "sentence_id": 10,
+    "sentence": "I, working on being more organized and taking care of myself for these last few weeks.",
+    "sentence_length": 86,
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "source_file": "KW NE AM - PHYS102-S25-when life gets challenging.xlsx",
+    "coder": "merged",
+    "labels": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "Social": 0,
+      "Spiritual": 0,
+      "Familial_Capital": 0,
+      "Class_0": 0
+    },
+    "tags": {
+      "annotated": true,
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "used_for_training": true,
+      "split": "test",
+      "dropped_reason": null
+    },
+    "predictions": null
+  }
+]

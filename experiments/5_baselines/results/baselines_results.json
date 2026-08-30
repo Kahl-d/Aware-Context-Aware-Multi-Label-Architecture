@@ -1,0 +1,153 @@
+{
+  "majority_class": {
+    "f1": {
+      "Attainment": 0.0,
+      "Aspirational": 0.0,
+      "Navigational": 0.0,
+      "Resistance": 0.0,
+      "Perseverance": 0.0,
+      "Social": 0.0,
+      "Spiritual": 0.0,
+      "Familial_Capital": 0.0,
+      "macro": 0.0
+    },
+    "prauc": {
+      "Attainment": 0.01737242128121607,
+      "Aspirational": 0.1498371335504886,
+      "Navigational": 0.23344191096634093,
+      "Resistance": 0.04668838219326819,
+      "Perseverance": 0.09771986970684039,
+      "Social": 0.048859934853420196,
+      "Spiritual": 0.05157437567861021,
+      "Familial_Capital": 0.038002171552660155,
+      "macro": 0.0854370249728556
+    },
+    "name": "Majority Class"
+  },
+  "random_prior": {
+    "f1": {
+      "Attainment": 0.0,
+      "Aspirational": 0.15467625899280574,
+      "Navigational": 0.27400468384074944,
+      "Resistance": 0.011904761904761906,
+      "Perseverance": 0.08536585365853659,
+      "Social": 0.030150753768844223,
+      "Spiritual": 0.05369127516778524,
+      "Familial_Capital": 0.027397260273972605,
+      "macro": 0.08434529154224936
+    },
+    "prauc": {
+      "Attainment": 0.018516414397823675,
+      "Aspirational": 0.14585666045713835,
+      "Navigational": 0.23167703171256843,
+      "Resistance": 0.05920875218856765,
+      "Perseverance": 0.10531662833527557,
+      "Social": 0.046575631140867296,
+      "Spiritual": 0.060325272450632766,
+      "Familial_Capital": 0.04729355242707808,
+      "macro": 0.08934624288874397
+    },
+    "name": "Random (Prior)"
+  },
+  "most_common": {
+    "f1": {
+      "Attainment": 0.0,
+      "Aspirational": 0.0,
+      "Navigational": 0.0,
+      "Resistance": 0.0,
+      "Perseverance": 0.0,
+      "Social": 0.0,
+      "Spiritual": 0.0,
+      "Familial_Capital": 0.0,
+      "macro": 0.0
+    },
+    "prauc": {
+      "Attainment": 0.0,
+      "Aspirational": 0.0,
+      "Navigational": 0.0,
+      "Resistance": 0.0,
+      "Perseverance": 0.0,
+      "Social": 0.0,
+      "Spiritual": 0.0,
+      "Familial_Capital": 0.0,
+      "macro": 0.0
+    },
+    "name": "Most Common Label Set",
+    "note": "PR-AUC not meaningful (constant predictions)"
+  },
+  "tfidf_logreg": {
+    "f1": {
+      "Attainment": 0.0,
+      "Aspirational": 0.41411764705882353,
+      "Navigational": 0.534711964549483,
+      "Resistance": 0.0,
+      "Perseverance": 0.0,
+      "Social": 0.1523809523809524,
+      "Spiritual": 0.020833333333333332,
+      "Familial_Capital": 0.3695652173913044,
+      "macro": 0.18645113933923707
+    },
+    "prauc": {
+      "Attainment": 0.134462643468328,
+      "Aspirational": 0.4847065567995904,
+      "Navigational": 0.6721645931725053,
+      "Resistance": 0.15014182276663984,
+      "Perseverance": 0.3000540936839578,
+      "Social": 0.34837522219621486,
+      "Spiritual": 0.20845685928794538,
+      "Familial_Capital": 0.6073374520142708,
+      "macro": 0.36321240542368155
+    },
+    "name": "TF-IDF + LogReg"
+  },
+  "tfidf_rf": {
+    "f1": {
+      "Attainment": 0.0,
+      "Aspirational": 0.17034700315457416,
+      "Navigational": 0.37300177619893427,
+      "Resistance": 0.0,
+      "Perseverance": 0.0,
+      "Social": 0.02197802197802198,
+      "Spiritual": 0.0,
+      "Familial_Capital": 0.2195121951219512,
+      "macro": 0.0981048745566852
+    },
+    "prauc": {
+      "Attainment": 0.08832852320854818,
+      "Aspirational": 0.5142346694110891,
+      "Navigational": 0.6594210737869104,
+      "Resistance": 0.1472538759749191,
+      "Perseverance": 0.2837487132896275,
+      "Social": 0.35374504179084404,
+      "Spiritual": 0.18374231056226698,
+      "Familial_Capital": 0.5838725298675411,
+      "macro": 0.3517933422364683
+    },
+    "name": "TF-IDF + RandomForest"
+  },
+  "tfidf_svm": {
+    "f1": {
+      "Attainment": 0.05405405405405406,
+      "Aspirational": 0.4530612244897959,
+      "Navigational": 0.5538057742782152,
+      "Resistance": 0.08163265306122448,
+      "Perseverance": 0.1674418604651163,
+      "Social": 0.31746031746031744,
+      "Spiritual": 0.07476635514018691,
+      "Familial_Capital": 0.4869565217391305,
+      "macro": 0.2736473450860051
+    },
+    "prauc": {
+      "Attainment": 0.09718626824775808,
+      "Aspirational": 0.4609963934422421,
+      "Navigational": 0.6185052055067133,
+      "Resistance": 0.15274089768763796,
+      "Perseverance": 0.281118944992846,
+      "Social": 0.34931316349408426,
+      "Spiritual": 0.173451325526771,
+      "Familial_Capital": 0.5340549092394603,
+      "macro": 0.3334208885171891
+    },
+    "name": "TF-IDF + SVM"
+  }
+}

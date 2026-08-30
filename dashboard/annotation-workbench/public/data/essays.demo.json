@@ -1,0 +1,68 @@
+[
+  {
+    "essay_id": "97",
+    "alma_id": "S25.PHYS102.109595",
+    "course": "PHYS102",
+    "semester": "Spring",
+    "year": "2025",
+    "prompt": "What do I do when life gets challenging?",
+    "coder": "merged",
+    "sentence_count": 9,
+    "annotated_count": 9,
+    "sentence_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10
+    ],
+    "tags": {
+      "annotated": true,
+      "used_for_training": true,
+      "split": "test",
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
+    }
+  },
+  {
+    "essay_id": "852",
+    "alma_id": "F20.PHYS0122.01.024.075",
+    "course": "PHYS122",
+    "semester": "Fall",
+    "year": "2020",
+    "prompt": "Why am I here?",
+    "coder": "reconciled",
+    "sentence_count": 9,
+    "annotated_count": 9,
+    "sentence_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "tags": {
+      "annotated": true,
+      "used_for_training": true,
+      "split": "train",
+      "dataset_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ]
+    }
+  }
+]

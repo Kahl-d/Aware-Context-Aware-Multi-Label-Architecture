@@ -1,0 +1,1504 @@
+{
+  "epochs": [
+    {
+      "epoch": 1,
+      "phase": 1,
+      "train_loss": 1.370498,
+      "val_loss": 0.734976,
+      "val_f1_macro": 0.0994,
+      "val_prauc_macro": 0.1292,
+      "val_f1_per_theme": {
+        "Attainment": 0.0,
+        "Aspirational": 0.2412,
+        "Navigational": 0.5365,
+        "Resistance": 0.0,
+        "Perseverance": 0.0,
+        "Social": 0.0172,
+        "Spiritual": 0.0,
+        "Familial_Capital": 0.0
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.029,
+        "Aspirational": 0.198,
+        "Navigational": 0.4632,
+        "Resistance": 0.0385,
+        "Perseverance": 0.1349,
+        "Social": 0.0522,
+        "Spiritual": 0.0538,
+        "Familial_Capital": 0.0639
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.0,
+        "Aspirational": 0.2063,
+        "Navigational": 0.442,
+        "Resistance": 0.0,
+        "Perseverance": 0.0,
+        "Social": 0.0312,
+        "Spiritual": 0.0,
+        "Familial_Capital": 0.0
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.0,
+        "Aspirational": 0.2902,
+        "Navigational": 0.6823,
+        "Resistance": 0.0,
+        "Perseverance": 0.0,
+        "Social": 0.0119,
+        "Spiritual": 0.0,
+        "Familial_Capital": 0.0
+      },
+      "loss_components": {
+        "total": 1.370498,
+        "task": 1.370498,
+        "kl": 0.0,
+        "essay": 2.135305,
+        "grad_norm_mean": Infinity,
+        "grad_norm_max": Infinity
+      }
+    },
+    {
+      "epoch": 2,
+      "phase": 1,
+      "train_loss": 1.096755,
+      "val_loss": 0.692708,
+      "val_f1_macro": 0.2186,
+      "val_prauc_macro": 0.245,
+      "val_f1_per_theme": {
+        "Attainment": 0.05,
+        "Aspirational": 0.3551,
+        "Navigational": 0.5947,
+        "Resistance": 0.0,
+        "Perseverance": 0.3064,
+        "Social": 0.043,
+        "Spiritual": 0.0789,
+        "Familial_Capital": 0.3206
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.0693,
+        "Aspirational": 0.2897,
+        "Navigational": 0.553,
+        "Resistance": 0.062,
+        "Perseverance": 0.2838,
+        "Social": 0.0937,
+        "Spiritual": 0.2779,
+        "Familial_Capital": 0.331
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.1667,
+        "Aspirational": 0.2988,
+        "Navigational": 0.5156,
+        "Resistance": 0.0,
+        "Perseverance": 0.3429,
+        "Social": 0.2222,
+        "Spiritual": 0.75,
+        "Familial_Capital": 0.4884
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.0294,
+        "Aspirational": 0.4375,
+        "Navigational": 0.7025,
+        "Resistance": 0.0,
+        "Perseverance": 0.2769,
+        "Social": 0.0238,
+        "Spiritual": 0.0417,
+        "Familial_Capital": 0.2386
+      },
+      "loss_components": {
+        "total": 1.096755,
+        "task": 1.096755,
+        "kl": 0.0,
+        "essay": 1.727704,
+        "grad_norm_mean": 1.956819,
+        "grad_norm_max": 3.817673
+      }
+    },
+    {
+      "epoch": 3,
+      "phase": 1,
+      "train_loss": 1.064076,
+      "val_loss": 0.687085,
+      "val_f1_macro": 0.2833,
+      "val_prauc_macro": 0.2826,
+      "val_f1_per_theme": {
+        "Attainment": 0.0702,
+        "Aspirational": 0.4107,
+        "Navigational": 0.6234,
+        "Resistance": 0.0,
+        "Perseverance": 0.3371,
+        "Social": 0.0449,
+        "Spiritual": 0.3478,
+        "Familial_Capital": 0.4327
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.0819,
+        "Aspirational": 0.3347,
+        "Navigational": 0.5804,
+        "Resistance": 0.0782,
+        "Perseverance": 0.3148,
+        "Social": 0.1558,
+        "Spiritual": 0.3455,
+        "Familial_Capital": 0.3691
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.087,
+        "Aspirational": 0.308,
+        "Navigational": 0.513,
+        "Resistance": 0.0,
+        "Perseverance": 0.2682,
+        "Social": 0.4,
+        "Spiritual": 0.4651,
+        "Familial_Capital": 0.4458
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.0588,
+        "Aspirational": 0.6161,
+        "Navigational": 0.7942,
+        "Resistance": 0.0,
+        "Perseverance": 0.4538,
+        "Social": 0.0238,
+        "Spiritual": 0.2778,
+        "Familial_Capital": 0.4205
+      },
+      "loss_components": {
+        "total": 1.064076,
+        "task": 1.064076,
+        "kl": 0.0,
+        "essay": 1.668957,
+        "grad_norm_mean": 1.841869,
+        "grad_norm_max": 3.472814
+      }
+    },
+    {
+      "epoch": 4,
+      "phase": 1,
+      "train_loss": 1.031023,
+      "val_loss": 0.677994,
+      "val_f1_macro": 0.2883,
+      "val_prauc_macro": 0.2905,
+      "val_f1_per_theme": {
+        "Attainment": 0.0816,
+        "Aspirational": 0.4028,
+        "Navigational": 0.626,
+        "Resistance": 0.0,
+        "Perseverance": 0.3454,
+        "Social": 0.086,
+        "Spiritual": 0.3471,
+        "Familial_Capital": 0.4177
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.0892,
+        "Aspirational": 0.3446,
+        "Navigational": 0.5846,
+        "Resistance": 0.0844,
+        "Perseverance": 0.3257,
+        "Social": 0.1803,
+        "Spiritual": 0.3352,
+        "Familial_Capital": 0.38
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.1333,
+        "Aspirational": 0.3314,
+        "Navigational": 0.5175,
+        "Resistance": 0.0,
+        "Perseverance": 0.2707,
+        "Social": 0.4444,
+        "Spiritual": 0.4286,
+        "Familial_Capital": 0.4714
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.0588,
+        "Aspirational": 0.5134,
+        "Navigational": 0.7919,
+        "Resistance": 0.0,
+        "Perseverance": 0.4769,
+        "Social": 0.0476,
+        "Spiritual": 0.2917,
+        "Familial_Capital": 0.375
+      },
+      "loss_components": {
+        "total": 1.031023,
+        "task": 1.031023,
+        "kl": 0.0,
+        "essay": 1.607072,
+        "grad_norm_mean": 1.818466,
+        "grad_norm_max": 3.283136
+      }
+    },
+    {
+      "epoch": 5,
+      "phase": 1,
+      "train_loss": 1.022502,
+      "val_loss": 0.679695,
+      "val_f1_macro": 0.2909,
+      "val_prauc_macro": 0.2919,
+      "val_f1_per_theme": {
+        "Attainment": 0.0784,
+        "Aspirational": 0.4175,
+        "Navigational": 0.6198,
+        "Resistance": 0.0,
+        "Perseverance": 0.3444,
+        "Social": 0.1064,
+        "Spiritual": 0.3308,
+        "Familial_Capital": 0.4302
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.0892,
+        "Aspirational": 0.3463,
+        "Navigational": 0.5862,
+        "Resistance": 0.086,
+        "Perseverance": 0.3281,
+        "Social": 0.1841,
+        "Spiritual": 0.3398,
+        "Familial_Capital": 0.3753
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.1176,
+        "Aspirational": 0.3274,
+        "Navigational": 0.5064,
+        "Resistance": 0.0,
+        "Perseverance": 0.2696,
+        "Social": 0.5,
+        "Spiritual": 0.3607,
+        "Familial_Capital": 0.4405
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.0588,
+        "Aspirational": 0.5759,
+        "Navigational": 0.7987,
+        "Resistance": 0.0,
+        "Perseverance": 0.4769,
+        "Social": 0.0595,
+        "Spiritual": 0.3056,
+        "Familial_Capital": 0.4205
+      },
+      "loss_components": {
+        "total": 1.022502,
+        "task": 1.022502,
+        "kl": 0.0,
+        "essay": 1.598451,
+        "grad_norm_mean": 1.689674,
+        "grad_norm_max": 3.296254
+      }
+    },
+    {
+      "epoch": 6,
+      "phase": 2,
+      "train_loss": 1.221766,
+      "val_loss": 0.681972,
+      "val_f1_macro": 0.3325,
+      "val_prauc_macro": 0.3096,
+      "val_f1_per_theme": {
+        "Attainment": 0.1333,
+        "Aspirational": 0.4227,
+        "Navigational": 0.6245,
+        "Resistance": 0.0235,
+        "Perseverance": 0.3536,
+        "Social": 0.18,
+        "Spiritual": 0.4429,
+        "Familial_Capital": 0.4792
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.0994,
+        "Aspirational": 0.3522,
+        "Navigational": 0.5953,
+        "Resistance": 0.0997,
+        "Perseverance": 0.346,
+        "Social": 0.204,
+        "Spiritual": 0.3839,
+        "Familial_Capital": 0.3963
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.1538,
+        "Aspirational": 0.3268,
+        "Navigational": 0.4935,
+        "Resistance": 0.1429,
+        "Perseverance": 0.2691,
+        "Social": 0.5625,
+        "Spiritual": 0.4559,
+        "Familial_Capital": 0.4423
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.1176,
+        "Aspirational": 0.5982,
+        "Navigational": 0.8501,
+        "Resistance": 0.0128,
+        "Perseverance": 0.5154,
+        "Social": 0.1071,
+        "Spiritual": 0.4306,
+        "Familial_Capital": 0.5227
+      },
+      "loss_components": {
+        "total": 1.221766,
+        "task": 0.867225,
+        "kl": 0.13065,
+        "essay": 1.58566,
+        "grad_norm_mean": 3.100775,
+        "grad_norm_max": 4.268674
+      }
+    },
+    {
+      "epoch": 7,
+      "phase": 2,
+      "train_loss": 1.169363,
+      "val_loss": 0.664609,
+      "val_f1_macro": 0.3126,
+      "val_prauc_macro": 0.3532,
+      "val_f1_per_theme": {
+        "Attainment": 0.2105,
+        "Aspirational": 0.4325,
+        "Navigational": 0.6123,
+        "Resistance": 0.0,
+        "Perseverance": 0.3757,
+        "Social": 0.046,
+        "Spiritual": 0.3529,
+        "Familial_Capital": 0.4706
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.1403,
+        "Aspirational": 0.3772,
+        "Navigational": 0.6051,
+        "Resistance": 0.1201,
+        "Perseverance": 0.3377,
+        "Social": 0.2249,
+        "Spiritual": 0.4615,
+        "Familial_Capital": 0.559
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.1905,
+        "Aspirational": 0.3294,
+        "Navigational": 0.4601,
+        "Resistance": 0.0,
+        "Perseverance": 0.2863,
+        "Social": 0.6667,
+        "Spiritual": 0.6,
+        "Familial_Capital": 0.6667
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.2353,
+        "Aspirational": 0.6295,
+        "Navigational": 0.915,
+        "Resistance": 0.0,
+        "Perseverance": 0.5462,
+        "Social": 0.0238,
+        "Spiritual": 0.25,
+        "Familial_Capital": 0.3636
+      },
+      "loss_components": {
+        "total": 1.169363,
+        "task": 0.853792,
+        "kl": 0.102974,
+        "essay": 1.611102,
+        "grad_norm_mean": 2.786277,
+        "grad_norm_max": 4.104525
+      }
+    },
+    {
+      "epoch": 8,
+      "phase": 2,
+      "train_loss": 1.076307,
+      "val_loss": 0.652198,
+      "val_f1_macro": 0.4391,
+      "val_prauc_macro": 0.4175,
+      "val_f1_per_theme": {
+        "Attainment": 0.2364,
+        "Aspirational": 0.4732,
+        "Navigational": 0.6227,
+        "Resistance": 0.1386,
+        "Perseverance": 0.3712,
+        "Social": 0.4685,
+        "Spiritual": 0.5634,
+        "Familial_Capital": 0.6391
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.1783,
+        "Aspirational": 0.4258,
+        "Navigational": 0.6006,
+        "Resistance": 0.2142,
+        "Perseverance": 0.2967,
+        "Social": 0.4326,
+        "Spiritual": 0.4981,
+        "Familial_Capital": 0.6938
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.1711,
+        "Aspirational": 0.4038,
+        "Navigational": 0.4768,
+        "Resistance": 0.3043,
+        "Perseverance": 0.2658,
+        "Social": 0.3768,
+        "Spiritual": 0.5714,
+        "Familial_Capital": 0.6667
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.3824,
+        "Aspirational": 0.5714,
+        "Navigational": 0.8971,
+        "Resistance": 0.0897,
+        "Perseverance": 0.6154,
+        "Social": 0.619,
+        "Spiritual": 0.5556,
+        "Familial_Capital": 0.6136
+      },
+      "loss_components": {
+        "total": 1.076307,
+        "task": 0.814234,
+        "kl": 0.073121,
+        "essay": 1.523914,
+        "grad_norm_mean": 2.711903,
+        "grad_norm_max": 4.250594
+      }
+    },
+    {
+      "epoch": 9,
+      "phase": 2,
+      "train_loss": 0.984419,
+      "val_loss": 0.642839,
+      "val_f1_macro": 0.4516,
+      "val_prauc_macro": 0.4469,
+      "val_f1_per_theme": {
+        "Attainment": 0.2821,
+        "Aspirational": 0.4885,
+        "Navigational": 0.6482,
+        "Resistance": 0.119,
+        "Perseverance": 0.3913,
+        "Social": 0.4597,
+        "Spiritual": 0.5802,
+        "Familial_Capital": 0.6441
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.1787,
+        "Aspirational": 0.4473,
+        "Navigational": 0.613,
+        "Resistance": 0.324,
+        "Perseverance": 0.3021,
+        "Social": 0.5126,
+        "Spiritual": 0.4864,
+        "Familial_Capital": 0.7109
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.25,
+        "Aspirational": 0.4267,
+        "Navigational": 0.5394,
+        "Resistance": 0.8333,
+        "Perseverance": 0.2852,
+        "Social": 0.3476,
+        "Spiritual": 0.5222,
+        "Familial_Capital": 0.6404
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.3235,
+        "Aspirational": 0.5714,
+        "Navigational": 0.8121,
+        "Resistance": 0.0641,
+        "Perseverance": 0.6231,
+        "Social": 0.6786,
+        "Spiritual": 0.6528,
+        "Familial_Capital": 0.6477
+      },
+      "loss_components": {
+        "total": 0.984419,
+        "task": 0.761473,
+        "kl": 0.053273,
+        "essay": 1.430365,
+        "grad_norm_mean": 2.465842,
+        "grad_norm_max": 4.304656
+      }
+    },
+    {
+      "epoch": 10,
+      "phase": 2,
+      "train_loss": 0.907766,
+      "val_loss": 0.663357,
+      "val_f1_macro": 0.445,
+      "val_prauc_macro": 0.4606,
+      "val_f1_per_theme": {
+        "Attainment": 0.256,
+        "Aspirational": 0.5055,
+        "Navigational": 0.6265,
+        "Resistance": 0.4195,
+        "Perseverance": 0.3559,
+        "Social": 0.4662,
+        "Spiritual": 0.2941,
+        "Familial_Capital": 0.6364
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2174,
+        "Aspirational": 0.4474,
+        "Navigational": 0.6045,
+        "Resistance": 0.3526,
+        "Perseverance": 0.3324,
+        "Social": 0.5467,
+        "Spiritual": 0.4508,
+        "Familial_Capital": 0.7327
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.1758,
+        "Aspirational": 0.4308,
+        "Navigational": 0.4887,
+        "Resistance": 0.3386,
+        "Perseverance": 0.2377,
+        "Social": 0.3407,
+        "Spiritual": 0.5,
+        "Familial_Capital": 0.5727
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.4706,
+        "Aspirational": 0.6116,
+        "Navigational": 0.8725,
+        "Resistance": 0.5513,
+        "Perseverance": 0.7077,
+        "Social": 0.7381,
+        "Spiritual": 0.2083,
+        "Familial_Capital": 0.7159
+      },
+      "loss_components": {
+        "total": 0.907766,
+        "task": 0.714065,
+        "kl": 0.041767,
+        "essay": 1.310493,
+        "grad_norm_mean": 2.357357,
+        "grad_norm_max": 5.71999
+      }
+    },
+    {
+      "epoch": 11,
+      "phase": 2,
+      "train_loss": 0.85685,
+      "val_loss": 0.631855,
+      "val_f1_macro": 0.5016,
+      "val_prauc_macro": 0.4766,
+      "val_f1_per_theme": {
+        "Attainment": 0.26,
+        "Aspirational": 0.5277,
+        "Navigational": 0.6642,
+        "Resistance": 0.4049,
+        "Perseverance": 0.3882,
+        "Social": 0.5268,
+        "Spiritual": 0.5745,
+        "Familial_Capital": 0.6667
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.215,
+        "Aspirational": 0.4869,
+        "Navigational": 0.6381,
+        "Resistance": 0.3718,
+        "Perseverance": 0.3488,
+        "Social": 0.5737,
+        "Spiritual": 0.464,
+        "Familial_Capital": 0.7147
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.197,
+        "Aspirational": 0.4615,
+        "Navigational": 0.5707,
+        "Resistance": 0.3882,
+        "Perseverance": 0.2852,
+        "Social": 0.4463,
+        "Spiritual": 0.4655,
+        "Familial_Capital": 0.6522
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.3824,
+        "Aspirational": 0.6161,
+        "Navigational": 0.7942,
+        "Resistance": 0.4231,
+        "Perseverance": 0.6077,
+        "Social": 0.6429,
+        "Spiritual": 0.75,
+        "Familial_Capital": 0.6818
+      },
+      "loss_components": {
+        "total": 0.85685,
+        "task": 0.678801,
+        "kl": 0.036338,
+        "essay": 1.235423,
+        "grad_norm_mean": 2.275141,
+        "grad_norm_max": 5.353048
+      }
+    },
+    {
+      "epoch": 12,
+      "phase": 2,
+      "train_loss": 0.821779,
+      "val_loss": 0.620709,
+      "val_f1_macro": 0.5085,
+      "val_prauc_macro": 0.4875,
+      "val_f1_per_theme": {
+        "Attainment": 0.2651,
+        "Aspirational": 0.5151,
+        "Navigational": 0.6685,
+        "Resistance": 0.4205,
+        "Perseverance": 0.4437,
+        "Social": 0.5319,
+        "Spiritual": 0.5528,
+        "Familial_Capital": 0.6703
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2102,
+        "Aspirational": 0.5088,
+        "Navigational": 0.6665,
+        "Resistance": 0.3316,
+        "Perseverance": 0.4054,
+        "Social": 0.6048,
+        "Spiritual": 0.4694,
+        "Familial_Capital": 0.7036
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2245,
+        "Aspirational": 0.4,
+        "Navigational": 0.5637,
+        "Resistance": 0.3776,
+        "Perseverance": 0.3895,
+        "Social": 0.4808,
+        "Spiritual": 0.4331,
+        "Familial_Capital": 0.6489
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.3235,
+        "Aspirational": 0.7232,
+        "Navigational": 0.821,
+        "Resistance": 0.4744,
+        "Perseverance": 0.5154,
+        "Social": 0.5952,
+        "Spiritual": 0.7639,
+        "Familial_Capital": 0.6932
+      },
+      "loss_components": {
+        "total": 0.821779,
+        "task": 0.655746,
+        "kl": 0.034328,
+        "essay": 1.145407,
+        "grad_norm_mean": 2.209223,
+        "grad_norm_max": 3.949231
+      }
+    },
+    {
+      "epoch": 13,
+      "phase": 2,
+      "train_loss": 0.785267,
+      "val_loss": 0.655678,
+      "val_f1_macro": 0.4874,
+      "val_prauc_macro": 0.499,
+      "val_f1_per_theme": {
+        "Attainment": 0.2526,
+        "Aspirational": 0.4932,
+        "Navigational": 0.6298,
+        "Resistance": 0.3706,
+        "Perseverance": 0.4422,
+        "Social": 0.5045,
+        "Spiritual": 0.5542,
+        "Familial_Capital": 0.6524
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2149,
+        "Aspirational": 0.5137,
+        "Navigational": 0.6695,
+        "Resistance": 0.356,
+        "Perseverance": 0.4473,
+        "Social": 0.5808,
+        "Spiritual": 0.4896,
+        "Familial_Capital": 0.72
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.1967,
+        "Aspirational": 0.3549,
+        "Navigational": 0.4795,
+        "Resistance": 0.2548,
+        "Perseverance": 0.3963,
+        "Social": 0.4058,
+        "Spiritual": 0.4894,
+        "Familial_Capital": 0.6162
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.3529,
+        "Aspirational": 0.808,
+        "Navigational": 0.9172,
+        "Resistance": 0.6795,
+        "Perseverance": 0.5,
+        "Social": 0.6667,
+        "Spiritual": 0.6389,
+        "Familial_Capital": 0.6932
+      },
+      "loss_components": {
+        "total": 0.785267,
+        "task": 0.627869,
+        "kl": 0.034651,
+        "essay": 1.054208,
+        "grad_norm_mean": 2.309137,
+        "grad_norm_max": 3.566286
+      }
+    },
+    {
+      "epoch": 14,
+      "phase": 2,
+      "train_loss": 0.743325,
+      "val_loss": 0.664358,
+      "val_f1_macro": 0.4891,
+      "val_prauc_macro": 0.5057,
+      "val_f1_per_theme": {
+        "Attainment": 0.2791,
+        "Aspirational": 0.5293,
+        "Navigational": 0.6297,
+        "Resistance": 0.3323,
+        "Perseverance": 0.4293,
+        "Social": 0.515,
+        "Spiritual": 0.5316,
+        "Familial_Capital": 0.6667
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.234,
+        "Aspirational": 0.5092,
+        "Navigational": 0.6815,
+        "Resistance": 0.4479,
+        "Perseverance": 0.4249,
+        "Social": 0.5638,
+        "Spiritual": 0.4606,
+        "Familial_Capital": 0.7239
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2308,
+        "Aspirational": 0.4236,
+        "Navigational": 0.48,
+        "Resistance": 0.2186,
+        "Perseverance": 0.3254,
+        "Social": 0.4027,
+        "Spiritual": 0.4884,
+        "Familial_Capital": 0.6327
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.3529,
+        "Aspirational": 0.7054,
+        "Navigational": 0.915,
+        "Resistance": 0.6923,
+        "Perseverance": 0.6308,
+        "Social": 0.7143,
+        "Spiritual": 0.5833,
+        "Familial_Capital": 0.7045
+      },
+      "loss_components": {
+        "total": 0.743325,
+        "task": 0.597282,
+        "kl": 0.034414,
+        "essay": 0.944221,
+        "grad_norm_mean": 2.581827,
+        "grad_norm_max": 5.468932
+      }
+    },
+    {
+      "epoch": 15,
+      "phase": 2,
+      "train_loss": 0.743469,
+      "val_loss": 0.661749,
+      "val_f1_macro": 0.4928,
+      "val_prauc_macro": 0.5119,
+      "val_f1_per_theme": {
+        "Attainment": 0.2456,
+        "Aspirational": 0.5038,
+        "Navigational": 0.6096,
+        "Resistance": 0.4205,
+        "Perseverance": 0.4297,
+        "Social": 0.5339,
+        "Spiritual": 0.5399,
+        "Familial_Capital": 0.6595
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2319,
+        "Aspirational": 0.5277,
+        "Navigational": 0.6906,
+        "Resistance": 0.3854,
+        "Perseverance": 0.4682,
+        "Social": 0.5893,
+        "Spiritual": 0.4753,
+        "Familial_Capital": 0.7265
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.175,
+        "Aspirational": 0.3804,
+        "Navigational": 0.4492,
+        "Resistance": 0.3504,
+        "Perseverance": 0.4365,
+        "Social": 0.4307,
+        "Spiritual": 0.4835,
+        "Familial_Capital": 0.6289
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.4118,
+        "Aspirational": 0.7455,
+        "Navigational": 0.9485,
+        "Resistance": 0.5256,
+        "Perseverance": 0.4231,
+        "Social": 0.7024,
+        "Spiritual": 0.6111,
+        "Familial_Capital": 0.6932
+      },
+      "loss_components": {
+        "total": 0.743469,
+        "task": 0.596894,
+        "kl": 0.035014,
+        "essay": 0.940545,
+        "grad_norm_mean": 2.58231,
+        "grad_norm_max": 4.811465
+      }
+    },
+    {
+      "epoch": 16,
+      "phase": 2,
+      "train_loss": 0.689677,
+      "val_loss": 0.66927,
+      "val_f1_macro": 0.5053,
+      "val_prauc_macro": 0.5204,
+      "val_f1_per_theme": {
+        "Attainment": 0.3091,
+        "Aspirational": 0.5333,
+        "Navigational": 0.6365,
+        "Resistance": 0.4492,
+        "Perseverance": 0.4383,
+        "Social": 0.5372,
+        "Spiritual": 0.45,
+        "Familial_Capital": 0.6889
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2881,
+        "Aspirational": 0.5341,
+        "Navigational": 0.6896,
+        "Resistance": 0.4229,
+        "Perseverance": 0.5007,
+        "Social": 0.5255,
+        "Spiritual": 0.4687,
+        "Familial_Capital": 0.7335
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2237,
+        "Aspirational": 0.4194,
+        "Navigational": 0.4886,
+        "Resistance": 0.3853,
+        "Perseverance": 0.366,
+        "Social": 0.4114,
+        "Spiritual": 0.5625,
+        "Familial_Capital": 0.6739
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.5,
+        "Aspirational": 0.7321,
+        "Navigational": 0.9128,
+        "Resistance": 0.5385,
+        "Perseverance": 0.5462,
+        "Social": 0.7738,
+        "Spiritual": 0.375,
+        "Familial_Capital": 0.7045
+      },
+      "loss_components": {
+        "total": 0.689677,
+        "task": 0.552588,
+        "kl": 0.035044,
+        "essay": 0.845222,
+        "grad_norm_mean": 2.571994,
+        "grad_norm_max": 5.525675
+      }
+    },
+    {
+      "epoch": 17,
+      "phase": 2,
+      "train_loss": 0.675108,
+      "val_loss": 0.754692,
+      "val_f1_macro": 0.4925,
+      "val_prauc_macro": 0.5091,
+      "val_f1_per_theme": {
+        "Attainment": 0.3063,
+        "Aspirational": 0.5296,
+        "Navigational": 0.6127,
+        "Resistance": 0.2978,
+        "Perseverance": 0.4444,
+        "Social": 0.5236,
+        "Spiritual": 0.5399,
+        "Familial_Capital": 0.6854
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2372,
+        "Aspirational": 0.5454,
+        "Navigational": 0.7078,
+        "Resistance": 0.3298,
+        "Perseverance": 0.4721,
+        "Social": 0.5849,
+        "Spiritual": 0.4769,
+        "Familial_Capital": 0.7192
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2208,
+        "Aspirational": 0.4067,
+        "Navigational": 0.4545,
+        "Resistance": 0.1906,
+        "Perseverance": 0.3711,
+        "Social": 0.377,
+        "Spiritual": 0.4835,
+        "Familial_Capital": 0.6778
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.5,
+        "Aspirational": 0.7589,
+        "Navigational": 0.9396,
+        "Resistance": 0.6795,
+        "Perseverance": 0.5538,
+        "Social": 0.8571,
+        "Spiritual": 0.6111,
+        "Familial_Capital": 0.6932
+      },
+      "loss_components": {
+        "total": 0.675108,
+        "task": 0.541273,
+        "kl": 0.036587,
+        "essay": 0.789546,
+        "grad_norm_mean": 2.60271,
+        "grad_norm_max": 5.241038
+      }
+    },
+    {
+      "epoch": 18,
+      "phase": 2,
+      "train_loss": 0.657053,
+      "val_loss": 0.678246,
+      "val_f1_macro": 0.513,
+      "val_prauc_macro": 0.5149,
+      "val_f1_per_theme": {
+        "Attainment": 0.2708,
+        "Aspirational": 0.5367,
+        "Navigational": 0.6584,
+        "Resistance": 0.4409,
+        "Perseverance": 0.4314,
+        "Social": 0.553,
+        "Spiritual": 0.539,
+        "Familial_Capital": 0.6737
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2461,
+        "Aspirational": 0.5283,
+        "Navigational": 0.6914,
+        "Resistance": 0.3983,
+        "Perseverance": 0.475,
+        "Social": 0.5271,
+        "Spiritual": 0.5061,
+        "Familial_Capital": 0.7466
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2097,
+        "Aspirational": 0.4179,
+        "Navigational": 0.5216,
+        "Resistance": 0.3796,
+        "Perseverance": 0.3392,
+        "Social": 0.4511,
+        "Spiritual": 0.5507,
+        "Familial_Capital": 0.6275
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.3824,
+        "Aspirational": 0.75,
+        "Navigational": 0.8926,
+        "Resistance": 0.5256,
+        "Perseverance": 0.5923,
+        "Social": 0.7143,
+        "Spiritual": 0.5278,
+        "Familial_Capital": 0.7273
+      },
+      "loss_components": {
+        "total": 0.657053,
+        "task": 0.527523,
+        "kl": 0.036218,
+        "essay": 0.752024,
+        "grad_norm_mean": 2.447685,
+        "grad_norm_max": 4.855862
+      }
+    },
+    {
+      "epoch": 19,
+      "phase": 2,
+      "train_loss": 0.629795,
+      "val_loss": 0.702542,
+      "val_f1_macro": 0.5114,
+      "val_prauc_macro": 0.5062,
+      "val_f1_per_theme": {
+        "Attainment": 0.2826,
+        "Aspirational": 0.53,
+        "Navigational": 0.6725,
+        "Resistance": 0.4162,
+        "Perseverance": 0.4565,
+        "Social": 0.5039,
+        "Spiritual": 0.5256,
+        "Familial_Capital": 0.7039
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2481,
+        "Aspirational": 0.553,
+        "Navigational": 0.7011,
+        "Resistance": 0.3899,
+        "Perseverance": 0.4567,
+        "Social": 0.4939,
+        "Spiritual": 0.4854,
+        "Familial_Capital": 0.7212
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2241,
+        "Aspirational": 0.4047,
+        "Navigational": 0.5525,
+        "Resistance": 0.3445,
+        "Perseverance": 0.3744,
+        "Social": 0.3765,
+        "Spiritual": 0.4881,
+        "Familial_Capital": 0.6923
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.3824,
+        "Aspirational": 0.7679,
+        "Navigational": 0.8591,
+        "Resistance": 0.5256,
+        "Perseverance": 0.5846,
+        "Social": 0.7619,
+        "Spiritual": 0.5694,
+        "Familial_Capital": 0.7159
+      },
+      "loss_components": {
+        "total": 0.629795,
+        "task": 0.505027,
+        "kl": 0.035393,
+        "essay": 0.716792,
+        "grad_norm_mean": 2.612262,
+        "grad_norm_max": 5.137762
+      }
+    },
+    {
+      "epoch": 20,
+      "phase": 2,
+      "train_loss": 0.610004,
+      "val_loss": 0.767179,
+      "val_f1_macro": 0.496,
+      "val_prauc_macro": 0.517,
+      "val_f1_per_theme": {
+        "Attainment": 0.2764,
+        "Aspirational": 0.5,
+        "Navigational": 0.6242,
+        "Resistance": 0.3934,
+        "Perseverance": 0.4438,
+        "Social": 0.5247,
+        "Spiritual": 0.5493,
+        "Familial_Capital": 0.6564
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2379,
+        "Aspirational": 0.5439,
+        "Navigational": 0.7113,
+        "Resistance": 0.3973,
+        "Perseverance": 0.4913,
+        "Social": 0.5612,
+        "Spiritual": 0.4813,
+        "Familial_Capital": 0.712
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.191,
+        "Aspirational": 0.3657,
+        "Navigational": 0.4695,
+        "Resistance": 0.2892,
+        "Perseverance": 0.3496,
+        "Social": 0.3855,
+        "Spiritual": 0.5571,
+        "Familial_Capital": 0.5981
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.5,
+        "Aspirational": 0.7902,
+        "Navigational": 0.9306,
+        "Resistance": 0.6154,
+        "Perseverance": 0.6077,
+        "Social": 0.8214,
+        "Spiritual": 0.5417,
+        "Familial_Capital": 0.7273
+      },
+      "loss_components": {
+        "total": 0.610004,
+        "task": 0.489816,
+        "kl": 0.036418,
+        "essay": 0.65561,
+        "grad_norm_mean": 2.245618,
+        "grad_norm_max": 3.82424
+      }
+    },
+    {
+      "epoch": 21,
+      "phase": 2,
+      "train_loss": 0.59199,
+      "val_loss": 0.762536,
+      "val_f1_macro": 0.496,
+      "val_prauc_macro": 0.51,
+      "val_f1_per_theme": {
+        "Attainment": 0.2857,
+        "Aspirational": 0.5439,
+        "Navigational": 0.6554,
+        "Resistance": 0.363,
+        "Perseverance": 0.4389,
+        "Social": 0.5247,
+        "Spiritual": 0.4603,
+        "Familial_Capital": 0.6961
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2742,
+        "Aspirational": 0.5448,
+        "Navigational": 0.708,
+        "Resistance": 0.383,
+        "Perseverance": 0.5066,
+        "Social": 0.5123,
+        "Spiritual": 0.4365,
+        "Familial_Capital": 0.7146
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2051,
+        "Aspirational": 0.4327,
+        "Navigational": 0.5106,
+        "Resistance": 0.2552,
+        "Perseverance": 0.3435,
+        "Social": 0.3855,
+        "Spiritual": 0.537,
+        "Familial_Capital": 0.6774
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.4706,
+        "Aspirational": 0.7321,
+        "Navigational": 0.915,
+        "Resistance": 0.6282,
+        "Perseverance": 0.6077,
+        "Social": 0.8214,
+        "Spiritual": 0.4028,
+        "Familial_Capital": 0.7159
+      },
+      "loss_components": {
+        "total": 0.59199,
+        "task": 0.476009,
+        "kl": 0.036686,
+        "essay": 0.609513,
+        "grad_norm_mean": 2.202764,
+        "grad_norm_max": 4.578816
+      }
+    },
+    {
+      "epoch": 22,
+      "phase": 2,
+      "train_loss": 0.585781,
+      "val_loss": 0.731894,
+      "val_f1_macro": 0.5184,
+      "val_prauc_macro": 0.5189,
+      "val_f1_per_theme": {
+        "Attainment": 0.3168,
+        "Aspirational": 0.5421,
+        "Navigational": 0.6584,
+        "Resistance": 0.4314,
+        "Perseverance": 0.4509,
+        "Social": 0.5333,
+        "Spiritual": 0.5298,
+        "Familial_Capital": 0.6848
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2503,
+        "Aspirational": 0.5514,
+        "Navigational": 0.7026,
+        "Resistance": 0.3898,
+        "Perseverance": 0.5134,
+        "Social": 0.5481,
+        "Spiritual": 0.4713,
+        "Familial_Capital": 0.7244
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2388,
+        "Aspirational": 0.4304,
+        "Navigational": 0.5223,
+        "Resistance": 0.3492,
+        "Perseverance": 0.3611,
+        "Social": 0.4103,
+        "Spiritual": 0.5063,
+        "Familial_Capital": 0.6562
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.4706,
+        "Aspirational": 0.7321,
+        "Navigational": 0.8904,
+        "Resistance": 0.5641,
+        "Perseverance": 0.6,
+        "Social": 0.7619,
+        "Spiritual": 0.5556,
+        "Familial_Capital": 0.7159
+      },
+      "loss_components": {
+        "total": 0.585781,
+        "task": 0.468885,
+        "kl": 0.036965,
+        "essay": 0.614484,
+        "grad_norm_mean": 2.214608,
+        "grad_norm_max": 4.264522
+      }
+    },
+    {
+      "epoch": 23,
+      "phase": 3,
+      "train_loss": 0.631137,
+      "val_loss": 0.671807,
+      "val_f1_macro": 0.5037,
+      "val_prauc_macro": 0.5223,
+      "val_f1_per_theme": {
+        "Attainment": 0.3019,
+        "Aspirational": 0.5338,
+        "Navigational": 0.6464,
+        "Resistance": 0.4225,
+        "Perseverance": 0.432,
+        "Social": 0.5394,
+        "Spiritual": 0.4762,
+        "Familial_Capital": 0.6776
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2878,
+        "Aspirational": 0.5344,
+        "Navigational": 0.6902,
+        "Resistance": 0.4244,
+        "Perseverance": 0.5012,
+        "Social": 0.5258,
+        "Spiritual": 0.4808,
+        "Familial_Capital": 0.7333
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2222,
+        "Aspirational": 0.4171,
+        "Navigational": 0.5037,
+        "Resistance": 0.3333,
+        "Perseverance": 0.351,
+        "Social": 0.414,
+        "Spiritual": 0.5556,
+        "Familial_Capital": 0.6526
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.4706,
+        "Aspirational": 0.7411,
+        "Navigational": 0.9016,
+        "Resistance": 0.5769,
+        "Perseverance": 0.5615,
+        "Social": 0.7738,
+        "Spiritual": 0.4167,
+        "Familial_Capital": 0.7045
+      },
+      "loss_components": {
+        "total": 0.631137,
+        "grad_norm_mean": 0.931288,
+        "grad_norm_max": 2.121629
+      }
+    },
+    {
+      "epoch": 24,
+      "phase": 3,
+      "train_loss": 0.625623,
+      "val_loss": 0.677782,
+      "val_f1_macro": 0.4978,
+      "val_prauc_macro": 0.5234,
+      "val_f1_per_theme": {
+        "Attainment": 0.2936,
+        "Aspirational": 0.5316,
+        "Navigational": 0.6437,
+        "Resistance": 0.3965,
+        "Perseverance": 0.4257,
+        "Social": 0.5485,
+        "Spiritual": 0.4651,
+        "Familial_Capital": 0.6774
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2851,
+        "Aspirational": 0.5346,
+        "Navigational": 0.6906,
+        "Resistance": 0.4247,
+        "Perseverance": 0.5021,
+        "Social": 0.5238,
+        "Spiritual": 0.4919,
+        "Familial_Capital": 0.7347
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2133,
+        "Aspirational": 0.4118,
+        "Navigational": 0.5019,
+        "Resistance": 0.302,
+        "Perseverance": 0.3427,
+        "Social": 0.4248,
+        "Spiritual": 0.5263,
+        "Familial_Capital": 0.6429
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.4706,
+        "Aspirational": 0.75,
+        "Navigational": 0.8971,
+        "Resistance": 0.5769,
+        "Perseverance": 0.5615,
+        "Social": 0.7738,
+        "Spiritual": 0.4167,
+        "Familial_Capital": 0.7159
+      },
+      "loss_components": {
+        "total": 0.625623,
+        "grad_norm_mean": 0.865493,
+        "grad_norm_max": 2.197885
+      }
+    },
+    {
+      "epoch": 25,
+      "phase": 3,
+      "train_loss": 0.625002,
+      "val_loss": 0.681283,
+      "val_f1_macro": 0.5012,
+      "val_prauc_macro": 0.525,
+      "val_f1_per_theme": {
+        "Attainment": 0.2963,
+        "Aspirational": 0.53,
+        "Navigational": 0.6443,
+        "Resistance": 0.3947,
+        "Perseverance": 0.4286,
+        "Social": 0.5424,
+        "Spiritual": 0.4962,
+        "Familial_Capital": 0.6774
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.285,
+        "Aspirational": 0.5352,
+        "Navigational": 0.6911,
+        "Resistance": 0.4254,
+        "Perseverance": 0.5032,
+        "Social": 0.5299,
+        "Spiritual": 0.4958,
+        "Familial_Capital": 0.7346
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2162,
+        "Aspirational": 0.4098,
+        "Navigational": 0.5012,
+        "Resistance": 0.3,
+        "Perseverance": 0.3409,
+        "Social": 0.4211,
+        "Spiritual": 0.541,
+        "Familial_Capital": 0.6429
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.4706,
+        "Aspirational": 0.75,
+        "Navigational": 0.9016,
+        "Resistance": 0.5769,
+        "Perseverance": 0.5769,
+        "Social": 0.7619,
+        "Spiritual": 0.4583,
+        "Familial_Capital": 0.7159
+      },
+      "loss_components": {
+        "total": 0.625002,
+        "grad_norm_mean": 0.821785,
+        "grad_norm_max": 1.120708
+      }
+    },
+    {
+      "epoch": 26,
+      "phase": 3,
+      "train_loss": 0.613523,
+      "val_loss": 0.682118,
+      "val_f1_macro": 0.5013,
+      "val_prauc_macro": 0.5253,
+      "val_f1_per_theme": {
+        "Attainment": 0.2963,
+        "Aspirational": 0.5325,
+        "Navigational": 0.6463,
+        "Resistance": 0.3965,
+        "Perseverance": 0.4265,
+        "Social": 0.5424,
+        "Spiritual": 0.4962,
+        "Familial_Capital": 0.6738
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2846,
+        "Aspirational": 0.5358,
+        "Navigational": 0.6913,
+        "Resistance": 0.4259,
+        "Perseverance": 0.503,
+        "Social": 0.5296,
+        "Spiritual": 0.4979,
+        "Familial_Capital": 0.7345
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2162,
+        "Aspirational": 0.4128,
+        "Navigational": 0.5044,
+        "Resistance": 0.302,
+        "Perseverance": 0.341,
+        "Social": 0.4211,
+        "Spiritual": 0.541,
+        "Familial_Capital": 0.6364
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.4706,
+        "Aspirational": 0.75,
+        "Navigational": 0.8993,
+        "Resistance": 0.5769,
+        "Perseverance": 0.5692,
+        "Social": 0.7619,
+        "Spiritual": 0.4583,
+        "Familial_Capital": 0.7159
+      },
+      "loss_components": {
+        "total": 0.613523,
+        "grad_norm_mean": 0.775603,
+        "grad_norm_max": 1.341809
+      }
+    },
+    {
+      "epoch": 27,
+      "phase": 3,
+      "train_loss": 0.614601,
+      "val_loss": 0.682311,
+      "val_f1_macro": 0.5016,
+      "val_prauc_macro": 0.5256,
+      "val_f1_per_theme": {
+        "Attainment": 0.2963,
+        "Aspirational": 0.5325,
+        "Navigational": 0.6463,
+        "Resistance": 0.3965,
+        "Perseverance": 0.4253,
+        "Social": 0.5424,
+        "Spiritual": 0.4962,
+        "Familial_Capital": 0.6774
+      },
+      "val_prauc_per_theme": {
+        "Attainment": 0.2855,
+        "Aspirational": 0.5359,
+        "Navigational": 0.6914,
+        "Resistance": 0.4261,
+        "Perseverance": 0.503,
+        "Social": 0.5308,
+        "Spiritual": 0.4981,
+        "Familial_Capital": 0.7344
+      },
+      "val_prec_per_theme": {
+        "Attainment": 0.2162,
+        "Aspirational": 0.4128,
+        "Navigational": 0.5044,
+        "Resistance": 0.302,
+        "Perseverance": 0.3394,
+        "Social": 0.4211,
+        "Spiritual": 0.541,
+        "Familial_Capital": 0.6429
+      },
+      "val_rec_per_theme": {
+        "Attainment": 0.4706,
+        "Aspirational": 0.75,
+        "Navigational": 0.8993,
+        "Resistance": 0.5769,
+        "Perseverance": 0.5692,
+        "Social": 0.7619,
+        "Spiritual": 0.4583,
+        "Familial_Capital": 0.7159
+      },
+      "loss_components": {
+        "total": 0.614601,
+        "grad_norm_mean": 0.784125,
+        "grad_norm_max": 1.206118
+      }
+    }
+  ],
+  "best_epoch": 27,
+  "best_prauc": 0.5256,
+  "best_phase": 3
+}

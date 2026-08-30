@@ -1,0 +1,1700 @@
+{
+  "_meta": {
+    "generated_at": "2026-02-22",
+    "source": "master_data.pkl",
+    "script": "export_enhanced_dashboard.py",
+    "description": "Pre-computed analytics for the ALMA dashboard. No need to load master_data.json."
+  },
+  "basic_counts": {
+    "total_essays": 16227,
+    "total_sentences": 112629,
+    "annotated_sentences": 26604,
+    "class0_only_sentences": 85995,
+    "unique_themes": 11,
+    "unique_data_sources": 16,
+    "unique_classes": 24
+  },
+  "theme_sentence_counts": {
+    "Attainment": 6876,
+    "Aspirational": 5993,
+    "Navigational": 9861,
+    "Resistance": 968,
+    "Perseverance": 6434,
+    "First Gen": 137,
+    "Filial Piety": 326,
+    "Familial": 3083,
+    "Community Consciousness": 225,
+    "Social": 1203,
+    "Spiritual": 873
+  },
+  "theme_essay_counts": {
+    "Attainment": 4093,
+    "Aspirational": 3357,
+    "Navigational": 4123,
+    "Resistance": 424,
+    "Perseverance": 2978,
+    "First Gen": 79,
+    "Filial Piety": 167,
+    "Familial": 1843,
+    "Community Consciousness": 106,
+    "Social": 743,
+    "Spiritual": 388
+  },
+  "cooccurrence": {
+    "labels": [
+      "Attainment",
+      "Aspirational",
+      "Navigational",
+      "Resistance",
+      "Perseverance",
+      "First Gen",
+      "Filial Piety",
+      "Familial",
+      "Community Consciousness",
+      "Social",
+      "Spiritual"
+    ],
+    "matrix": [
+      [
+        4093,
+        1978,
+        1875,
+        216,
+        563,
+        50,
+        88,
+        580,
+        28,
+        390,
+        170
+      ],
+      [
+        1978,
+        3357,
+        2209,
+        354,
+        966,
+        68,
+        137,
+        502,
+        52,
+        553,
+        242
+      ],
+      [
+        1875,
+        2209,
+        4123,
+        334,
+        1432,
+        60,
+        104,
+        632,
+        34,
+        492,
+        176
+      ],
+      [
+        216,
+        354,
+        334,
+        424,
+        291,
+        37,
+        35,
+        120,
+        25,
+        157,
+        92
+      ],
+      [
+        563,
+        966,
+        1432,
+        291,
+        2978,
+        30,
+        59,
+        340,
+        34,
+        205,
+        101
+      ],
+      [
+        50,
+        68,
+        60,
+        37,
+        30,
+        79,
+        24,
+        55,
+        8,
+        27,
+        18
+      ],
+      [
+        88,
+        137,
+        104,
+        35,
+        59,
+        24,
+        167,
+        96,
+        24,
+        36,
+        30
+      ],
+      [
+        580,
+        502,
+        632,
+        120,
+        340,
+        55,
+        96,
+        1843,
+        17,
+        142,
+        77
+      ],
+      [
+        28,
+        52,
+        34,
+        25,
+        34,
+        8,
+        24,
+        17,
+        106,
+        16,
+        43
+      ],
+      [
+        390,
+        553,
+        492,
+        157,
+        205,
+        27,
+        36,
+        142,
+        16,
+        743,
+        168
+      ],
+      [
+        170,
+        242,
+        176,
+        92,
+        101,
+        18,
+        30,
+        77,
+        43,
+        168,
+        388
+      ]
+    ]
+  },
+  "label_dist_by_semester_year": {
+    "Unknown": {
+      "Attainment": 149,
+      "Aspirational": 250,
+      "Navigational": 253,
+      "Resistance": 12,
+      "Perseverance": 85,
+      "First Gen": 13,
+      "Filial Piety": 59,
+      "Familial": 64,
+      "Community Consciousness": 13,
+      "Social": 66,
+      "Spiritual": 35
+    },
+    "Pilot 2017": {
+      "Attainment": 7,
+      "Aspirational": 12,
+      "Navigational": 11,
+      "Resistance": 2,
+      "Perseverance": 0,
+      "First Gen": 3,
+      "Filial Piety": 2,
+      "Familial": 0,
+      "Community Consciousness": 5,
+      "Social": 5,
+      "Spiritual": 3
+    },
+    "Spring 2018": {
+      "Attainment": 38,
+      "Aspirational": 56,
+      "Navigational": 43,
+      "Resistance": 8,
+      "Perseverance": 27,
+      "First Gen": 6,
+      "Filial Piety": 17,
+      "Familial": 9,
+      "Community Consciousness": 12,
+      "Social": 14,
+      "Spiritual": 18
+    },
+    "Fall 2018": {
+      "Attainment": 18,
+      "Aspirational": 46,
+      "Navigational": 48,
+      "Resistance": 3,
+      "Perseverance": 21,
+      "First Gen": 2,
+      "Filial Piety": 4,
+      "Familial": 4,
+      "Community Consciousness": 4,
+      "Social": 25,
+      "Spiritual": 10
+    },
+    "Spring 2019": {
+      "Attainment": 25,
+      "Aspirational": 32,
+      "Navigational": 43,
+      "Resistance": 2,
+      "Perseverance": 18,
+      "First Gen": 3,
+      "Filial Piety": 9,
+      "Familial": 9,
+      "Community Consciousness": 2,
+      "Social": 9,
+      "Spiritual": 14
+    },
+    "Fall 2019": {
+      "Attainment": 446,
+      "Aspirational": 746,
+      "Navigational": 1013,
+      "Resistance": 36,
+      "Perseverance": 821,
+      "First Gen": 9,
+      "Filial Piety": 63,
+      "Familial": 67,
+      "Community Consciousness": 20,
+      "Social": 48,
+      "Spiritual": 40
+    },
+    "Spring 2020": {
+      "Attainment": 659,
+      "Aspirational": 880,
+      "Navigational": 1338,
+      "Resistance": 187,
+      "Perseverance": 1199,
+      "First Gen": 22,
+      "Filial Piety": 8,
+      "Familial": 605,
+      "Community Consciousness": 0,
+      "Social": 198,
+      "Spiritual": 67
+    },
+    "Fall 2020": {
+      "Attainment": 619,
+      "Aspirational": 609,
+      "Navigational": 743,
+      "Resistance": 151,
+      "Perseverance": 534,
+      "First Gen": 21,
+      "Filial Piety": 3,
+      "Familial": 403,
+      "Community Consciousness": 0,
+      "Social": 140,
+      "Spiritual": 82
+    },
+    "Spring 2021": {
+      "Attainment": 636,
+      "Aspirational": 203,
+      "Navigational": 195,
+      "Resistance": 0,
+      "Perseverance": 1,
+      "First Gen": 0,
+      "Filial Piety": 0,
+      "Familial": 283,
+      "Community Consciousness": 0,
+      "Social": 62,
+      "Spiritual": 0
+    },
+    "Summer 2021": {
+      "Attainment": 56,
+      "Aspirational": 14,
+      "Navigational": 0,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "First Gen": 0,
+      "Filial Piety": 0,
+      "Familial": 0,
+      "Community Consciousness": 0,
+      "Social": 0,
+      "Spiritual": 0
+    },
+    "Fall 2021": {
+      "Attainment": 834,
+      "Aspirational": 303,
+      "Navigational": 250,
+      "Resistance": 0,
+      "Perseverance": 0,
+      "First Gen": 0,
+      "Filial Piety": 1,
+      "Familial": 398,
+      "Community Consciousness": 0,
+      "Social": 89,
+      "Spiritual": 0
+    },
+    "Spring 2022": {
+      "Attainment": 606,
+      "Aspirational": 206,
+      "Navigational": 186,
+      "Resistance": 0,
+      "Perseverance": 4,
+      "First Gen": 0,
+      "Filial Piety": 1,
+      "Familial": 1,
+      "Community Consciousness": 0,
+      "Social": 87,
+      "Spiritual": 0
+    },
+    "Spring 2025": {
+      "Attainment": 0,
+      "Aspirational": 0,
+      "Navigational": 0,
+      "Resistance": 23,
+      "Perseverance": 268,
+      "First Gen": 0,
+      "Filial Piety": 0,
+      "Familial": 0,
+      "Community Consciousness": 50,
+      "Social": 0,
+      "Spiritual": 119
+    }
+  },
+  "multi_label_distribution": {
+    "0": 7091,
+    "1": 4347,
+    "2": 2248,
+    "3": 1469,
+    "4": 623,
+    "5": 239,
+    "6": 136,
+    "7": 48,
+    "8": 23,
+    "9": 2,
+    "10": 1
+  },
+  "annotation_density": {
+    "Attainment": {
+      "mean": 1.6799,
+      "max": 10,
+      "min": 1,
+      "essays_with_theme": 4093
+    },
+    "Aspirational": {
+      "mean": 1.7852,
+      "max": 8,
+      "min": 1,
+      "essays_with_theme": 3357
+    },
+    "Navigational": {
+      "mean": 2.3917,
+      "max": 18,
+      "min": 1,
+      "essays_with_theme": 4123
+    },
+    "Resistance": {
+      "mean": 2.283,
+      "max": 10,
+      "min": 1,
+      "essays_with_theme": 424
+    },
+    "Perseverance": {
+      "mean": 2.1605,
+      "max": 28,
+      "min": 1,
+      "essays_with_theme": 2978
+    },
+    "First Gen": {
+      "mean": 1.7342,
+      "max": 5,
+      "min": 1,
+      "essays_with_theme": 79
+    },
+    "Filial Piety": {
+      "mean": 1.9521,
+      "max": 8,
+      "min": 1,
+      "essays_with_theme": 167
+    },
+    "Familial": {
+      "mean": 1.6728,
+      "max": 7,
+      "min": 1,
+      "essays_with_theme": 1843
+    },
+    "Community Consciousness": {
+      "mean": 2.1226,
+      "max": 10,
+      "min": 1,
+      "essays_with_theme": 106
+    },
+    "Social": {
+      "mean": 1.6191,
+      "max": 8,
+      "min": 1,
+      "essays_with_theme": 743
+    },
+    "Spiritual": {
+      "mean": 2.25,
+      "max": 21,
+      "min": 1,
+      "essays_with_theme": 388
+    }
+  },
+  "data_source_breakdown": {
+    "ALMA_2023_Reconciled": 5397,
+    "ALMA_2023_Lokesh_Attainment": 4742,
+    "ALMA_2023_Reina_Attainment": 4042,
+    "ALMA_2025_Khalid_Allyson": 1184,
+    "ALMA_2023_Dataset1_lokesh": 397,
+    "ALMA_2024_Compiled": 351,
+    "ALMA_2023_Dataset1_reina": 85,
+    "ALMA_2025_Reina_RES_Capitals": 9,
+    "ALMA_2025_Reina_NARST": 6,
+    "ALMA_2024_Tacited_Familial": 4,
+    "ALMA_2023_Dataset1_unknown": 4,
+    "ALMA_2023_Tacited_Navigational": 2,
+    "ALMA_2023_Tacited_Aspirational": 1,
+    "ALMA_2023_Tacited_Perseverance": 1,
+    "ALMA_2024_Reconciled": 1,
+    "ALMA_2025_Gian_Thesis": 1
+  },
+  "class_distribution": {
+    "PHYS 0112": 4715,
+    "PHYS 0232": 4088,
+    "PHYS 0242": 1391,
+    "PHYS 0222": 1218,
+    "PHYS 0102": 1052,
+    "ASTR 0116": 988,
+    "PHYS 0122": 949,
+    "Unknown": 557,
+    "SCI 0215": 207,
+    "SCI 0115": 149,
+    "SCI 0230": 111,
+    "SCI 0240": 99,
+    "SCI 0305": 99,
+    "SCI 0111": 98,
+    "SCI 0227": 91,
+    "SCI 0333": 80,
+    "SCI 0335": 69,
+    "SCI 0180": 65,
+    "SCI 0121": 56,
+    "SCI 0350": 54,
+    "SCI 0321": 35,
+    "SCI 0228": 32,
+    "SCI 0220": 15,
+    "SCI 0234": 9
+  },
+  "year_distribution": {
+    "2017": 17,
+    "2018": 127,
+    "2019": 2172,
+    "2020": 4660,
+    "2021": 5232,
+    "2022": 2399,
+    "2025": 1185,
+    "Unknown": 435
+  },
+  "semester_distribution": {
+    "Fall": 7116,
+    "Pilot": 17,
+    "Spring": 8426,
+    "Summer": 233,
+    "Unknown": 435
+  },
+  "semester_year_distribution": {
+    "Unknown": 435,
+    "Pilot 2017": 17,
+    "Spring 2018": 70,
+    "Fall 2018": 57,
+    "Spring 2019": 51,
+    "Fall 2019": 2121,
+    "Spring 2020": 2468,
+    "Fall 2020": 2192,
+    "Spring 2021": 2253,
+    "Summer 2021": 233,
+    "Fall 2021": 2746,
+    "Spring 2022": 2399,
+    "Spring 2025": 1185
+  },
+  "sentence_length_histogram": [
+    {
+      "range": "0-4",
+      "count": 995
+    },
+    {
+      "range": "5-9",
+      "count": 8122
+    },
+    {
+      "range": "10-14",
+      "count": 19649
+    },
+    {
+      "range": "15-19",
+      "count": 24873
+    },
+    {
+      "range": "20-24",
+      "count": 21388
+    },
+    {
+      "range": "25-29",
+      "count": 14853
+    },
+    {
+      "range": "30-34",
+      "count": 9128
+    },
+    {
+      "range": "35-39",
+      "count": 5225
+    },
+    {
+      "range": "40-44",
+      "count": 3199
+    },
+    {
+      "range": "45-49",
+      "count": 1884
+    },
+    {
+      "range": "50-54",
+      "count": 1137
+    },
+    {
+      "range": "55-59",
+      "count": 699
+    },
+    {
+      "range": "60-64",
+      "count": 457
+    },
+    {
+      "range": "65-69",
+      "count": 292
+    },
+    {
+      "range": "70-74",
+      "count": 192
+    },
+    {
+      "range": "75-79",
+      "count": 137
+    },
+    {
+      "range": "80-84",
+      "count": 100
+    },
+    {
+      "range": "85-89",
+      "count": 70
+    },
+    {
+      "range": "90-94",
+      "count": 50
+    },
+    {
+      "range": "95-99",
+      "count": 40
+    },
+    {
+      "range": "100-104",
+      "count": 35
+    },
+    {
+      "range": "105-109",
+      "count": 23
+    },
+    {
+      "range": "110-114",
+      "count": 19
+    },
+    {
+      "range": "115-119",
+      "count": 18
+    },
+    {
+      "range": "120-124",
+      "count": 10
+    },
+    {
+      "range": "125-129",
+      "count": 5
+    },
+    {
+      "range": "130-134",
+      "count": 6
+    },
+    {
+      "range": "135-139",
+      "count": 3
+    },
+    {
+      "range": "140-144",
+      "count": 3
+    },
+    {
+      "range": "145-149",
+      "count": 3
+    },
+    {
+      "range": "150-154",
+      "count": 2
+    }
+  ],
+  "essay_length_histogram": [
+    {
+      "range": "0-1",
+      "count": 281
+    },
+    {
+      "range": "2-3",
+      "count": 1408
+    },
+    {
+      "range": "4-5",
+      "count": 3680
+    },
+    {
+      "range": "6-7",
+      "count": 4670
+    },
+    {
+      "range": "8-9",
+      "count": 3405
+    },
+    {
+      "range": "10-11",
+      "count": 1664
+    },
+    {
+      "range": "12-13",
+      "count": 668
+    },
+    {
+      "range": "14-15",
+      "count": 269
+    },
+    {
+      "range": "16-17",
+      "count": 98
+    },
+    {
+      "range": "18-19",
+      "count": 39
+    },
+    {
+      "range": "20-21",
+      "count": 23
+    },
+    {
+      "range": "22-23",
+      "count": 8
+    },
+    {
+      "range": "24-25",
+      "count": 6
+    },
+    {
+      "range": "26-27",
+      "count": 2
+    },
+    {
+      "range": "28-29",
+      "count": 2
+    },
+    {
+      "range": "30-31",
+      "count": 3
+    },
+    {
+      "range": "32-33",
+      "count": 1
+    }
+  ],
+  "quality_metrics": {
+    "total_essays": 16227,
+    "total_sentences": 112629,
+    "annotated_sentences": 26604,
+    "class0_only_sentences": 85995,
+    "pct_class0_sentences": 76.3524,
+    "annotation_coverage_pct": 23.6209,
+    "essays_with_any_theme": 9136,
+    "essays_no_theme": 7091,
+    "multi_label_essays": 4789,
+    "multi_label_rate_pct": 29.5125,
+    "avg_themes_per_essay": 1.1278,
+    "avg_sentences_per_essay": 6.9408,
+    "avg_annotated_sentences_per_essay": 1.6395,
+    "avg_words_per_sentence": 22.2578
+  },
+  "top_theme_combinations": [
+    {
+      "themes": [
+        "Attainment"
+      ],
+      "count": 1420,
+      "percentage": 8.7508
+    },
+    {
+      "themes": [
+        "Perseverance"
+      ],
+      "count": 1102,
+      "percentage": 6.7912
+    },
+    {
+      "themes": [
+        "Familial"
+      ],
+      "count": 773,
+      "percentage": 4.7637
+    },
+    {
+      "themes": [
+        "Aspirational",
+        "Attainment",
+        "Navigational"
+      ],
+      "count": 680,
+      "percentage": 4.1905
+    },
+    {
+      "themes": [
+        "Navigational"
+      ],
+      "count": 628,
+      "percentage": 3.8701
+    },
+    {
+      "themes": [
+        "Navigational",
+        "Perseverance"
+      ],
+      "count": 507,
+      "percentage": 3.1244
+    },
+    {
+      "themes": [
+        "Aspirational",
+        "Attainment"
+      ],
+      "count": 393,
+      "percentage": 2.4219
+    },
+    {
+      "themes": [
+        "Aspirational",
+        "Navigational"
+      ],
+      "count": 319,
+      "percentage": 1.9659
+    },
+    {
+      "themes": [
+        "Attainment",
+        "Navigational"
+      ],
+      "count": 268,
+      "percentage": 1.6516
+    },
+    {
+      "themes": [
+        "Aspirational"
+      ],
+      "count": 243,
+      "percentage": 1.4975
+    },
+    {
+      "themes": [
+        "Aspirational",
+        "Navigational",
+        "Perseverance"
+      ],
+      "count": 191,
+      "percentage": 1.1771
+    },
+    {
+      "themes": [
+        "Aspirational",
+        "Perseverance"
+      ],
+      "count": 169,
+      "percentage": 1.0415
+    },
+    {
+      "themes": [
+        "Aspirational",
+        "Attainment",
+        "Navigational",
+        "Perseverance"
+      ],
+      "count": 161,
+      "percentage": 0.9922
+    },
+    {
+      "themes": [
+        "Attainment",
+        "Familial"
+      ],
+      "count": 149,
+      "percentage": 0.9182
+    },
+    {
+      "themes": [
+        "Familial",
+        "Navigational"
+      ],
+      "count": 136,
+      "percentage": 0.8381
+    },
+    {
+      "themes": [
+        "Attainment",
+        "Navigational",
+        "Perseverance"
+      ],
+      "count": 102,
+      "percentage": 0.6286
+    },
+    {
+      "themes": [
+        "Aspirational",
+        "Attainment",
+        "Familial",
+        "Navigational"
+      ],
+      "count": 97,
+      "percentage": 0.5978
+    },
+    {
+      "themes": [
+        "Familial",
+        "Perseverance"
+      ],
+      "count": 97,
+      "percentage": 0.5978
+    },
+    {
+      "themes": [
+        "Aspirational",
+        "Attainment",
+        "Navigational",
+        "Social"
+      ],
+      "count": 91,
+      "percentage": 0.5608
+    },
+    {
+      "themes": [
+        "Spiritual"
+      ],
+      "count": 90,
+      "percentage": 0.5546
+    }
+  ],
+  "per_theme_samples": {
+    "Aspirational": [],
+    "Navigational": [],
+    "Spiritual": [],
+    "Attainment": [],
+    "Perseverance": [],
+    "Filial Piety": [],
+    "Familial": [],
+    "Community Consciousness": [],
+    "Resistance": [],
+    "Social": [],
+    "First Gen": []
+  },
+  "training_readiness": {
+    "total_samples": 16227,
+    "recommended_split": {
+      "train": 12981,
+      "val": 1622,
+      "test": 1624,
+      "train_pct": 80,
+      "val_pct": 10,
+      "test_pct": 10.008
+    },
+    "num_labels": 11,
+    "label_names": [
+      "Attainment",
+      "Aspirational",
+      "Navigational",
+      "Resistance",
+      "Perseverance",
+      "First Gen",
+      "Filial Piety",
+      "Familial",
+      "Community Consciousness",
+      "Social",
+      "Spiritual"
+    ],
+    "min_theme_count": 79,
+    "max_theme_count": 4123,
+    "label_imbalance_ratio": 52.1899,
+    "sparsity_pct": 89.7472
+  },
+  "per_theme_details": {
+    "Attainment": {
+      "total_sentences": 6876,
+      "total_essays": 4093,
+      "samples": [],
+      "by_course": {
+        "PHYS 0112": 2307,
+        "PHYS 0232": 1521,
+        "PHYS 0242": 691,
+        "PHYS 0102": 411,
+        "PHYS 0222": 334,
+        "PHYS 0122": 297,
+        "Unknown": 289,
+        "ASTR 0116": 281,
+        "SCI 0215": 125,
+        "SCI 0115": 89,
+        "SCI 0230": 83,
+        "SCI 0240": 83,
+        "SCI 0333": 73,
+        "SCI 0227": 48,
+        "SCI 0335": 48,
+        "SCI 0111": 47,
+        "SCI 0121": 35,
+        "SCI 0350": 24,
+        "SCI 0305": 23,
+        "SCI 0321": 20,
+        "SCI 0180": 18,
+        "SCI 0228": 13,
+        "SCI 0220": 12,
+        "SCI 0234": 4
+      },
+      "by_year": {
+        "2017": 9,
+        "2018": 99,
+        "2019": 706,
+        "2020": 2441,
+        "2021": 2484,
+        "2022": 952,
+        "Unknown": 185
+      },
+      "by_data_source": {
+        "ALMA_2023_Lokesh_Attainment": 2257,
+        "ALMA_2023_Reconciled": 2238,
+        "ALMA_2023_Reina_Attainment": 1928,
+        "ALMA_2023_Dataset1_lokesh": 262,
+        "ALMA_2024_Compiled": 168,
+        "ALMA_2023_Dataset1_reina": 19,
+        "ALMA_2025_Khalid_Allyson": 2,
+        "ALMA_2023_Tacited_Aspirational": 1,
+        "ALMA_2023_Tacited_Navigational": 1
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "Aspirational": {
+      "total_sentences": 5993,
+      "total_essays": 3357,
+      "samples": [],
+      "by_course": {
+        "PHYS 0112": 1441,
+        "PHYS 0232": 913,
+        "PHYS 0222": 570,
+        "Unknown": 540,
+        "PHYS 0122": 487,
+        "ASTR 0116": 415,
+        "PHYS 0242": 340,
+        "PHYS 0102": 261,
+        "SCI 0215": 146,
+        "SCI 0111": 131,
+        "SCI 0115": 104,
+        "SCI 0230": 98,
+        "SCI 0333": 93,
+        "SCI 0240": 84,
+        "SCI 0227": 65,
+        "SCI 0305": 58,
+        "SCI 0335": 56,
+        "SCI 0121": 51,
+        "SCI 0180": 39,
+        "SCI 0350": 37,
+        "SCI 0228": 28,
+        "SCI 0321": 22,
+        "SCI 0220": 9,
+        "SCI 0234": 5
+      },
+      "by_year": {
+        "2017": 28,
+        "2018": 204,
+        "2019": 1430,
+        "2020": 2998,
+        "2021": 684,
+        "2022": 291,
+        "Unknown": 358
+      },
+      "by_data_source": {
+        "ALMA_2023_Reconciled": 3471,
+        "ALMA_2023_Reina_Attainment": 854,
+        "ALMA_2023_Lokesh_Attainment": 719,
+        "ALMA_2023_Dataset1_lokesh": 576,
+        "ALMA_2024_Compiled": 325,
+        "ALMA_2023_Dataset1_reina": 42,
+        "ALMA_2025_Khalid_Allyson": 4,
+        "ALMA_2023_Tacited_Aspirational": 1,
+        "ALMA_2023_Tacited_Navigational": 1
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "Navigational": {
+      "total_sentences": 9861,
+      "total_essays": 4123,
+      "samples": [],
+      "by_course": {
+        "PHYS 0112": 2384,
+        "PHYS 0222": 1038,
+        "PHYS 0232": 1027,
+        "Unknown": 903,
+        "PHYS 0122": 796,
+        "ASTR 0116": 748,
+        "PHYS 0102": 514,
+        "PHYS 0242": 462,
+        "SCI 0215": 321,
+        "SCI 0115": 261,
+        "SCI 0111": 246,
+        "SCI 0230": 173,
+        "SCI 0227": 155,
+        "SCI 0240": 146,
+        "SCI 0333": 124,
+        "SCI 0335": 104,
+        "SCI 0305": 97,
+        "SCI 0180": 83,
+        "SCI 0121": 76,
+        "SCI 0350": 69,
+        "SCI 0321": 54,
+        "SCI 0228": 43,
+        "SCI 0234": 19,
+        "SCI 0220": 18
+      },
+      "by_year": {
+        "2017": 24,
+        "2018": 420,
+        "2019": 2651,
+        "2020": 5105,
+        "2021": 839,
+        "2022": 264,
+        "Unknown": 558
+      },
+      "by_data_source": {
+        "ALMA_2023_Reconciled": 6288,
+        "ALMA_2023_Dataset1_lokesh": 1215,
+        "ALMA_2023_Lokesh_Attainment": 899,
+        "ALMA_2023_Reina_Attainment": 881,
+        "ALMA_2024_Compiled": 505,
+        "ALMA_2023_Dataset1_reina": 61,
+        "ALMA_2025_Khalid_Allyson": 7,
+        "ALMA_2024_Reconciled": 3,
+        "ALMA_2023_Tacited_Aspirational": 1,
+        "ALMA_2023_Tacited_Navigational": 1
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "Resistance": {
+      "total_sentences": 968,
+      "total_essays": 424,
+      "samples": [],
+      "by_course": {
+        "PHYS 0112": 290,
+        "PHYS 0222": 83,
+        "PHYS 0122": 76,
+        "ASTR 0116": 59,
+        "PHYS 0232": 52,
+        "PHYS 0242": 45,
+        "Unknown": 40,
+        "SCI 0115": 38,
+        "SCI 0230": 38,
+        "SCI 0215": 34,
+        "PHYS 0102": 32,
+        "SCI 0227": 32,
+        "SCI 0111": 22,
+        "SCI 0335": 22,
+        "SCI 0305": 18,
+        "SCI 0333": 15,
+        "SCI 0240": 14,
+        "SCI 0228": 12,
+        "SCI 0321": 11,
+        "SCI 0180": 10,
+        "SCI 0350": 10,
+        "SCI 0121": 8,
+        "SCI 0220": 4,
+        "SCI 0234": 3
+      },
+      "by_year": {
+        "2017": 2,
+        "2018": 16,
+        "2019": 66,
+        "2020": 801,
+        "2025": 58,
+        "Unknown": 25
+      },
+      "by_data_source": {
+        "ALMA_2023_Reconciled": 596,
+        "ALMA_2023_Reina_Attainment": 205,
+        "ALMA_2023_Dataset1_lokesh": 61,
+        "ALMA_2025_Khalid_Allyson": 58,
+        "ALMA_2024_Compiled": 25,
+        "ALMA_2023_Lokesh_Attainment": 23
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "Perseverance": {
+      "total_sentences": 6434,
+      "total_essays": 2978,
+      "samples": [],
+      "by_course": {
+        "PHYS 0222": 1205,
+        "PHYS 0112": 1046,
+        "ASTR 0116": 788,
+        "PHYS 0122": 719,
+        "PHYS 0232": 543,
+        "PHYS 0102": 359,
+        "PHYS 0242": 323,
+        "Unknown": 232,
+        "SCI 0215": 199,
+        "SCI 0115": 143,
+        "SCI 0111": 116,
+        "SCI 0240": 113,
+        "SCI 0230": 104,
+        "SCI 0227": 99,
+        "SCI 0305": 84,
+        "SCI 0335": 68,
+        "SCI 0121": 52,
+        "SCI 0333": 52,
+        "SCI 0180": 51,
+        "SCI 0228": 44,
+        "SCI 0350": 43,
+        "SCI 0321": 35,
+        "SCI 0220": 8,
+        "SCI 0234": 8
+      },
+      "by_year": {
+        "2018": 97,
+        "2019": 1533,
+        "2020": 3341,
+        "2021": 1,
+        "2022": 4,
+        "2025": 1307,
+        "Unknown": 151
+      },
+      "by_data_source": {
+        "ALMA_2023_Reconciled": 4523,
+        "ALMA_2025_Khalid_Allyson": 1308,
+        "ALMA_2023_Dataset1_lokesh": 270,
+        "ALMA_2023_Reina_Attainment": 173,
+        "ALMA_2024_Compiled": 133,
+        "ALMA_2023_Dataset1_reina": 18,
+        "ALMA_2023_Lokesh_Attainment": 7,
+        "ALMA_2025_Reina_RES_Capitals": 2
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "First Gen": {
+      "total_sentences": 137,
+      "total_essays": 79,
+      "samples": [],
+      "by_course": {
+        "PHYS 0112": 51,
+        "Unknown": 30,
+        "PHYS 0102": 9,
+        "SCI 0333": 9,
+        "SCI 0215": 7,
+        "PHYS 0122": 6,
+        "PHYS 0222": 4,
+        "SCI 0115": 4,
+        "PHYS 0242": 3,
+        "ASTR 0116": 3,
+        "SCI 0111": 3,
+        "SCI 0230": 2,
+        "SCI 0305": 2,
+        "SCI 0350": 2,
+        "PHYS 0232": 2
+      },
+      "by_year": {
+        "2017": 3,
+        "2018": 14,
+        "2019": 18,
+        "2020": 89,
+        "Unknown": 13
+      },
+      "by_data_source": {
+        "ALMA_2023_Reconciled": 62,
+        "ALMA_2023_Reina_Attainment": 32,
+        "ALMA_2023_Dataset1_lokesh": 28,
+        "ALMA_2024_Compiled": 13,
+        "ALMA_2023_Lokesh_Attainment": 1,
+        "ALMA_2023_Dataset1_reina": 1
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "Filial Piety": {
+      "total_sentences": 326,
+      "total_essays": 167,
+      "samples": [],
+      "by_course": {
+        "Unknown": 133,
+        "PHYS 0232": 61,
+        "ASTR 0116": 35,
+        "PHYS 0122": 20,
+        "PHYS 0222": 20,
+        "SCI 0111": 16,
+        "PHYS 0112": 15,
+        "PHYS 0242": 15,
+        "SCI 0333": 3,
+        "PHYS 0102": 2,
+        "SCI 0230": 2,
+        "SCI 0115": 1,
+        "SCI 0180": 1,
+        "SCI 0215": 1,
+        "SCI 0335": 1
+      },
+      "by_year": {
+        "2017": 2,
+        "2018": 40,
+        "2019": 171,
+        "2020": 13,
+        "2021": 1,
+        "2022": 1,
+        "Unknown": 98
+      },
+      "by_data_source": {
+        "ALMA_2023_Dataset1_lokesh": 159,
+        "ALMA_2024_Compiled": 87,
+        "ALMA_2023_Reconciled": 59,
+        "ALMA_2023_Dataset1_reina": 15,
+        "ALMA_2023_Reina_Attainment": 3,
+        "ALMA_2025_Khalid_Allyson": 2,
+        "ALMA_2023_Lokesh_Attainment": 1
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "Familial": {
+      "total_sentences": 3083,
+      "total_essays": 1843,
+      "samples": [],
+      "by_course": {
+        "PHYS 0112": 1528,
+        "PHYS 0102": 272,
+        "ASTR 0116": 197,
+        "PHYS 0232": 151,
+        "Unknown": 119,
+        "PHYS 0242": 118,
+        "PHYS 0222": 103,
+        "SCI 0215": 99,
+        "SCI 0115": 90,
+        "SCI 0230": 62,
+        "SCI 0240": 59,
+        "SCI 0333": 45,
+        "PHYS 0122": 39,
+        "SCI 0111": 35,
+        "SCI 0335": 28,
+        "SCI 0121": 26,
+        "SCI 0227": 26,
+        "SCI 0180": 25,
+        "SCI 0305": 22,
+        "SCI 0350": 12,
+        "SCI 0321": 11,
+        "SCI 0220": 7,
+        "SCI 0228": 6,
+        "SCI 0234": 3
+      },
+      "by_year": {
+        "2018": 27,
+        "2019": 163,
+        "2020": 1712,
+        "2021": 1081,
+        "2022": 2,
+        "Unknown": 98
+      },
+      "by_data_source": {
+        "ALMA_2023_Reconciled": 1310,
+        "ALMA_2023_Lokesh_Attainment": 1125,
+        "ALMA_2023_Reina_Attainment": 438,
+        "ALMA_2023_Dataset1_lokesh": 109,
+        "ALMA_2024_Compiled": 90,
+        "ALMA_2023_Dataset1_reina": 11
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "Community Consciousness": {
+      "total_sentences": 225,
+      "total_essays": 106,
+      "samples": [],
+      "by_course": {
+        "Unknown": 53,
+        "ASTR 0116": 42,
+        "PHYS 0122": 37,
+        "PHYS 0232": 37,
+        "PHYS 0112": 31,
+        "PHYS 0222": 16,
+        "PHYS 0242": 4,
+        "PHYS 0102": 3,
+        "SCI 0111": 2
+      },
+      "by_year": {
+        "2017": 5,
+        "2018": 28,
+        "2019": 49,
+        "2025": 121,
+        "Unknown": 22
+      },
+      "by_data_source": {
+        "ALMA_2025_Khalid_Allyson": 121,
+        "ALMA_2023_Dataset1_lokesh": 66,
+        "ALMA_2024_Compiled": 21,
+        "ALMA_2023_Reconciled": 10,
+        "ALMA_2023_Dataset1_reina": 7
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "Social": {
+      "total_sentences": 1203,
+      "total_essays": 743,
+      "samples": [],
+      "by_course": {
+        "PHYS 0112": 342,
+        "Unknown": 151,
+        "PHYS 0232": 129,
+        "PHYS 0102": 90,
+        "ASTR 0116": 78,
+        "SCI 0111": 53,
+        "PHYS 0242": 51,
+        "SCI 0215": 46,
+        "PHYS 0222": 43,
+        "PHYS 0122": 39,
+        "SCI 0230": 26,
+        "SCI 0335": 23,
+        "SCI 0115": 22,
+        "SCI 0305": 18,
+        "SCI 0240": 15,
+        "SCI 0227": 14,
+        "SCI 0350": 14,
+        "SCI 0333": 13,
+        "SCI 0121": 10,
+        "SCI 0321": 9,
+        "SCI 0228": 8,
+        "SCI 0180": 6,
+        "SCI 0234": 2,
+        "SCI 0220": 1
+      },
+      "by_year": {
+        "2017": 6,
+        "2018": 70,
+        "2019": 110,
+        "2020": 605,
+        "2021": 197,
+        "2022": 111,
+        "Unknown": 104
+      },
+      "by_data_source": {
+        "ALMA_2023_Reconciled": 493,
+        "ALMA_2023_Reina_Attainment": 231,
+        "ALMA_2023_Lokesh_Attainment": 225,
+        "ALMA_2023_Dataset1_lokesh": 146,
+        "ALMA_2024_Compiled": 84,
+        "ALMA_2023_Dataset1_reina": 23,
+        "ALMA_2025_Khalid_Allyson": 1
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    },
+    "Spiritual": {
+      "total_sentences": 873,
+      "total_essays": 388,
+      "samples": [],
+      "by_course": {
+        "PHYS 0112": 256,
+        "ASTR 0116": 117,
+        "PHYS 0222": 97,
+        "Unknown": 94,
+        "PHYS 0122": 88,
+        "PHYS 0232": 69,
+        "PHYS 0102": 43,
+        "SCI 0111": 29,
+        "PHYS 0242": 16,
+        "SCI 0215": 16,
+        "SCI 0335": 8,
+        "SCI 0115": 7,
+        "SCI 0350": 6,
+        "SCI 0230": 5,
+        "SCI 0240": 5,
+        "SCI 0121": 4,
+        "SCI 0228": 4,
+        "SCI 0333": 4,
+        "SCI 0305": 3,
+        "SCI 0180": 1,
+        "SCI 0227": 1
+      },
+      "by_year": {
+        "2017": 4,
+        "2018": 49,
+        "2019": 151,
+        "2020": 302,
+        "2025": 308,
+        "Unknown": 59
+      },
+      "by_data_source": {
+        "ALMA_2025_Khalid_Allyson": 308,
+        "ALMA_2023_Reconciled": 278,
+        "ALMA_2023_Dataset1_lokesh": 130,
+        "ALMA_2023_Reina_Attainment": 66,
+        "ALMA_2024_Compiled": 56,
+        "ALMA_2023_Lokesh_Attainment": 30,
+        "ALMA_2023_Dataset1_reina": 5
+      },
+      "_samples_note": "Example sentences removed: student writing is confidential (thesis \u00a77.6). Regenerate locally from the ALMA corpus."
+    }
+  },
+  "sentence_provenance": {
+    "ALMA_2023_Reconciled": {
+      "total_sentences": 39607,
+      "annotated_sentences": 14071,
+      "unannotated_sentences": 25536,
+      "annotation_rate_pct": 35.5265,
+      "total_essays": 5397,
+      "themes_contributed": [
+        "Aspirational",
+        "Attainment",
+        "Community Consciousness",
+        "Familial",
+        "Filial Piety",
+        "First Gen",
+        "Navigational",
+        "Perseverance",
+        "Resistance",
+        "Social",
+        "Spiritual"
+      ],
+      "num_themes_contributed": 11
+    },
+    "ALMA_2023_Lokesh_Attainment": {
+      "total_sentences": 31955,
+      "annotated_sentences": 4188,
+      "unannotated_sentences": 27767,
+      "annotation_rate_pct": 13.1059,
+      "total_essays": 4742,
+      "themes_contributed": [
+        "Aspirational",
+        "Attainment",
+        "Familial",
+        "Filial Piety",
+        "First Gen",
+        "Navigational",
+        "Perseverance",
+        "Resistance",
+        "Social",
+        "Spiritual"
+      ],
+      "num_themes_contributed": 10
+    },
+    "ALMA_2023_Reina_Attainment": {
+      "total_sentences": 27082,
+      "annotated_sentences": 3341,
+      "unannotated_sentences": 23741,
+      "annotation_rate_pct": 12.3366,
+      "total_essays": 4042,
+      "themes_contributed": [
+        "Aspirational",
+        "Attainment",
+        "Familial",
+        "Filial Piety",
+        "First Gen",
+        "Navigational",
+        "Perseverance",
+        "Resistance",
+        "Social",
+        "Spiritual"
+      ],
+      "num_themes_contributed": 10
+    },
+    "ALMA_2025_Khalid_Allyson": {
+      "total_sentences": 7992,
+      "annotated_sentences": 1675,
+      "unannotated_sentences": 6317,
+      "annotation_rate_pct": 20.9585,
+      "total_essays": 1184,
+      "themes_contributed": [
+        "Aspirational",
+        "Attainment",
+        "Community Consciousness",
+        "Filial Piety",
+        "Navigational",
+        "Perseverance",
+        "Resistance",
+        "Social",
+        "Spiritual"
+      ],
+      "num_themes_contributed": 9
+    },
+    "ALMA_2023_Dataset1_lokesh": {
+      "total_sentences": 2966,
+      "annotated_sentences": 1947,
+      "unannotated_sentences": 1019,
+      "annotation_rate_pct": 65.644,
+      "total_essays": 397,
+      "themes_contributed": [
+        "Aspirational",
+        "Attainment",
+        "Community Consciousness",
+        "Familial",
+        "Filial Piety",
+        "First Gen",
+        "Navigational",
+        "Perseverance",
+        "Resistance",
+        "Social",
+        "Spiritual"
+      ],
+      "num_themes_contributed": 11
+    },
+    "ALMA_2024_Compiled": {
+      "total_sentences": 2625,
+      "annotated_sentences": 1232,
+      "unannotated_sentences": 1393,
+      "annotation_rate_pct": 46.9333,
+      "total_essays": 351,
+      "themes_contributed": [
+        "Aspirational",
+        "Attainment",
+        "Community Consciousness",
+        "Familial",
+        "Filial Piety",
+        "First Gen",
+        "Navigational",
+        "Perseverance",
+        "Resistance",
+        "Social",
+        "Spiritual"
+      ],
+      "num_themes_contributed": 11
+    },
+    "ALMA_2023_Dataset1_reina": {
+      "total_sentences": 308,
+      "annotated_sentences": 142,
+      "unannotated_sentences": 166,
+      "annotation_rate_pct": 46.1039,
+      "total_essays": 85,
+      "themes_contributed": [
+        "Aspirational",
+        "Attainment",
+        "Community Consciousness",
+        "Familial",
+        "Filial Piety",
+        "First Gen",
+        "Navigational",
+        "Perseverance",
+        "Social",
+        "Spiritual"
+      ],
+      "num_themes_contributed": 10
+    },
+    "ALMA_2025_Reina_RES_Capitals": {
+      "total_sentences": 42,
+      "annotated_sentences": 2,
+      "unannotated_sentences": 40,
+      "annotation_rate_pct": 4.7619,
+      "total_essays": 9,
+      "themes_contributed": [
+        "Perseverance"
+      ],
+      "num_themes_contributed": 1
+    },
+    "ALMA_2025_Reina_NARST": {
+      "total_sentences": 36,
+      "annotated_sentences": 0,
+      "unannotated_sentences": 36,
+      "annotation_rate_pct": 0.0,
+      "total_essays": 6,
+      "themes_contributed": [],
+      "num_themes_contributed": 0
+    },
+    "ALMA_2024_Tacited_Familial": {
+      "total_sentences": 4,
+      "annotated_sentences": 0,
+      "unannotated_sentences": 4,
+      "annotation_rate_pct": 0.0,
+      "total_essays": 4,
+      "themes_contributed": [],
+      "num_themes_contributed": 0
+    },
+    "ALMA_2023_Dataset1_unknown": {
+      "total_sentences": 4,
+      "annotated_sentences": 0,
+      "unannotated_sentences": 4,
+      "annotation_rate_pct": 0.0,
+      "total_essays": 4,
+      "themes_contributed": [],
+      "num_themes_contributed": 0
+    },
+    "ALMA_2024_Reconciled": {
+      "total_sentences": 3,
+      "annotated_sentences": 3,
+      "unannotated_sentences": 0,
+      "annotation_rate_pct": 100.0,
+      "total_essays": 1,
+      "themes_contributed": [
+        "Navigational"
+      ],
+      "num_themes_contributed": 1
+    },
+    "ALMA_2023_Tacited_Navigational": {
+      "total_sentences": 2,
+      "annotated_sentences": 2,
+      "unannotated_sentences": 0,
+      "annotation_rate_pct": 100.0,
+      "total_essays": 2,
+      "themes_contributed": [
+        "Aspirational",
+        "Attainment",
+        "Navigational"
+      ],
+      "num_themes_contributed": 3
+    },
+    "ALMA_2023_Tacited_Aspirational": {
+      "total_sentences": 1,
+      "annotated_sentences": 1,
+      "unannotated_sentences": 0,
+      "annotation_rate_pct": 100.0,
+      "total_essays": 1,
+      "themes_contributed": [
+        "Aspirational",
+        "Attainment",
+        "Navigational"
+      ],
+      "num_themes_contributed": 3
+    },
+    "ALMA_2023_Tacited_Perseverance": {
+      "total_sentences": 1,
+      "annotated_sentences": 0,
+      "unannotated_sentences": 1,
+      "annotation_rate_pct": 0.0,
+      "total_essays": 1,
+      "themes_contributed": [],
+      "num_themes_contributed": 0
+    },
+    "ALMA_2025_Gian_Thesis": {
+      "total_sentences": 1,
+      "annotated_sentences": 0,
+      "unannotated_sentences": 1,
+      "annotation_rate_pct": 0.0,
+      "total_essays": 1,
+      "themes_contributed": [],
+      "num_themes_contributed": 0
+    }
+  },
+  "_samples_note": "Example sentences removed: student writing is confidential (thesis 7.6)."
+}

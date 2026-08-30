@@ -1,0 +1,122 @@
+# AWARE v2 — Quick iteration config (real full data, A100 GPU)
+#
+# Timing benchmarks (gpu02, A100 80GB):
+#   DAPT:     ~2.5 min / epoch
+#   Training: ~1.36 min / epoch
+#   Eval:     ~3 min total
+#   gpuquick limit: 1:55:00 (115 min)
+#
+# Run history:
+#   quick_001: 6ep,  no DAPT → 15 min,  test macro F1 = 0.305
+#   quick_002: 16ep, DAPT 1ep → 27 min, test macro F1 = 0.345
+#   quick_003: 36ep, DAPT 2ep → ~50 min — sampling boost REGRESSED (-0.026)
+#   quick_004: Q002 base + 4 code fixes → 53 min, test macro F1 = 0.380 (BEST)
+#     - F2 thresholds, asymmetric smoothing, residual BiLSTM, patience fix
+#     - FP: 0.115→0.294 (+0.179), FG: 0.214→0.333 (+0.119)
+#     - CC REGRESSED: 0.129→0.055 (threshold 0.47 still too high, model can't learn CC)
+#   quick_005: REGRESSED to 0.322 — two changes interacted catastrophically:
+#     - Aggressive weights (CC=15, FG=20, FP=10) inflated neg probs to ~0.40
+#     - Prior-blended thresholds pulled thresholds to 0.20-0.34 (below neg mean!)
+#     - Result: recall=1.0, precision≈0 for FP/CC/FG (everything predicted positive)
+#     - Diagnostics confirmed: CC sep=0.009 (model can't distinguish CC at all)
+#     - Lesson: never change weights AND thresholds simultaneously
+#   quick_006: Fix Q005 + distribution-aware thresholds → test macro F1 = 0.390 (NEW BEST)
+#     - Distribution-aware threshold floor (neg_mean+0.02) prevents Q005-style catastrophe
+#     - Moderate weights (FP=7, CC=9, FG=10). Social +0.056, Spiritual +0.042
+#   quick_007: REGRESSED — 3 structural fixes combined broke learning dynamics:
+#     - gamma_pos=0 + gamma_neg=6 + multi-sample dropout(K=5)
+#     - val_f1_macro stuck at 0.087 for 10 epochs (Q006 was 0.295 at same point)
+#     - gamma_neg=6 suppressed negative gradients ~10x too much; multi-dropout slowed convergence
+#     - Cancelled at epoch 10. Lesson: never change loss AND architecture simultaneously
+#   quick_008: Conservative Q006 base + 2 safe fixes → test macro F1 = 0.383:
+#     1. gamma_pos=0 (ASL paper: never down-weight hard positives; gamma_neg stays at 4)
+#     2. Phase 3 balanced head retraining (runs AFTER Phase 2, doesn't affect early training)
+#     - Phase 3 improved val_f1 from 0.283→0.352 (+0.069) but overall below Q006
+#     - gamma_pos=0 hurt Phase 2 learning (0.283 vs Q006's 0.324). Reverting.
+#   quick_009: Q006 base + R-Drop + EMA + class_0 metrics + gradient logging:
+#     1. R-Drop (alpha=1.0): dual forward pass with KL consistency loss (NeurIPS 2021)
+#        - Stabilizes rare theme predictions by forcing dropout-invariant outputs
+#     2. EMA (decay=0.999): shadow model weight averaging for evaluation
+#        - Reduces prediction variance, especially on rare themes
+#     3. gamma_pos reverted to 1.0 (Q006 proved better than Q008's 0.0 in Phase 2)
+#     4. Class_0 evaluation metrics + per-theme gradient norm logging (diagnostics)
+#     RESULT: FAILED (0.227). EMA per-epoch update bug: decay=0.999 with 24 epoch-level
+#     updates retained 97.6% initial weights. Saved model was essentially Phase 1 init.
+#     FIX: moved EMA to per-step updates inside optimizer loop.
+#   quick_010: Q009 base + EMA fix + LSAN + attention pooling:
+#     1. EMA bug fix: _update_ema() now per optimizer step (not per epoch)
+#     2. SentenceAttentionPooling: learnable token-level attention (replaces mean pooling)
+#     3. LabelAttentionHead (LSAN): per-theme query vectors (replaces Linear(768,11))
+#        - Each theme gets independent gradient flow via its own 768-dim query
+#     4. R-Drop + EMA + class_0 + grad logging carried forward from Q009
+#     RESULT: 0.278. LSAN+attn pooling learned slower than linear head. Nav -0.30, Per -0.36.
+#     FG improved (+0.24) but common themes devastated. Architecture reverted for Q011.
+#   quick_011: Q006 architecture + CB Loss + logit adjustment + tau-norm + R-Drop:
+#     1. Reverted to Q006 proven architecture (SentenceMeanPooling + ClassificationHead)
+#     2. EMA DISABLED (ema_decay=0.0) — caused issues in Q009+Q010
+#     3. R-Drop alpha reduced 1.0→0.5 — less interference with learning
+#     4. CB Loss (beta=0.999): principled weights replace manual theme_weights
+#     5. Logit adjustment: add log(prior/(1-prior)) to logits during training
+#     6. Tau-normalization: post-hoc weight rescaling sweep after Phase 2
+#     RESULT: 0.266. CB Loss + logit adjustment = gradient explosion (NaN at epoch 10).
+#     Gradient norms: FP=87,494, CC=82,025 (15x Nav). Phase 3 rescued 0.07→0.24.
+#     Lesson: never combine multiplicative (CB) + additive (logit adj) rare-class boosters.
+#
+#   === Q006 REMAINS BEST AT 0.390 === Full-scale run uses Q006 config.
+#
+# Submit via run_job.sh (edit the 3-line USER CONFIG block at top)
+
+mode: full
+seed: 42
+
+model:
+  encoder_name: microsoft/deberta-v3-base
+  hidden_size: 768
+  lstm_hidden: 256
+  lstm_layers: 2
+  max_sentences: 32
+  max_seq_length: 512
+  num_labels: 11
+  dropout: 0.35               # Q002 level (Q003's 0.42 over-regularized)
+
+loss:
+  asl_gamma_pos: 1.0              # Q006 proven value
+  asl_gamma_neg: 4.0              # Q006 proven value
+  asl_clip: 0.05
+  label_smoothing: 0.05
+  cb_beta: 0.999                  # Q011: CB Loss (Cui et al., CVPR 2019). Replaces manual weights.
+  logit_adjustment: true          # Q011: Menon et al., ICLR 2021. Shifts logits by log(prior).
+  # theme_weights removed — cb_beta overrides. CB beta=0.999 gives:
+  # Nav=1.0 Att=1.5 Per=1.5 Asp=1.7 Soc=8.4 FP=26.9 Spi=11.2 Fam=3.3 Res=10.2 CC=36.5 FG=50.2
+
+training:
+  phase1_epochs: 4            # Q002 level — proven effective frozen warmup
+  phase2_epochs: 20           # Extended from Q002's 12 (was still climbing at best epoch)
+  batch_size: 8
+  gradient_accumulation: 4
+  encoder_lr: 2.0e-5
+  decoder_lr: 1.0e-4
+  phase2_encoder_lr_scale: 0.1
+  weight_decay: 0.02          # Q002 level (Q003's 0.03 over-regularized)
+  max_grad_norm: 1.0
+  warmup_ratio: 0.10          # Increased from 0.06 — stabilizes early training
+  early_stopping_patience: 7
+  phase2_early_stopping_patience: 10  # Between Q001(7) and Q003(15) — avoids premature stop
+  fp16: true
+  num_workers: 4
+  rdrop_alpha: 0.5               # Q011: reduced from 1.0 — less interference with learning
+  ema_decay: 0.0                 # Q011: DISABLED. Caused problems in Q009 (per-epoch bug) and
+                                  # Q010 (still too aggressive). Test R-Drop alone on clean arch.
+
+augmentation:
+  enabled: true
+  aeda_prob: 0.3              # Q002 level (Q003's 0.5 added too much noise)
+
+dapt:
+  mlm_probability: 0.15
+  epochs: 1                   # Proven optimal: +0.040 macro F1. 2ep showed no benefit.
+  batch_size: 16
+  learning_rate: 5.0e-5
+  warmup_ratio: 0.1
+  fp16: true
+  eval_split: 0.1

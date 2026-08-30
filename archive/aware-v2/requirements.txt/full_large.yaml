@@ -1,0 +1,75 @@
+# AWARE v2 — DeBERTa-v3-large full training config (A100 80GB)
+#
+# Extended version of quick_large.yaml for final thesis numbers.
+# Only use after quick_large runs validate the pipeline.
+#
+# Differences from quick_large.yaml:
+#   - phase2_epochs: 20 → 30 (more room for the larger model to converge)
+#   - phase2_early_stopping_patience: 10 → 15 (let it explore longer)
+#
+# Estimated timing (A100 80GB):
+#   DAPT:     ~5 min × 1 epoch = ~5 min
+#   Phase 1:  ~3 min × 4 epochs = ~12 min
+#   Phase 2:  ~3 min × 30 epochs = ~90 min (early stop likely ~20-25 epochs)
+#   Tau-norm: ~5 min
+#   Phase 3:  ~3 min × 5 epochs = ~15 min
+#   Eval:     ~5 min
+#   Total:    ~130 min (well within 7:55:00 limit)
+#
+# Submit: edit run_job.sh → RUN_MODE="full_large", RUN_NUMBER="001", USE_DAPT=""
+#         mkdir -p cModels/results/full_large_001 && sbatch run_job.sh
+
+mode: full
+seed: 42
+
+model:
+  encoder_name: microsoft/deberta-v3-large
+  hidden_size: 1024
+  lstm_hidden: 256
+  lstm_layers: 2
+  max_sentences: 32
+  max_seq_length: 512
+  num_labels: 11
+  dropout: 0.40
+
+loss:
+  asl_gamma_pos: 1.0
+  asl_gamma_neg: 4.0
+  asl_clip: 0.05
+  label_smoothing: 0.05
+  theme_weights: [1.0, 1.2, 1.24, 1.29, 4.5, 6.0, 5.5, 2.0, 4.5, 8.0, 9.0]
+  # Order:        Nav  Att  Per   Asp   Soc  FP   Spi  Fam  Res  CC   FG
+
+training:
+  phase1_epochs: 4
+  phase2_epochs: 30               # Extended from quick's 20 — more convergence room
+  batch_size: 8
+  gradient_accumulation: 4
+  encoder_lr: 6.0e-6
+  decoder_lr: 1.0e-4
+  phase2_encoder_lr_scale: 0.1
+  weight_decay: 0.03
+  max_grad_norm: 1.0
+  warmup_ratio: 0.10
+  early_stopping_patience: 7
+  phase2_early_stopping_patience: 15  # Extended for 30 epochs — more room to explore
+  fp16: true
+  num_workers: 4
+  rdrop_alpha: 0.5
+  ema_decay: 0.0
+  llrd_decay: 0.95
+  gradient_checkpointing: true
+
+augmentation:
+  enabled: true
+  aeda_prob: 0.3
+
+dapt:
+  mlm_probability: 0.15
+  epochs: 1
+  batch_size: 8
+  learning_rate: 2.0e-5
+  warmup_ratio: 0.1
+  fp16: true
+  eval_split: 0.1
+  weight_decay: 0.01

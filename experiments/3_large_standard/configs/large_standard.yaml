@@ -1,0 +1,29 @@
+# Standard Baseline — DeBERTa-v3-large
+#
+# Simple fine-tuning: encoder → mean pool → dropout → linear → BCE
+# NO AWARE components. Same as base_standard but with large encoder.
+#
+# Purpose: Isolate the effect of model size (base vs large) in
+# standard fine-tuning, without any AWARE innovations.
+
+seed: 42
+
+model:
+  encoder_name: microsoft/deberta-v3-large
+  hidden_size: 1024
+  max_sentences: 32
+  max_seq_length: 512
+  num_labels: 8
+  dropout: 0.15
+
+training:
+  epochs: 30
+  batch_size: 4              # smaller batch for large model
+  gradient_accumulation: 8   # effective batch = 32
+  learning_rate: 1.0e-5      # lower for large model (standard practice)
+  weight_decay: 0.02
+  max_grad_norm: 1.0
+  warmup_ratio: 0.10
+  early_stopping_patience: 5
+  fp16: true
+  num_workers: 4

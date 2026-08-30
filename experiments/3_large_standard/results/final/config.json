@@ -1,0 +1,27 @@
+{
+  "model": {
+    "encoder_name": "microsoft/deberta-v3-large",
+    "hidden_size": 1024,
+    "max_sentences": 32,
+    "max_seq_length": 512,
+    "num_labels": 8,
+    "dropout": 0.15
+  },
+  "loss": {
+    "loss_type": "bce",
+    "theme_weights": null
+  },
+  "training": {
+    "epochs": 30,
+    "batch_size": 4,
+    "gradient_accumulation": 8,
+    "learning_rate": 1e-05,
+    "weight_decay": 0.02,
+    "max_grad_norm": 1.0,
+    "warmup_ratio": 0.1,
+    "early_stopping_patience": 5,
+    "fp16": true,
+    "num_workers": 4
+  },
+  "seed": 42
+}

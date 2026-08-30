@@ -1,0 +1,151 @@
+# AWARE v4 — Large model (DeBERTa-v3-large) — FIXED based on deep analysis
+#
+# ── DIAGNOSED PROBLEMS FROM v3 RUN (job 22344) ────────────────────────────────
+#   1. OVERFITTING SPEED: Train loss dropped 0.072/epoch (base: 0.049/epoch)
+#      Large model memorized training data in 15 epochs vs base's 30
+#   2. SWA NEVER ACTIVATED: swa_start at ep19 = same epoch as early stop
+#      Zero checkpoints collected → SWA was a complete no-op
+#   3. LLRD TOO AGGRESSIVE: 0.85^23 = 3e-7 for bottom layers (effectively frozen)
+#      Large model's extra 12 layers (0-11) contributed nothing
+#   4. R-DROP α=2.0 TOO STRONG: KL was 55-72% of task loss in early Phase 2
+#      Model spent more gradient on consistency than accuracy
+#   5. PHASE 1 TOO SHORT: 4 epochs with ep1 wasted (FP16 grad overflow)
+#      Head entered Phase 2 barely trained (PRAUC=0.14 vs base's 0.29)
+#   6. PHASE 3 DEAD: Only 20.5K params on fixed inputs → converged in 1 epoch
+#      grad_norm effectively zero, PRAUC improved by 0.0005
+#   7. EARLY STOPPING TOO EAGER: patience=5 triggered at ep19, themes overfit
+#      at different rates (Social peaked ep10, Fam peaked ep18)
+#
+# ── FIXES APPLIED ──────────────────────────────────────────────────────────────
+#   FIX 1: encoder_lr=5e-6 (3x lower) + decoder_lr=2e-5 → slower memorization
+#   FIX 2: swa_start_ratio=0.25 → SWA starts at ep13, collects 15+ snapshots
+#   FIX 3: llrd_decay=0.92 → bottom layer=8.5e-7 (3x higher, all layers learn)
+#   FIX 4: rdrop_alpha=1.0 (halved) → phase1_rdrop=0.0 (disabled in phase 1)
+#   FIX 5: phase1_epochs=8 → stable head even with FP16 warmup
+#   FIX 6: phase3 unfreezes BiLSTM (2M params) not just head (20K params)
+#   FIX 7: patience=8 + phase2_epochs=40 → slow-converging themes get time
+#   NEW: progressive_unfreeze=true → unfreeze top-12 first, then all at ep+6
+#   NEW: multi_sample_dropout=3 → average 3 dropout masks per sample (free reg)
+
+mode: full
+seed: 42
+
+model:
+  encoder_name: microsoft/deberta-v3-large
+  hidden_size: 1024
+  lstm_hidden: 256
+  lstm_layers: 2
+  max_sentences: 32
+  max_seq_length: 512
+  num_labels: 8
+  dropout: 0.30               # same as v3 — dropout is effective
+  use_bilstm: true
+  bilstm_dropout: 0.25        # same as v3
+  use_position_embedding: true
+  use_prototype_head: false    # DISABLED: proven -29% F1
+  n_dropout_samples: 3         # Multi-sample dropout (Inoue 2019): average 3 masks
+                               # Free regularization: zero extra params, ~negligible compute
+  # ── AWARE v5: Gated Sentence Attention (replaces BiLSTM) ──────────────
+  context_type: gated_attention  # "bilstm" (original) or "gated_attention" (v5)
+                               # Gated attention: self-attention over sentences with
+                               # learned gate initialized near ZERO. Model starts as
+                               # "standard" and LEARNS to add context only where it helps.
+                               # Better than BiLSTM for short sequences (~7 sentences).
+  context_num_heads: 4         # attention heads for sentence self-attention
+  gate_init_bias: -2.0         # sigmoid(-2) = 0.12 → gate starts mostly CLOSED
+                               # Model must learn to OPEN — implicit regularizer
+  # ── AWARE v5: Attention-weighted pooling ───────────────────────────────
+  pooling_type: attention      # "mean" (original) or "attention" (learned token weights)
+                               # Learn WHICH tokens matter per sentence, not uniform avg
+
+loss:
+  loss_type: asl
+  asl_gamma_pos: 0.0          # preserve all positive gradient for rare themes
+  asl_gamma_neg: 2.5          # REDUCED from 3.0: less overconfident logits
+                               # All Platt b values were -1.8 to -2.6 with gn=3.0
+  asl_clip: 0.03
+  label_smoothing: 0.02       # NEW: mild smoothing prevents logit explosion
+                               # Combined with lower gamma_neg to fix overconfidence
+  theme_weights: null          # auto-compute CB weights from training counts
+  use_cb_weights: true
+
+training:
+  # ── Phase 1: Frozen encoder ──────────────────────────────────────────────
+  phase1_epochs: 8             # INCREASED from 4: ep1 wasted (FP16 overflow)
+                               # v3 head only reached PRAUC=0.14 in 4 epochs
+                               # Need 8 to get head stable (base reached 0.29 in 5)
+  phase1_lr: 1.0e-4            # NEW: higher LR for Phase 1 only (grad clipping
+                               # reduces effective LR by ~7x, so actual ≈ 1.4e-5)
+
+  # ── Phase 2: Full fine-tune ──────────────────────────────────────────────
+  phase2_epochs: 40            # INCREASED from 30: large model needs more time
+                               # Base ran 30 epochs productively; with lower encoder_lr
+                               # the large model should run at least 40
+  batch_size: 4                # A100 80GB memory budget
+  gradient_accumulation: 8     # effective batch = 32
+  encoder_lr: 5.0e-6           # REDUCED from 1.5e-5 (3x lower!)
+                               # Key insight: large model memorized via encoder too fast
+                               # Train loss was 0.35 at ep19 vs base's 0.55 at ep32
+  decoder_lr: 2.0e-5           # REDUCED from 3.0e-5: proportional to encoder
+  phase2_encoder_lr_scale: 1.0
+  weight_decay: 0.08           # INCREASED from 0.06: stronger L2 for 438M params
+  max_grad_norm: 1.0
+  warmup_ratio: 0.10
+  early_stopping_patience: 8   # INCREASED from 5: themes overfit at different rates
+                               # Social peaked ep10, Fam peaked ep18 in v3
+                               # Need longer patience so slow themes can converge
+  phase2_early_stopping_patience: 8
+  fp16: true
+  num_workers: 4
+  rdrop_alpha: 1.0             # REDUCED from 2.0: KL was 55-72% of task loss early
+                               # At α=2.0, model spent more gradient on consistency
+                               # than accuracy. α=1.0 cuts KL contribution by half.
+  phase1_rdrop: 0.0            # NEW: disable R-Drop in Phase 1 entirely
+                               # Head is random → KL between random outputs wastes
+                               # gradient budget. Enable only once head is useful.
+
+  # ── Phase 3: Head + BiLSTM retrain ──────────────────────────────────────
+  phase3_epochs: 5
+  phase3_lr: 5.0e-6            # REDUCED from 1.0e-5: gentle retrain
+  phase3_patience: 3
+  phase3_unfreeze_bilstm: true # NEW: unfreeze BiLSTM in Phase 3 (2M params vs 20K)
+                               # v3 Phase 3 was dead because only 20K head params
+                               # on fixed inputs. BiLSTM needs to adjust too.
+  adam_beta2: 0.999
+  gradient_checkpointing: false
+  use_llrd: true
+  llrd_decay: 0.92             # INCREASED from 0.85: gentler decay for 24 layers
+                               # 0.85^23 = 3.0e-7 (bottom layers dead)
+                               # 0.92^23 = 8.5e-7 (3x higher, all layers contribute)
+                               # Bottom layer LR: 5e-6 * 0.92^23 = 8.5e-7
+  essay_aux_weight: 0.15       # INCREASED from 0.10: was only 3-13% of total loss
+                               # At 0.10 weight, essay aux was inert. 0.15 gives more
+                               # signal for rare themes (Attainment: 2.4% → ~8% essay)
+  swa_start_ratio: 0.25        # REDUCED from 0.50: SWA starts at ep8+10=ep18
+                               # v3: SWA started at ep19 = same as early stop = no-op
+                               # With 40 P2 epochs and patience=8, SWA should collect
+                               # 15+ snapshots for meaningful weight averaging
+  # ── Progressive unfreezing ──────────────────────────────────────────────
+  progressive_unfreeze: true   # NEW: don't unfreeze all 24 layers at once
+  progressive_unfreeze_layers: 12  # Unfreeze top 12 layers first (layers 12-23)
+  progressive_unfreeze_after: 6    # After 6 P2 epochs, unfreeze remaining (0-11)
+                               # This halves effective params in early Phase 2:
+                               # ~220M trainable vs 438M → less memorization risk
+  # ── AWARE v5: Context dropout ──────────────────────────────────────────
+  context_dropout: 0.15        # During Phase 2, randomly zero 15% of sentence embeddings
+                               # Forces context mechanism to reconstruct from neighbors
+                               # Creates direct gradient signal for attention mechanism
+
+augmentation:
+  enabled: true
+  aeda_prob: 0.40              # same as v3
+
+dapt:
+  mlm_probability: 0.15
+  epochs: 15
+  batch_size: 8
+  learning_rate: 2.0e-5
+  warmup_ratio: 0.06
+  fp16: true
+  eval_split: 0.1
+  weight_decay: 0.01

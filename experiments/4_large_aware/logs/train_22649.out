@@ -1,0 +1,634 @@
+============================================================
+ AWARE — DeBERTa-v3-large (full AWARE pipeline, v4)
+ Job: 22649 | Node: gpu01 | Wed Mar 18 21:26:48 PDT 2026
+============================================================
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+Config: configs/large_aware.yaml
+DAPT encoder: results/dapt_large/encoder (FRESH)
+Output: results/final
+2026-03-18 21:26:55,576 [INFO] dataset: Loaded 2095 essays from data/train_data.pkl
+2026-03-18 21:26:55,578 [INFO] dataset: Loaded 268 essays from data/val_data.pkl
+2026-03-18 21:26:55,578 [INFO] __main__: Train: 2095 essays, Val: 268 essays
+2026-03-18 21:26:55,578 [INFO] __main__: Weighted sampling: 2095/2095 essays have non-uniform weight
+2026-03-18 21:26:55,579 [INFO] __main__: Train class counts: {'Attainment': 339, 'Aspirational': 2158, 'Navigational': 3368, 'Resistance': 629, 'Perseverance': 1165, 'Social': 786, 'Spiritual': 478, 'Familial_Capital': 554}
+2026-03-18 21:26:55,579 [INFO] dataset: AWAREDataset: 2095 essays, augment=True, max_seq=512, max_sent=32
+2026-03-18 21:26:55,579 [INFO] dataset: AWAREDataset: 268 essays, augment=False, max_seq=512, max_sent=32
+2026-03-18 21:26:55,962 [INFO] model: Using AttentionPooling (learned token importance)
+2026-03-18 21:26:55,984 [INFO] model: Using GatedSentenceAttention (heads=4, gate_bias=-2.0)
+2026-03-18 21:26:55,992 [INFO] model: Using EssayConditioningLayer (top-down essay prior)
+2026-03-18 21:26:55,994 [INFO] model: AWAREModel: results/dapt_large/encoder, 442.5M params (442.5M trainable), bilstm=True, pos_emb=True, essay_head=True, prototype_head=False
+2026-03-18 21:26:57,048 [INFO] trainer: Using device: cuda
+2026-03-18 21:26:57,049 [INFO] losses: CB theme weights (beta=0.9999): {'t0': 2.045, 't1': 0.351, 't2': 0.238, 't3': 1.118, 't4': 0.62, 't5': 0.902, 't6': 1.46, 't7': 1.265}
+2026-03-18 21:26:57,049 [INFO] losses: Auto-computed CB theme weights from training data (n_themes=8)
+2026-03-18 21:26:57,049 [INFO] losses: ASL Loss: gamma_pos=0.0, gamma_neg=2.5, clip=0.03, smoothing=0.02, weights=cb_auto
+2026-03-18 21:26:57,050 [INFO] trainer: AWARETrainer init: phases=(8, 40), fp16=True, rdrop=1.0, essay_aux=0.15, swa_start_ratio=0.25, cb_weights=True
+2026-03-18 21:26:57,053 [INFO] trainer: Starting 3-phase training (P1=8, P2=40, device=cuda, fp16=True, rdrop=1.0, essay_aux=0.15)
+2026-03-18 21:26:57,053 [INFO] model: Encoder frozen
+2026-03-18 21:26:57,054 [INFO] trainer: ============================================================
+2026-03-18 21:26:57,054 [INFO] trainer: PHASE 1: Frozen encoder, training BiLSTM + head
+2026-03-18 21:26:57,054 [INFO] trainer:   lr=1.00e-04, rdrop=0.0, epochs=8, steps=528, warmup=52
+2026-03-18 21:26:57,054 [INFO] trainer: ============================================================
+2026-03-18 21:27:35,126 [INFO] trainer: EPOCH P1 ep=1 train=1.4087 val=0.6860 f1=0.2109 prauc=0.2818
+2026-03-18 21:27:35,127 [INFO] trainer:   loss_breakdown: task=1.4087 kl=0.0000(×0.0=0.0000) essay=1.8766(×0.15=0.2815)
+2026-03-18 21:27:35,127 [INFO] trainer:   grad_norm: mean=inf max=inf (clip=1.0)
+2026-03-18 21:27:35,127 [INFO] trainer:   per_theme F1:   Asp=0.158 Att=0.146 Fam=0.101 Nav=0.604 Per=0.382 Res=0.000 Soc=0.000 Spi=0.296
+2026-03-18 21:27:35,127 [INFO] trainer:   per_theme P:    Asp=0.338 Att=0.429 Fam=0.455 Nav=0.469 Per=0.315 Res=0.000 Soc=0.000 Spi=0.444
+2026-03-18 21:27:35,127 [INFO] trainer:   per_theme R:    Asp=0.103 Att=0.088 Fam=0.057 Nav=0.850 Per=0.485 Res=0.000 Soc=0.000 Spi=0.222
+2026-03-18 21:27:35,127 [INFO] trainer:   per_theme PRAUC:Asp=0.280 Att=0.197 Fam=0.400 Nav=0.616 Per=0.237 Res=0.058 Soc=0.127 Spi=0.340
+2026-03-18 21:27:35,127 [INFO] trainer:   class_0: F1=0.568 P=0.648 R=0.506 (sup=903)
+2026-03-18 21:27:35,127 [INFO] trainer:   logit_sep (pos-neg): Res=0.08 Soc=0.20 Asp=0.25 Per=0.39 Att=0.49 Nav=0.51 Spi=0.65 Fam=0.69
+2026-03-18 21:27:35,127 [WARNING] trainer:   LOW SEPARATION (< 0.5): Resistance(0.08), Social(0.20), Aspirational(0.25), Perseverance(0.39), Attainment(0.49) — model may not distinguish these themes
+2026-03-18 21:27:35,127 [INFO] trainer:   pred_vs_true (mean): Per=0.365/0.074 Att=0.283/0.019 Spi=0.294/0.041 Asp=0.377/0.128 Soc=0.295/0.048
+2026-03-18 21:27:38,761 [INFO] trainer:   NEW BEST (PRAUC=0.2818, phase 1)
+2026-03-18 21:28:15,475 [INFO] trainer: EPOCH P1 ep=2 train=1.1350 val=0.6929 f1=0.3712 prauc=0.3481
+2026-03-18 21:28:15,475 [INFO] trainer:   loss_breakdown: task=1.1350 kl=0.0000(×0.0=0.0000) essay=1.6461(×0.15=0.2469)
+2026-03-18 21:28:15,475 [INFO] trainer:   grad_norm: mean=2.526 max=3.735 (clip=1.0)
+2026-03-18 21:28:15,475 [INFO] trainer:   per_theme F1:   Asp=0.377 Att=0.185 Fam=0.542 Nav=0.615 Per=0.383 Res=0.169 Soc=0.325 Spi=0.375
+2026-03-18 21:28:15,475 [INFO] trainer:   per_theme P:    Asp=0.243 Att=0.194 Fam=0.428 Nav=0.474 Per=0.302 Res=0.144 Soc=0.290 Spi=0.429
+2026-03-18 21:28:15,475 [INFO] trainer:   per_theme R:    Asp=0.839 Att=0.176 Fam=0.739 Nav=0.875 Per=0.523 Res=0.205 Soc=0.369 Spi=0.333
+2026-03-18 21:28:15,475 [INFO] trainer:   per_theme PRAUC:Asp=0.389 Att=0.159 Fam=0.565 Nav=0.637 Per=0.297 Res=0.118 Soc=0.258 Spi=0.361
+2026-03-18 21:28:15,475 [INFO] trainer:   class_0: F1=0.467 P=0.809 R=0.328 (sup=903)
+2026-03-18 21:28:15,475 [INFO] trainer:   logit_sep (pos-neg): Res=0.26 Asp=0.57 Soc=0.59 Per=0.83 Att=0.89 Spi=0.92 Nav=1.09 Fam=1.48
+2026-03-18 21:28:15,475 [WARNING] trainer:   LOW SEPARATION (< 0.5): Resistance(0.26) — model may not distinguish these themes
+2026-03-18 21:28:15,476 [INFO] trainer:   pred_vs_true (mean): Asp=0.476/0.128 Res=0.385/0.044 Soc=0.336/0.048 Nav=0.483/0.254 Fam=0.277/0.050
+2026-03-18 21:28:19,339 [INFO] trainer:   NEW BEST (PRAUC=0.3481, phase 1)
+2026-03-18 21:28:56,427 [INFO] trainer: EPOCH P1 ep=3 train=1.0727 val=0.6752 f1=0.3976 prauc=0.4083
+2026-03-18 21:28:56,427 [INFO] trainer:   loss_breakdown: task=1.0727 kl=0.0000(×0.0=0.0000) essay=1.5176(×0.15=0.2276)
+2026-03-18 21:28:56,427 [INFO] trainer:   grad_norm: mean=2.486 max=3.795 (clip=1.0)
+2026-03-18 21:28:56,427 [INFO] trainer:   per_theme F1:   Asp=0.440 Att=0.204 Fam=0.582 Nav=0.629 Per=0.395 Res=0.000 Soc=0.475 Spi=0.456
+2026-03-18 21:28:56,427 [INFO] trainer:   per_theme P:    Asp=0.317 Att=0.167 Fam=0.528 Nav=0.490 Per=0.302 Res=0.000 Soc=0.362 Spi=0.343
+2026-03-18 21:28:56,427 [INFO] trainer:   per_theme R:    Asp=0.719 Att=0.265 Fam=0.648 Nav=0.879 Per=0.569 Res=0.000 Soc=0.691 Spi=0.681
+2026-03-18 21:28:56,427 [INFO] trainer:   per_theme PRAUC:Asp=0.435 Att=0.160 Fam=0.595 Nav=0.653 Per=0.301 Res=0.211 Soc=0.502 Spi=0.408
+2026-03-18 21:28:56,427 [INFO] trainer:   class_0: F1=0.493 P=0.816 R=0.353 (sup=903)
+2026-03-18 21:28:56,427 [INFO] trainer:   logit_sep (pos-neg): Res=0.35 Asp=0.71 Att=0.89 Soc=0.90 Spi=1.07 Per=1.10 Nav=1.11 Fam=1.75
+2026-03-18 21:28:56,427 [WARNING] trainer:   LOW SEPARATION (< 0.5): Resistance(0.35) — model may not distinguish these themes
+2026-03-18 21:28:56,427 [INFO] trainer:   pred_vs_true (mean): Soc=0.345/0.048 Asp=0.418/0.128 Spi=0.310/0.041 Res=0.307/0.044 Nav=0.477/0.254
+2026-03-18 21:29:00,237 [INFO] trainer:   NEW BEST (PRAUC=0.4083, phase 1)
+2026-03-18 21:29:37,423 [INFO] trainer: EPOCH P1 ep=4 train=1.0244 val=0.6585 f1=0.4139 prauc=0.4219
+2026-03-18 21:29:37,423 [INFO] trainer:   loss_breakdown: task=1.0244 kl=0.0000(×0.0=0.0000) essay=1.4413(×0.15=0.2162)
+2026-03-18 21:29:37,423 [INFO] trainer:   grad_norm: mean=2.424 max=3.998 (clip=1.0)
+2026-03-18 21:29:37,423 [INFO] trainer:   per_theme F1:   Asp=0.452 Att=0.286 Fam=0.603 Nav=0.628 Per=0.393 Res=0.049 Soc=0.469 Spi=0.432
+2026-03-18 21:29:37,423 [INFO] trainer:   per_theme P:    Asp=0.340 Att=0.228 Fam=0.540 Nav=0.492 Per=0.298 Res=0.500 Soc=0.373 Spi=0.421
+2026-03-18 21:29:37,423 [INFO] trainer:   per_theme R:    Asp=0.674 Att=0.382 Fam=0.682 Nav=0.866 Per=0.577 Res=0.026 Soc=0.631 Spi=0.444
+2026-03-18 21:29:37,423 [INFO] trainer:   per_theme PRAUC:Asp=0.461 Att=0.221 Fam=0.620 Nav=0.656 Per=0.315 Res=0.243 Soc=0.498 Spi=0.363
+2026-03-18 21:29:37,423 [INFO] trainer:   class_0: F1=0.520 P=0.810 R=0.383 (sup=903)
+2026-03-18 21:29:37,423 [INFO] trainer:   logit_sep (pos-neg): Res=0.46 Asp=0.75 Att=0.96 Spi=1.01 Per=1.04 Soc=1.18 Nav=1.19 Fam=1.86
+2026-03-18 21:29:37,423 [WARNING] trainer:   LOW SEPARATION (< 0.5): Resistance(0.46) — model may not distinguish these themes
+2026-03-18 21:29:37,423 [INFO] trainer:   pred_vs_true (mean): Asp=0.402/0.128 Per=0.331/0.074 Soc=0.297/0.048 Res=0.292/0.044 Att=0.251/0.019
+2026-03-18 21:29:41,257 [INFO] trainer:   NEW BEST (PRAUC=0.4219, phase 1)
+2026-03-18 21:30:18,772 [INFO] trainer: EPOCH P1 ep=5 train=1.0037 val=0.6714 f1=0.4386 prauc=0.4326
+2026-03-18 21:30:18,773 [INFO] trainer:   loss_breakdown: task=1.0037 kl=0.0000(×0.0=0.0000) essay=1.3813(×0.15=0.2072)
+2026-03-18 21:30:18,773 [INFO] trainer:   grad_norm: mean=2.164 max=3.786 (clip=1.0)
+2026-03-18 21:30:18,773 [INFO] trainer:   per_theme F1:   Asp=0.447 Att=0.234 Fam=0.591 Nav=0.638 Per=0.361 Res=0.318 Soc=0.496 Spi=0.423
+2026-03-18 21:30:18,773 [INFO] trainer:   per_theme P:    Asp=0.319 Att=0.183 Fam=0.492 Nav=0.499 Per=0.260 Res=0.260 Soc=0.394 Spi=0.393
+2026-03-18 21:30:18,773 [INFO] trainer:   per_theme R:    Asp=0.750 Att=0.324 Fam=0.739 Nav=0.886 Per=0.592 Res=0.410 Soc=0.667 Spi=0.458
+2026-03-18 21:30:18,773 [INFO] trainer:   per_theme PRAUC:Asp=0.469 Att=0.210 Fam=0.618 Nav=0.662 Per=0.330 Res=0.259 Soc=0.520 Spi=0.393
+2026-03-18 21:30:18,773 [INFO] trainer:   class_0: F1=0.488 P=0.838 R=0.344 (sup=903)
+2026-03-18 21:30:18,773 [INFO] trainer:   logit_sep (pos-neg): Res=0.54 Asp=0.80 Att=0.98 Per=1.06 Spi=1.14 Nav=1.20 Soc=1.28 Fam=1.96
+2026-03-18 21:30:18,773 [INFO] trainer:   pred_vs_true (mean): Res=0.351/0.044 Per=0.378/0.074 Asp=0.420/0.128 Soc=0.293/0.048 Att=0.245/0.019
+2026-03-18 21:30:22,639 [INFO] trainer:   NEW BEST (PRAUC=0.4326, phase 1)
+2026-03-18 21:31:00,145 [INFO] trainer: EPOCH P1 ep=6 train=0.9884 val=0.6690 f1=0.4551 prauc=0.4370
+2026-03-18 21:31:00,145 [INFO] trainer:   loss_breakdown: task=0.9884 kl=0.0000(×0.0=0.0000) essay=1.3461(×0.15=0.2019)
+2026-03-18 21:31:00,145 [INFO] trainer:   grad_norm: mean=2.121 max=3.379 (clip=1.0)
+2026-03-18 21:31:00,145 [INFO] trainer:   per_theme F1:   Asp=0.436 Att=0.272 Fam=0.649 Nav=0.633 Per=0.365 Res=0.372 Soc=0.443 Spi=0.471
+2026-03-18 21:31:00,145 [INFO] trainer:   per_theme P:    Asp=0.306 Att=0.234 Fam=0.602 Nav=0.492 Per=0.263 Res=0.324 Soc=0.321 Spi=0.383
+2026-03-18 21:31:00,145 [INFO] trainer:   per_theme R:    Asp=0.759 Att=0.324 Fam=0.705 Nav=0.886 Per=0.600 Res=0.436 Soc=0.714 Spi=0.611
+2026-03-18 21:31:00,145 [INFO] trainer:   per_theme PRAUC:Asp=0.478 Att=0.210 Fam=0.613 Nav=0.659 Per=0.340 Res=0.308 Soc=0.502 Spi=0.383
+2026-03-18 21:31:00,145 [INFO] trainer:   class_0: F1=0.478 P=0.864 R=0.330 (sup=903)
+2026-03-18 21:31:00,145 [INFO] trainer:   logit_sep (pos-neg): Res=0.59 Asp=0.83 Att=0.98 Per=1.03 Spi=1.21 Nav=1.22 Soc=1.34 Fam=1.97
+2026-03-18 21:31:00,145 [INFO] trainer:   pred_vs_true (mean): Per=0.376/0.074 Asp=0.428/0.128 Res=0.341/0.044 Soc=0.315/0.048 Spi=0.269/0.041
+2026-03-18 21:31:03,959 [INFO] trainer:   NEW BEST (PRAUC=0.4370, phase 1)
+2026-03-18 21:31:41,746 [INFO] trainer: EPOCH P1 ep=7 train=0.9983 val=0.6620 f1=0.4416 prauc=0.4377
+2026-03-18 21:31:41,746 [INFO] trainer:   loss_breakdown: task=0.9983 kl=0.0000(×0.0=0.0000) essay=1.3805(×0.15=0.2071)
+2026-03-18 21:31:41,746 [INFO] trainer:   grad_norm: mean=1.978 max=3.421 (clip=1.0)
+2026-03-18 21:31:41,746 [INFO] trainer:   per_theme F1:   Asp=0.442 Att=0.259 Fam=0.616 Nav=0.611 Per=0.383 Res=0.306 Soc=0.445 Spi=0.470
+2026-03-18 21:31:41,746 [INFO] trainer:   per_theme P:    Asp=0.311 Att=0.216 Fam=0.554 Nav=0.462 Per=0.285 Res=0.413 Soc=0.326 Spi=0.387
+2026-03-18 21:31:41,746 [INFO] trainer:   per_theme R:    Asp=0.763 Att=0.324 Fam=0.693 Nav=0.902 Per=0.585 Res=0.244 Soc=0.702 Spi=0.597
+2026-03-18 21:31:41,746 [INFO] trainer:   per_theme PRAUC:Asp=0.480 Att=0.215 Fam=0.637 Nav=0.664 Per=0.337 Res=0.299 Soc=0.505 Spi=0.366
+2026-03-18 21:31:41,746 [INFO] trainer:   class_0: F1=0.448 P=0.856 R=0.303 (sup=903)
+2026-03-18 21:31:41,746 [INFO] trainer:   logit_sep (pos-neg): Res=0.60 Asp=0.83 Att=0.95 Per=1.04 Spi=1.12 Nav=1.23 Soc=1.36 Fam=2.04
+2026-03-18 21:31:41,746 [INFO] trainer:   pred_vs_true (mean): Asp=0.426/0.128 Per=0.354/0.074 Res=0.305/0.044 Soc=0.306/0.048 Spi=0.283/0.041
+2026-03-18 21:31:45,635 [INFO] trainer:   NEW BEST (PRAUC=0.4377, phase 1)
+2026-03-18 21:32:23,716 [INFO] trainer: EPOCH P1 ep=8 train=0.9915 val=0.6668 f1=0.4390 prauc=0.4375
+2026-03-18 21:32:23,716 [INFO] trainer:   loss_breakdown: task=0.9915 kl=0.0000(×0.0=0.0000) essay=1.3472(×0.15=0.2021)
+2026-03-18 21:32:23,716 [INFO] trainer:   grad_norm: mean=1.945 max=3.206 (clip=1.0)
+2026-03-18 21:32:23,716 [INFO] trainer:   per_theme F1:   Asp=0.442 Att=0.234 Fam=0.596 Nav=0.615 Per=0.365 Res=0.315 Soc=0.468 Spi=0.478
+2026-03-18 21:32:23,716 [INFO] trainer:   per_theme P:    Asp=0.313 Att=0.183 Fam=0.517 Nav=0.467 Per=0.264 Res=0.338 Soc=0.354 Spi=0.398
+2026-03-18 21:32:23,716 [INFO] trainer:   per_theme R:    Asp=0.750 Att=0.324 Fam=0.705 Nav=0.897 Per=0.592 Res=0.295 Soc=0.691 Spi=0.597
+2026-03-18 21:32:23,716 [INFO] trainer:   per_theme PRAUC:Asp=0.480 Att=0.210 Fam=0.638 Nav=0.663 Per=0.336 Res=0.298 Soc=0.505 Spi=0.370
+2026-03-18 21:32:23,716 [INFO] trainer:   class_0: F1=0.441 P=0.851 R=0.298 (sup=903)
+2026-03-18 21:32:23,716 [INFO] trainer:   logit_sep (pos-neg): Res=0.61 Asp=0.84 Att=0.98 Per=1.06 Spi=1.13 Nav=1.23 Soc=1.37 Fam=2.06
+2026-03-18 21:32:23,716 [INFO] trainer:   pred_vs_true (mean): Per=0.371/0.074 Asp=0.424/0.128 Res=0.319/0.044 Soc=0.294/0.048 Spi=0.278/0.041
+2026-03-18 21:32:23,720 [INFO] trainer: Progressive unfreeze: layers 12-23 (12/24), 159.6M/442.5M params trainable (36%)
+2026-03-18 21:32:23,721 [INFO] trainer: Phase 2 LLRD: n_layers=24, top_lr=5.00e-06, embed_lr=6.76e-07, decoder_lr=2.00e-05, decay=0.92
+2026-03-18 21:32:23,722 [INFO] trainer: ============================================================
+2026-03-18 21:32:23,722 [INFO] trainer: PHASE 2: Full fine-tune with LLRD
+2026-03-18 21:32:23,722 [INFO] trainer:   encoder_lr=5.00e-06, decoder_lr=2.00e-05, epochs=40, patience=8
+2026-03-18 21:32:23,722 [INFO] trainer:   SWA starts at epoch 18 (ratio=0.25)
+2026-03-18 21:32:23,722 [INFO] trainer:   Progressive unfreeze: top 12 layers now, all at epoch 14
+2026-03-18 21:32:23,722 [INFO] trainer: ============================================================
+2026-03-18 21:34:05,981 [INFO] trainer: EPOCH P2 ep=9 train=1.1199 val=0.6584 f1=0.4498 prauc=0.4431
+2026-03-18 21:34:05,982 [INFO] trainer:   loss_breakdown: task=0.7806 kl=0.1365(×1.0=0.1365) essay=1.3519(×0.15=0.2028)
+2026-03-18 21:34:05,982 [INFO] trainer:   grad_norm: mean=2.875 max=4.422 (clip=1.0)
+2026-03-18 21:34:05,982 [INFO] trainer:   per_theme F1:   Asp=0.447 Att=0.286 Fam=0.622 Nav=0.618 Per=0.370 Res=0.324 Soc=0.494 Spi=0.438
+2026-03-18 21:34:05,982 [INFO] trainer:   per_theme P:    Asp=0.323 Att=0.256 Fam=0.565 Nav=0.470 Per=0.269 Res=0.343 Soc=0.384 Spi=0.381
+2026-03-18 21:34:05,982 [INFO] trainer:   per_theme R:    Asp=0.723 Att=0.324 Fam=0.693 Nav=0.902 Per=0.592 Res=0.308 Soc=0.691 Spi=0.514
+2026-03-18 21:34:05,982 [INFO] trainer:   per_theme PRAUC:Asp=0.481 Att=0.218 Fam=0.645 Nav=0.667 Per=0.347 Res=0.307 Soc=0.509 Spi=0.371
+2026-03-18 21:34:05,982 [INFO] trainer:   class_0: F1=0.464 P=0.845 R=0.320 (sup=903)
+2026-03-18 21:34:05,982 [INFO] trainer:   logit_sep (pos-neg): Res=0.60 Asp=0.83 Att=0.92 Per=1.07 Spi=1.10 Nav=1.18 Soc=1.29 Fam=1.90
+2026-03-18 21:34:05,982 [INFO] trainer:   pred_vs_true (mean): Per=0.366/0.074 Asp=0.416/0.128 Res=0.323/0.044 Soc=0.297/0.048 Nav=0.486/0.254
+2026-03-18 21:34:09,859 [INFO] trainer:   NEW BEST (PRAUC=0.4431, phase 2)
+2026-03-18 21:35:52,180 [INFO] trainer: EPOCH P2 ep=10 train=1.0894 val=0.6625 f1=0.4492 prauc=0.4539
+2026-03-18 21:35:52,181 [INFO] trainer:   loss_breakdown: task=0.7641 kl=0.1267(×1.0=0.1267) essay=1.3244(×0.15=0.1987)
+2026-03-18 21:35:52,181 [INFO] trainer:   grad_norm: mean=2.932 max=4.453 (clip=1.0)
+2026-03-18 21:35:52,181 [INFO] trainer:   per_theme F1:   Asp=0.452 Att=0.306 Fam=0.621 Nav=0.608 Per=0.341 Res=0.340 Soc=0.520 Spi=0.406
+2026-03-18 21:35:52,182 [INFO] trainer:   per_theme P:    Asp=0.324 Att=0.289 Fam=0.578 Nav=0.456 Per=0.238 Res=0.347 Soc=0.448 Spi=0.408
+2026-03-18 21:35:52,182 [INFO] trainer:   per_theme R:    Asp=0.746 Att=0.324 Fam=0.670 Nav=0.913 Per=0.600 Res=0.333 Soc=0.619 Spi=0.403
+2026-03-18 21:35:52,182 [INFO] trainer:   per_theme PRAUC:Asp=0.476 Att=0.224 Fam=0.661 Nav=0.678 Per=0.368 Res=0.312 Soc=0.526 Spi=0.387
+2026-03-18 21:35:52,182 [INFO] trainer:   class_0: F1=0.449 P=0.837 R=0.307 (sup=903)
+2026-03-18 21:35:52,182 [INFO] trainer:   logit_sep (pos-neg): Res=0.59 Asp=0.81 Att=0.87 Spi=1.06 Nav=1.08 Per=1.11 Soc=1.18 Fam=1.79
+2026-03-18 21:35:52,182 [INFO] trainer:   pred_vs_true (mean): Per=0.400/0.074 Asp=0.424/0.128 Res=0.330/0.044 Soc=0.287/0.048 Nav=0.492/0.254
+2026-03-18 21:35:56,005 [INFO] trainer:   NEW BEST (PRAUC=0.4539, phase 2)
+2026-03-18 21:37:38,192 [INFO] trainer: EPOCH P2 ep=11 train=1.0687 val=0.6501 f1=0.4328 prauc=0.4588
+2026-03-18 21:37:38,194 [INFO] trainer:   loss_breakdown: task=0.7547 kl=0.1161(×1.0=0.1161) essay=1.3193(×0.15=0.1979)
+2026-03-18 21:37:38,194 [INFO] trainer:   grad_norm: mean=2.813 max=4.261 (clip=1.0)
+2026-03-18 21:37:38,194 [INFO] trainer:   per_theme F1:   Asp=0.464 Att=0.279 Fam=0.632 Nav=0.606 Per=0.391 Res=0.204 Soc=0.496 Spi=0.391
+2026-03-18 21:37:38,194 [INFO] trainer:   per_theme P:    Asp=0.343 Att=0.244 Fam=0.639 Nav=0.453 Per=0.295 Res=0.500 Soc=0.387 Spi=0.426
+2026-03-18 21:37:38,194 [INFO] trainer:   per_theme R:    Asp=0.719 Att=0.324 Fam=0.625 Nav=0.915 Per=0.577 Res=0.128 Soc=0.691 Spi=0.361
+2026-03-18 21:37:38,194 [INFO] trainer:   per_theme PRAUC:Asp=0.476 Att=0.232 Fam=0.676 Nav=0.688 Per=0.373 Res=0.329 Soc=0.522 Spi=0.375
+2026-03-18 21:37:38,194 [INFO] trainer:   class_0: F1=0.486 P=0.831 R=0.343 (sup=903)
+2026-03-18 21:37:38,194 [INFO] trainer:   logit_sep (pos-neg): Res=0.61 Asp=0.78 Att=0.88 Nav=0.98 Spi=1.03 Per=1.15 Soc=1.19 Fam=1.86
+2026-03-18 21:37:38,194 [INFO] trainer:   pred_vs_true (mean): Asp=0.412/0.128 Soc=0.307/0.048 Per=0.333/0.074 Att=0.265/0.019 Res=0.284/0.044
+2026-03-18 21:37:41,975 [INFO] trainer:   NEW BEST (PRAUC=0.4588, phase 2)
+2026-03-18 21:39:24,141 [INFO] trainer: EPOCH P2 ep=12 train=1.0614 val=0.6403 f1=0.4518 prauc=0.4662
+2026-03-18 21:39:24,142 [INFO] trainer:   loss_breakdown: task=0.7589 kl=0.1075(×1.0=0.1075) essay=1.3005(×0.15=0.1951)
+2026-03-18 21:39:24,142 [INFO] trainer:   grad_norm: mean=2.901 max=5.161 (clip=1.0)
+2026-03-18 21:39:24,142 [INFO] trainer:   per_theme F1:   Asp=0.502 Att=0.262 Fam=0.643 Nav=0.648 Per=0.384 Res=0.154 Soc=0.540 Spi=0.483
+2026-03-18 21:39:24,142 [INFO] trainer:   per_theme P:    Asp=0.403 Att=0.220 Fam=0.577 Nav=0.510 Per=0.296 Res=0.538 Soc=0.557 Spi=0.374
+2026-03-18 21:39:24,142 [INFO] trainer:   per_theme R:    Asp=0.665 Att=0.324 Fam=0.727 Nav=0.888 Per=0.546 Res=0.090 Soc=0.524 Spi=0.681
+2026-03-18 21:39:24,142 [INFO] trainer:   per_theme PRAUC:Asp=0.478 Att=0.209 Fam=0.703 Nav=0.699 Per=0.398 Res=0.327 Soc=0.541 Spi=0.375
+2026-03-18 21:39:24,142 [INFO] trainer:   class_0: F1=0.544 P=0.842 R=0.402 (sup=903)
+2026-03-18 21:39:24,142 [INFO] trainer:   logit_sep (pos-neg): Res=0.69 Asp=0.77 Att=0.90 Nav=0.95 Per=1.09 Soc=1.21 Spi=1.21 Fam=1.95
+2026-03-18 21:39:24,142 [INFO] trainer:   pred_vs_true (mean): Asp=0.394/0.128 Spi=0.296/0.041 Per=0.314/0.074 Att=0.255/0.019 Fam=0.268/0.050
+2026-03-18 21:39:28,092 [INFO] trainer:   NEW BEST (PRAUC=0.4662, phase 2)
+2026-03-18 21:41:10,377 [INFO] trainer: EPOCH P2 ep=13 train=1.0310 val=0.6398 f1=0.4821 prauc=0.4760
+2026-03-18 21:41:10,378 [INFO] trainer:   loss_breakdown: task=0.7433 kl=0.0986(×1.0=0.0986) essay=1.2604(×0.15=0.1891)
+2026-03-18 21:41:10,378 [INFO] trainer:   grad_norm: mean=2.855 max=5.059 (clip=1.0)
+2026-03-18 21:41:10,378 [INFO] trainer:   per_theme F1:   Asp=0.485 Att=0.301 Fam=0.614 Nav=0.607 Per=0.392 Res=0.425 Soc=0.559 Spi=0.474
+2026-03-18 21:41:10,378 [INFO] trainer:   per_theme P:    Asp=0.367 Att=0.282 Fam=0.544 Nav=0.455 Per=0.296 Res=0.415 Soc=0.510 Spi=0.381
+2026-03-18 21:41:10,378 [INFO] trainer:   per_theme R:    Asp=0.714 Att=0.324 Fam=0.705 Nav=0.913 Per=0.577 Res=0.436 Soc=0.619 Spi=0.625
+2026-03-18 21:41:10,378 [INFO] trainer:   per_theme PRAUC:Asp=0.471 Att=0.245 Fam=0.711 Nav=0.707 Per=0.410 Res=0.346 Soc=0.547 Spi=0.369
+2026-03-18 21:41:10,378 [INFO] trainer:   class_0: F1=0.476 P=0.851 R=0.330 (sup=903)
+2026-03-18 21:41:10,378 [INFO] trainer:   logit_sep (pos-neg): Asp=0.77 Res=0.78 Att=0.93 Nav=0.93 Spi=1.21 Per=1.22 Soc=1.30 Fam=2.14
+2026-03-18 21:41:10,378 [INFO] trainer:   pred_vs_true (mean): Asp=0.411/0.128 Per=0.331/0.074 Res=0.297/0.044 Spi=0.285/0.041 Nav=0.486/0.254
+2026-03-18 21:41:14,278 [INFO] trainer:   NEW BEST (PRAUC=0.4760, phase 2)
+2026-03-18 21:41:14,278 [INFO] trainer: Progressive unfreeze: unfreezing ALL encoder layers at epoch 14
+2026-03-18 21:41:14,279 [INFO] model: Encoder unfrozen
+2026-03-18 21:41:14,280 [INFO] trainer: Phase 2 LLRD: n_layers=24, top_lr=5.00e-06, embed_lr=6.76e-07, decoder_lr=2.00e-05, decay=0.92
+2026-03-18 21:43:38,480 [INFO] trainer: EPOCH P2 ep=14 train=0.9911 val=0.6436 f1=0.4724 prauc=0.4791
+2026-03-18 21:43:38,481 [INFO] trainer:   loss_breakdown: task=0.7242 kl=0.0923(×1.0=0.0923) essay=1.1639(×0.15=0.1746)
+2026-03-18 21:43:38,481 [INFO] trainer:   grad_norm: mean=2.893 max=5.173 (clip=1.0)
+2026-03-18 21:43:38,481 [INFO] trainer:   per_theme F1:   Asp=0.495 Att=0.302 Fam=0.649 Nav=0.606 Per=0.383 Res=0.396 Soc=0.500 Spi=0.449
+2026-03-18 21:43:38,481 [INFO] trainer:   per_theme P:    Asp=0.371 Att=0.250 Fam=0.602 Nav=0.452 Per=0.283 Res=0.346 Soc=0.375 Spi=0.398
+2026-03-18 21:43:38,481 [INFO] trainer:   per_theme R:    Asp=0.741 Att=0.382 Fam=0.705 Nav=0.919 Per=0.592 Res=0.462 Soc=0.750 Spi=0.514
+2026-03-18 21:43:38,481 [INFO] trainer:   per_theme PRAUC:Asp=0.471 Att=0.249 Fam=0.721 Nav=0.708 Per=0.437 Res=0.356 Soc=0.529 Spi=0.363
+2026-03-18 21:43:38,481 [INFO] trainer:   class_0: F1=0.463 P=0.869 R=0.316 (sup=903)
+2026-03-18 21:43:38,481 [INFO] trainer:   logit_sep (pos-neg): Asp=0.79 Res=0.88 Nav=0.94 Att=1.04 Spi=1.18 Per=1.22 Soc=1.42 Fam=2.14
+2026-03-18 21:43:38,481 [INFO] trainer:   pred_vs_true (mean): Per=0.361/0.074 Asp=0.413/0.128 Soc=0.310/0.048 Res=0.297/0.044 Nav=0.488/0.254
+2026-03-18 21:43:42,338 [INFO] trainer:   NEW BEST (PRAUC=0.4791, phase 2)
+2026-03-18 21:46:05,390 [INFO] trainer: EPOCH P2 ep=15 train=0.9961 val=0.6391 f1=0.4727 prauc=0.4797
+2026-03-18 21:46:05,391 [INFO] trainer:   loss_breakdown: task=0.7287 kl=0.0904(×1.0=0.0904) essay=1.1804(×0.15=0.1771)
+2026-03-18 21:46:05,391 [INFO] trainer:   grad_norm: mean=2.749 max=4.389 (clip=1.0)
+2026-03-18 21:46:05,391 [INFO] trainer:   per_theme F1:   Asp=0.486 Att=0.270 Fam=0.667 Nav=0.584 Per=0.381 Res=0.380 Soc=0.530 Spi=0.484
+2026-03-18 21:46:05,391 [INFO] trainer:   per_theme P:    Asp=0.359 Att=0.218 Fam=0.652 Nav=0.423 Per=0.292 Res=0.337 Soc=0.457 Spi=0.385
+2026-03-18 21:46:05,391 [INFO] trainer:   per_theme R:    Asp=0.754 Att=0.353 Fam=0.682 Nav=0.942 Per=0.546 Res=0.436 Soc=0.631 Spi=0.653
+2026-03-18 21:46:05,391 [INFO] trainer:   per_theme PRAUC:Asp=0.476 Att=0.252 Fam=0.732 Nav=0.719 Per=0.424 Res=0.336 Soc=0.543 Spi=0.357
+2026-03-18 21:46:05,391 [INFO] trainer:   class_0: F1=0.440 P=0.880 R=0.293 (sup=903)
+2026-03-18 21:46:05,391 [INFO] trainer:   logit_sep (pos-neg): Asp=0.77 Nav=0.94 Res=0.97 Att=1.02 Per=1.23 Spi=1.28 Soc=1.37 Fam=2.05
+2026-03-18 21:46:05,391 [INFO] trainer:   pred_vs_true (mean): Asp=0.421/0.128 Per=0.322/0.074 Nav=0.500/0.254 Spi=0.283/0.041 Res=0.278/0.044
+2026-03-18 21:46:09,224 [INFO] trainer:   NEW BEST (PRAUC=0.4797, phase 2)
+2026-03-18 21:48:33,598 [INFO] trainer: EPOCH P2 ep=16 train=0.9491 val=0.6492 f1=0.4727 prauc=0.4859
+2026-03-18 21:48:33,599 [INFO] trainer:   loss_breakdown: task=0.6981 kl=0.0843(×1.0=0.0843) essay=1.1113(×0.15=0.1667)
+2026-03-18 21:48:33,599 [INFO] trainer:   grad_norm: mean=2.654 max=4.862 (clip=1.0)
+2026-03-18 21:48:33,599 [INFO] trainer:   per_theme F1:   Asp=0.490 Att=0.262 Fam=0.634 Nav=0.608 Per=0.387 Res=0.414 Soc=0.509 Spi=0.479
+2026-03-18 21:48:33,599 [INFO] trainer:   per_theme P:    Asp=0.364 Att=0.192 Fam=0.561 Nav=0.456 Per=0.289 Res=0.375 Soc=0.422 Spi=0.362
+2026-03-18 21:48:33,599 [INFO] trainer:   per_theme R:    Asp=0.750 Att=0.412 Fam=0.727 Nav=0.910 Per=0.585 Res=0.462 Soc=0.643 Spi=0.708
+2026-03-18 21:48:33,599 [INFO] trainer:   per_theme PRAUC:Asp=0.487 Att=0.264 Fam=0.728 Nav=0.726 Per=0.433 Res=0.348 Soc=0.546 Spi=0.355
+2026-03-18 21:48:33,599 [INFO] trainer:   class_0: F1=0.462 P=0.876 R=0.313 (sup=903)
+2026-03-18 21:48:33,599 [INFO] trainer:   logit_sep (pos-neg): Asp=0.80 Nav=0.89 Res=1.02 Att=1.17 Per=1.31 Soc=1.42 Spi=1.44 Fam=2.38
+2026-03-18 21:48:33,599 [INFO] trainer:   pred_vs_true (mean): Asp=0.419/0.128 Per=0.340/0.074 Att=0.270/0.019 Spi=0.288/0.041 Nav=0.481/0.254
+2026-03-18 21:48:37,310 [INFO] trainer:   NEW BEST (PRAUC=0.4859, phase 2)
+2026-03-18 21:51:01,383 [INFO] trainer: EPOCH P2 ep=17 train=0.9438 val=0.6575 f1=0.4805 prauc=0.4855
+2026-03-18 21:51:01,384 [INFO] trainer:   loss_breakdown: task=0.6984 kl=0.0842(×1.0=0.0842) essay=1.0753(×0.15=0.1613)
+2026-03-18 21:51:01,384 [INFO] trainer:   grad_norm: mean=2.777 max=4.381 (clip=1.0)
+2026-03-18 21:51:01,384 [INFO] trainer:   per_theme F1:   Asp=0.507 Att=0.304 Fam=0.663 Nav=0.617 Per=0.373 Res=0.361 Soc=0.543 Spi=0.476
+2026-03-18 21:51:01,384 [INFO] trainer:   per_theme P:    Asp=0.388 Att=0.241 Fam=0.626 Nav=0.467 Per=0.271 Res=0.260 Soc=0.452 Spi=0.346
+2026-03-18 21:51:01,384 [INFO] trainer:   per_theme R:    Asp=0.732 Att=0.412 Fam=0.705 Nav=0.908 Per=0.600 Res=0.590 Soc=0.679 Spi=0.764
+2026-03-18 21:51:01,384 [INFO] trainer:   per_theme PRAUC:Asp=0.500 Att=0.259 Fam=0.736 Nav=0.730 Per=0.428 Res=0.342 Soc=0.535 Spi=0.354
+2026-03-18 21:51:01,384 [INFO] trainer:   class_0: F1=0.469 P=0.881 R=0.320 (sup=903)
+2026-03-18 21:51:01,384 [INFO] trainer:   logit_sep (pos-neg): Asp=0.82 Nav=0.96 Res=1.12 Att=1.14 Per=1.32 Soc=1.47 Spi=1.55 Fam=2.22
+2026-03-18 21:51:01,384 [INFO] trainer:   pred_vs_true (mean): Per=0.366/0.074 Asp=0.406/0.128 Spi=0.286/0.041 Res=0.287/0.044 Att=0.248/0.019
+2026-03-18 21:53:24,721 [INFO] trainer: EPOCH P2 ep=18 train=0.9147 val=0.6568 f1=0.4760 prauc=0.4815
+2026-03-18 21:53:24,722 [INFO] trainer:   loss_breakdown: task=0.6795 kl=0.0818(×1.0=0.0818) essay=1.0226(×0.15=0.1534)
+2026-03-18 21:53:24,722 [INFO] trainer:   grad_norm: mean=2.662 max=4.168 (clip=1.0)
+2026-03-18 21:53:24,722 [INFO] trainer:   per_theme F1:   Asp=0.522 Att=0.292 Fam=0.646 Nav=0.636 Per=0.367 Res=0.341 Soc=0.540 Spi=0.464
+2026-03-18 21:53:24,722 [INFO] trainer:   per_theme P:    Asp=0.401 Att=0.226 Fam=0.582 Nav=0.494 Per=0.266 Res=0.404 Soc=0.495 Spi=0.335
+2026-03-18 21:53:24,722 [INFO] trainer:   per_theme R:    Asp=0.746 Att=0.412 Fam=0.727 Nav=0.890 Per=0.592 Res=0.295 Soc=0.595 Spi=0.750
+2026-03-18 21:53:24,722 [INFO] trainer:   per_theme PRAUC:Asp=0.508 Att=0.268 Fam=0.742 Nav=0.715 Per=0.430 Res=0.345 Soc=0.500 Spi=0.344
+2026-03-18 21:53:24,722 [INFO] trainer:   class_0: F1=0.513 P=0.868 R=0.364 (sup=903)
+2026-03-18 21:53:24,722 [INFO] trainer:   logit_sep (pos-neg): Asp=0.82 Nav=0.90 Res=1.02 Att=1.19 Per=1.28 Soc=1.32 Spi=1.44 Fam=2.43
+2026-03-18 21:53:24,722 [INFO] trainer:   pred_vs_true (mean): Per=0.365/0.074 Asp=0.406/0.128 Spi=0.297/0.041 Att=0.262/0.019 Soc=0.260/0.048
+2026-03-18 21:55:47,698 [INFO] trainer: EPOCH P2 ep=19 train=0.8808 val=0.6514 f1=0.4823 prauc=0.4807
+2026-03-18 21:55:47,699 [INFO] trainer:   loss_breakdown: task=0.6560 kl=0.0802(×1.0=0.0802) essay=0.9645(×0.15=0.1447)
+2026-03-18 21:55:47,699 [INFO] trainer:   grad_norm: mean=2.605 max=4.547 (clip=1.0)
+2026-03-18 21:55:47,699 [INFO] trainer:   per_theme F1:   Asp=0.499 Att=0.292 Fam=0.656 Nav=0.627 Per=0.386 Res=0.362 Soc=0.537 Spi=0.500
+2026-03-18 21:55:47,699 [INFO] trainer:   per_theme P:    Asp=0.379 Att=0.226 Fam=0.614 Nav=0.481 Per=0.300 Res=0.380 Soc=0.481 Spi=0.391
+2026-03-18 21:55:47,699 [INFO] trainer:   per_theme R:    Asp=0.732 Att=0.412 Fam=0.705 Nav=0.899 Per=0.538 Res=0.346 Soc=0.607 Spi=0.694
+2026-03-18 21:55:47,699 [INFO] trainer:   per_theme PRAUC:Asp=0.510 Att=0.255 Fam=0.734 Nav=0.722 Per=0.415 Res=0.363 Soc=0.498 Spi=0.349
+2026-03-18 21:55:47,699 [INFO] trainer:   class_0: F1=0.543 P=0.857 R=0.398 (sup=903)
+2026-03-18 21:55:47,699 [INFO] trainer:   logit_sep (pos-neg): Asp=0.83 Nav=0.90 Res=1.05 Per=1.19 Att=1.31 Soc=1.41 Spi=1.44 Fam=2.23
+2026-03-18 21:55:47,699 [INFO] trainer:   pred_vs_true (mean): Asp=0.409/0.128 Per=0.333/0.074 Spi=0.268/0.041 Att=0.245/0.019 Nav=0.471/0.254
+2026-03-18 21:58:10,475 [INFO] trainer: EPOCH P2 ep=20 train=0.8649 val=0.6645 f1=0.4691 prauc=0.4782
+2026-03-18 21:58:10,476 [INFO] trainer:   loss_breakdown: task=0.6520 kl=0.0790(×1.0=0.0790) essay=0.8927(×0.15=0.1339)
+2026-03-18 21:58:10,476 [INFO] trainer:   grad_norm: mean=2.664 max=4.495 (clip=1.0)
+2026-03-18 21:58:10,476 [INFO] trainer:   per_theme F1:   Asp=0.489 Att=0.318 Fam=0.677 Nav=0.581 Per=0.393 Res=0.350 Soc=0.526 Spi=0.418
+2026-03-18 21:58:10,476 [INFO] trainer:   per_theme P:    Asp=0.357 Att=0.233 Fam=0.617 Nav=0.418 Per=0.312 Res=0.259 Soc=0.440 Spi=0.452
+2026-03-18 21:58:10,476 [INFO] trainer:   per_theme R:    Asp=0.777 Att=0.500 Fam=0.750 Nav=0.951 Per=0.531 Res=0.538 Soc=0.655 Spi=0.389
+2026-03-18 21:58:10,476 [INFO] trainer:   per_theme PRAUC:Asp=0.494 Att=0.244 Fam=0.744 Nav=0.732 Per=0.437 Res=0.375 Soc=0.467 Spi=0.333
+2026-03-18 21:58:10,476 [INFO] trainer:   class_0: F1=0.480 P=0.869 R=0.331 (sup=903)
+2026-03-18 21:58:10,476 [INFO] trainer:   logit_sep (pos-neg): Asp=0.83 Nav=0.90 Spi=1.11 Res=1.19 Per=1.22 Att=1.31 Soc=1.40 Fam=2.31
+2026-03-18 21:58:10,476 [INFO] trainer:   pred_vs_true (mean): Asp=0.423/0.128 Per=0.343/0.074 Nav=0.512/0.254 Res=0.277/0.044 Att=0.250/0.019
+2026-03-18 22:00:33,581 [INFO] trainer: EPOCH P2 ep=21 train=0.8387 val=0.6675 f1=0.4830 prauc=0.4877
+2026-03-18 22:00:33,582 [INFO] trainer:   loss_breakdown: task=0.6345 kl=0.0772(×1.0=0.0772) essay=0.8465(×0.15=0.1270)
+2026-03-18 22:00:33,582 [INFO] trainer:   grad_norm: mean=2.761 max=6.092 (clip=1.0)
+2026-03-18 22:00:33,582 [INFO] trainer:   per_theme F1:   Asp=0.490 Att=0.311 Fam=0.677 Nav=0.601 Per=0.398 Res=0.380 Soc=0.514 Spi=0.494
+2026-03-18 22:00:33,582 [INFO] trainer:   per_theme P:    Asp=0.356 Att=0.208 Fam=0.609 Nav=0.441 Per=0.318 Res=0.337 Soc=0.418 Spi=0.422
+2026-03-18 22:00:33,582 [INFO] trainer:   per_theme R:    Asp=0.786 Att=0.618 Fam=0.761 Nav=0.942 Per=0.531 Res=0.436 Soc=0.667 Spi=0.597
+2026-03-18 22:00:33,582 [INFO] trainer:   per_theme PRAUC:Asp=0.506 Att=0.240 Fam=0.752 Nav=0.733 Per=0.450 Res=0.384 Soc=0.479 Spi=0.358
+2026-03-18 22:00:33,582 [INFO] trainer:   class_0: F1=0.500 P=0.871 R=0.351 (sup=903)
+2026-03-18 22:00:33,582 [INFO] trainer:   logit_sep (pos-neg): Asp=0.83 Nav=0.91 Res=1.17 Per=1.28 Spi=1.38 Soc=1.42 Att=1.52 Fam=2.39
+2026-03-18 22:00:33,582 [INFO] trainer:   pred_vs_true (mean): Asp=0.427/0.128 Att=0.273/0.019 Per=0.323/0.074 Nav=0.499/0.254 Soc=0.290/0.048
+2026-03-18 22:00:37,508 [INFO] trainer:   NEW BEST (PRAUC=0.4877, phase 2)
+2026-03-18 22:03:02,027 [INFO] trainer: EPOCH P2 ep=22 train=0.8193 val=0.6842 f1=0.4743 prauc=0.4858
+2026-03-18 22:03:02,028 [INFO] trainer:   loss_breakdown: task=0.6233 kl=0.0780(×1.0=0.0780) essay=0.7868(×0.15=0.1180)
+2026-03-18 22:03:02,028 [INFO] trainer:   grad_norm: mean=2.449 max=3.782 (clip=1.0)
+2026-03-18 22:03:02,028 [INFO] trainer:   per_theme F1:   Asp=0.509 Att=0.304 Fam=0.663 Nav=0.615 Per=0.350 Res=0.364 Soc=0.520 Spi=0.469
+2026-03-18 22:03:02,028 [INFO] trainer:   per_theme P:    Asp=0.385 Att=0.218 Fam=0.595 Nav=0.466 Per=0.256 Res=0.249 Soc=0.422 Spi=0.398
+2026-03-18 22:03:02,028 [INFO] trainer:   per_theme R:    Asp=0.750 Att=0.500 Fam=0.750 Nav=0.906 Per=0.554 Res=0.679 Soc=0.679 Spi=0.569
+2026-03-18 22:03:02,028 [INFO] trainer:   per_theme PRAUC:Asp=0.521 Att=0.216 Fam=0.750 Nav=0.728 Per=0.442 Res=0.381 Soc=0.483 Spi=0.364
+2026-03-18 22:03:02,028 [INFO] trainer:   class_0: F1=0.492 P=0.853 R=0.345 (sup=903)
+2026-03-18 22:03:02,028 [INFO] trainer:   logit_sep (pos-neg): Asp=0.89 Nav=0.95 Res=1.36 Per=1.37 Spi=1.42 Att=1.46 Soc=1.61 Fam=2.52
+2026-03-18 22:03:02,028 [INFO] trainer:   pred_vs_true (mean): Per=0.364/0.074 Asp=0.410/0.128 Res=0.300/0.044 Att=0.252/0.019 Nav=0.485/0.254
+2026-03-18 22:05:26,228 [INFO] trainer: EPOCH P2 ep=23 train=0.8033 val=0.6762 f1=0.4687 prauc=0.4778
+2026-03-18 22:05:26,229 [INFO] trainer:   loss_breakdown: task=0.6151 kl=0.0765(×1.0=0.0765) essay=0.7450(×0.15=0.1117)
+2026-03-18 22:05:26,229 [INFO] trainer:   grad_norm: mean=2.631 max=5.146 (clip=1.0)
+2026-03-18 22:05:26,229 [INFO] trainer:   per_theme F1:   Asp=0.496 Att=0.286 Fam=0.663 Nav=0.594 Per=0.414 Res=0.354 Soc=0.521 Spi=0.421
+2026-03-18 22:05:26,229 [INFO] trainer:   per_theme P:    Asp=0.367 Att=0.240 Fam=0.626 Nav=0.434 Per=0.340 Res=0.243 Soc=0.427 Spi=0.400
+2026-03-18 22:05:26,229 [INFO] trainer:   per_theme R:    Asp=0.763 Att=0.353 Fam=0.705 Nav=0.944 Per=0.531 Res=0.654 Soc=0.667 Spi=0.444
+2026-03-18 22:05:26,229 [INFO] trainer:   per_theme PRAUC:Asp=0.502 Att=0.224 Fam=0.750 Nav=0.725 Per=0.436 Res=0.371 Soc=0.467 Spi=0.347
+2026-03-18 22:05:26,229 [INFO] trainer:   class_0: F1=0.504 P=0.865 R=0.355 (sup=903)
+2026-03-18 22:05:26,229 [INFO] trainer:   logit_sep (pos-neg): Asp=0.85 Nav=0.98 Spi=1.25 Att=1.32 Per=1.34 Res=1.34 Soc=1.53 Fam=2.35
+2026-03-18 22:05:26,229 [INFO] trainer:   pred_vs_true (mean): Asp=0.421/0.128 Nav=0.508/0.254 Res=0.296/0.044 Per=0.315/0.074 Soc=0.274/0.048
+2026-03-18 22:07:50,153 [INFO] trainer: EPOCH P2 ep=24 train=0.7824 val=0.6713 f1=0.4901 prauc=0.4812
+2026-03-18 22:07:50,154 [INFO] trainer:   loss_breakdown: task=0.5972 kl=0.0774(×1.0=0.0774) essay=0.7187(×0.15=0.1078)
+2026-03-18 22:07:50,154 [INFO] trainer:   grad_norm: mean=2.437 max=3.927 (clip=1.0)
+2026-03-18 22:07:50,154 [INFO] trainer:   per_theme F1:   Asp=0.519 Att=0.330 Fam=0.680 Nav=0.602 Per=0.445 Res=0.349 Soc=0.514 Spi=0.481
+2026-03-18 22:07:50,154 [INFO] trainer:   per_theme P:    Asp=0.399 Att=0.246 Fam=0.623 Nav=0.443 Per=0.392 Res=0.297 Soc=0.429 Spi=0.442
+2026-03-18 22:07:50,154 [INFO] trainer:   per_theme R:    Asp=0.746 Att=0.500 Fam=0.750 Nav=0.937 Per=0.515 Res=0.423 Soc=0.643 Spi=0.528
+2026-03-18 22:07:50,154 [INFO] trainer:   per_theme PRAUC:Asp=0.508 Att=0.236 Fam=0.747 Nav=0.723 Per=0.460 Res=0.354 Soc=0.456 Spi=0.366
+2026-03-18 22:07:50,154 [INFO] trainer:   class_0: F1=0.552 P=0.865 R=0.405 (sup=903)
+2026-03-18 22:07:50,154 [INFO] trainer:   logit_sep (pos-neg): Asp=0.82 Nav=0.93 Res=1.12 Per=1.25 Spi=1.37 Soc=1.48 Att=1.55 Fam=2.48
+2026-03-18 22:07:50,154 [INFO] trainer:   pred_vs_true (mean): Asp=0.410/0.128 Nav=0.504/0.254 Soc=0.285/0.048 Per=0.299/0.074 Att=0.243/0.019
+2026-03-18 22:10:13,496 [INFO] trainer: EPOCH P2 ep=25 train=0.7724 val=0.6770 f1=0.4943 prauc=0.4870
+2026-03-18 22:10:13,496 [INFO] trainer:   loss_breakdown: task=0.5916 kl=0.0779(×1.0=0.0779) essay=0.6859(×0.15=0.1029)
+2026-03-18 22:10:13,496 [INFO] trainer:   grad_norm: mean=2.347 max=4.618 (clip=1.0)
+2026-03-18 22:10:13,497 [INFO] trainer:   per_theme F1:   Asp=0.517 Att=0.370 Fam=0.689 Nav=0.615 Per=0.404 Res=0.382 Soc=0.492 Spi=0.487
+2026-03-18 22:10:13,497 [INFO] trainer:   per_theme P:    Asp=0.392 Att=0.270 Fam=0.674 Nav=0.461 Per=0.323 Res=0.392 Soc=0.378 Spi=0.463
+2026-03-18 22:10:13,497 [INFO] trainer:   per_theme R:    Asp=0.759 Att=0.588 Fam=0.705 Nav=0.922 Per=0.538 Res=0.372 Soc=0.702 Spi=0.514
+2026-03-18 22:10:13,497 [INFO] trainer:   per_theme PRAUC:Asp=0.506 Att=0.224 Fam=0.743 Nav=0.712 Per=0.472 Res=0.401 Soc=0.464 Spi=0.374
+2026-03-18 22:10:13,497 [INFO] trainer:   class_0: F1=0.540 P=0.848 R=0.397 (sup=903)
+2026-03-18 22:10:13,497 [INFO] trainer:   logit_sep (pos-neg): Asp=0.85 Nav=0.92 Res=1.06 Spi=1.39 Att=1.44 Per=1.49 Soc=1.53 Fam=2.45
+2026-03-18 22:10:13,497 [INFO] trainer:   pred_vs_true (mean): Asp=0.412/0.128 Soc=0.309/0.048 Per=0.319/0.074 Att=0.260/0.019 Nav=0.493/0.254
+2026-03-18 22:12:37,748 [INFO] trainer: EPOCH P2 ep=26 train=0.7422 val=0.6693 f1=0.4929 prauc=0.4822
+2026-03-18 22:12:37,749 [INFO] trainer:   loss_breakdown: task=0.5709 kl=0.0760(×1.0=0.0760) essay=0.6355(×0.15=0.0953)
+2026-03-18 22:12:37,749 [INFO] trainer:   grad_norm: mean=2.384 max=4.387 (clip=1.0)
+2026-03-18 22:12:37,749 [INFO] trainer:   per_theme F1:   Asp=0.510 Att=0.292 Fam=0.691 Nav=0.611 Per=0.487 Res=0.313 Soc=0.529 Spi=0.510
+2026-03-18 22:12:37,749 [INFO] trainer:   per_theme P:    Asp=0.389 Att=0.236 Fam=0.641 Nav=0.452 Per=0.462 Res=0.295 Soc=0.450 Spi=0.481
+2026-03-18 22:12:37,749 [INFO] trainer:   per_theme R:    Asp=0.741 Att=0.382 Fam=0.750 Nav=0.942 Per=0.515 Res=0.333 Soc=0.643 Spi=0.542
+2026-03-18 22:12:37,749 [INFO] trainer:   per_theme PRAUC:Asp=0.510 Att=0.212 Fam=0.755 Nav=0.716 Per=0.467 Res=0.374 Soc=0.460 Spi=0.362
+2026-03-18 22:12:37,749 [INFO] trainer:   class_0: F1=0.587 P=0.879 R=0.441 (sup=903)
+2026-03-18 22:12:37,749 [INFO] trainer:   logit_sep (pos-neg): Asp=0.84 Nav=0.95 Res=1.06 Spi=1.30 Att=1.30 Per=1.36 Soc=1.54 Fam=2.58
+2026-03-18 22:12:37,749 [INFO] trainer:   pred_vs_true (mean): Asp=0.411/0.128 Nav=0.502/0.254 Soc=0.265/0.048 Att=0.235/0.019 Fam=0.265/0.050
+2026-03-18 22:15:01,377 [INFO] trainer: EPOCH P2 ep=27 train=0.7350 val=0.6707 f1=0.4907 prauc=0.4899
+2026-03-18 22:15:01,377 [INFO] trainer:   loss_breakdown: task=0.5676 kl=0.0767(×1.0=0.0767) essay=0.6054(×0.15=0.0908)
+2026-03-18 22:15:01,377 [INFO] trainer:   grad_norm: mean=2.369 max=3.767 (clip=1.0)
+2026-03-18 22:15:01,377 [INFO] trainer:   per_theme F1:   Asp=0.509 Att=0.318 Fam=0.694 Nav=0.607 Per=0.425 Res=0.343 Soc=0.529 Spi=0.500
+2026-03-18 22:15:01,377 [INFO] trainer:   per_theme P:    Asp=0.379 Att=0.259 Fam=0.706 Nav=0.448 Per=0.352 Res=0.411 Soc=0.444 Spi=0.464
+2026-03-18 22:15:01,377 [INFO] trainer:   per_theme R:    Asp=0.772 Att=0.412 Fam=0.682 Nav=0.944 Per=0.538 Res=0.295 Soc=0.655 Spi=0.542
+2026-03-18 22:15:01,377 [INFO] trainer:   per_theme PRAUC:Asp=0.509 Att=0.209 Fam=0.756 Nav=0.717 Per=0.482 Res=0.398 Soc=0.467 Spi=0.381
+2026-03-18 22:15:01,377 [INFO] trainer:   class_0: F1=0.540 P=0.870 R=0.392 (sup=903)
+2026-03-18 22:15:01,377 [INFO] trainer:   logit_sep (pos-neg): Asp=0.86 Nav=0.98 Res=0.98 Att=1.19 Spi=1.48 Soc=1.66 Per=1.69 Fam=2.53
+2026-03-18 22:15:01,377 [INFO] trainer:   pred_vs_true (mean): Asp=0.418/0.128 Nav=0.505/0.254 Per=0.310/0.074 Soc=0.273/0.048 Att=0.240/0.019
+2026-03-18 22:15:05,176 [INFO] trainer:   NEW BEST (PRAUC=0.4899, phase 2)
+2026-03-18 22:17:28,787 [INFO] trainer: EPOCH P2 ep=28 train=0.7346 val=0.6753 f1=0.4922 prauc=0.4896
+2026-03-18 22:17:28,788 [INFO] trainer:   loss_breakdown: task=0.5675 kl=0.0782(×1.0=0.0782) essay=0.5931(×0.15=0.0890)
+2026-03-18 22:17:28,788 [INFO] trainer:   grad_norm: mean=2.506 max=4.082 (clip=1.0)
+2026-03-18 22:17:28,788 [INFO] trainer:   per_theme F1:   Asp=0.475 Att=0.312 Fam=0.670 Nav=0.608 Per=0.439 Res=0.404 Soc=0.523 Spi=0.507
+2026-03-18 22:17:28,788 [INFO] trainer:   per_theme P:    Asp=0.336 Att=0.279 Fam=0.639 Nav=0.452 Per=0.370 Res=0.333 Soc=0.431 Spi=0.487
+2026-03-18 22:17:28,788 [INFO] trainer:   per_theme R:    Asp=0.808 Att=0.353 Fam=0.705 Nav=0.928 Per=0.538 Res=0.513 Soc=0.667 Spi=0.528
+2026-03-18 22:17:28,788 [INFO] trainer:   per_theme PRAUC:Asp=0.512 Att=0.211 Fam=0.752 Nav=0.718 Per=0.501 Res=0.388 Soc=0.465 Spi=0.371
+2026-03-18 22:17:28,788 [INFO] trainer:   class_0: F1=0.552 P=0.869 R=0.404 (sup=903)
+2026-03-18 22:17:28,788 [INFO] trainer:   logit_sep (pos-neg): Asp=0.89 Nav=0.98 Att=1.16 Res=1.19 Spi=1.41 Per=1.53 Soc=1.69 Fam=2.70
+2026-03-18 22:17:28,788 [INFO] trainer:   pred_vs_true (mean): Asp=0.436/0.128 Nav=0.501/0.254 Soc=0.286/0.048 Res=0.268/0.044 Per=0.297/0.074
+2026-03-18 22:19:52,954 [INFO] trainer: EPOCH P2 ep=29 train=0.7035 val=0.6783 f1=0.4976 prauc=0.4950
+2026-03-18 22:19:52,955 [INFO] trainer:   loss_breakdown: task=0.5437 kl=0.0762(×1.0=0.0762) essay=0.5574(×0.15=0.0836)
+2026-03-18 22:19:52,955 [INFO] trainer:   grad_norm: mean=2.214 max=3.955 (clip=1.0)
+2026-03-18 22:19:52,955 [INFO] trainer:   per_theme F1:   Asp=0.479 Att=0.322 Fam=0.705 Nav=0.604 Per=0.419 Res=0.395 Soc=0.531 Spi=0.526
+2026-03-18 22:19:52,955 [INFO] trainer:   per_theme P:    Asp=0.342 Att=0.264 Fam=0.718 Nav=0.456 Per=0.343 Res=0.392 Soc=0.447 Spi=0.488
+2026-03-18 22:19:52,955 [INFO] trainer:   per_theme R:    Asp=0.799 Att=0.412 Fam=0.693 Nav=0.895 Per=0.538 Res=0.397 Soc=0.655 Spi=0.569
+2026-03-18 22:19:52,955 [INFO] trainer:   per_theme PRAUC:Asp=0.510 Att=0.210 Fam=0.760 Nav=0.708 Per=0.512 Res=0.407 Soc=0.457 Spi=0.395
+2026-03-18 22:19:52,955 [INFO] trainer:   class_0: F1=0.553 P=0.864 R=0.406 (sup=903)
+2026-03-18 22:19:52,955 [INFO] trainer:   logit_sep (pos-neg): Asp=0.86 Nav=0.95 Res=1.05 Att=1.30 Per=1.61 Soc=1.66 Spi=1.67 Fam=2.50
+2026-03-18 22:19:52,955 [INFO] trainer:   pred_vs_true (mean): Asp=0.436/0.128 Nav=0.491/0.254 Per=0.304/0.074 Soc=0.272/0.048 Att=0.232/0.019
+2026-03-18 22:19:56,954 [INFO] trainer:   NEW BEST (PRAUC=0.4950, phase 2)
+2026-03-18 22:22:20,335 [INFO] trainer: EPOCH P2 ep=30 train=0.7005 val=0.6756 f1=0.5074 prauc=0.4921
+2026-03-18 22:22:20,336 [INFO] trainer:   loss_breakdown: task=0.5393 kl=0.0783(×1.0=0.0783) essay=0.5523(×0.15=0.0828)
+2026-03-18 22:22:20,336 [INFO] trainer:   grad_norm: mean=2.222 max=3.828 (clip=1.0)
+2026-03-18 22:22:20,336 [INFO] trainer:   per_theme F1:   Asp=0.506 Att=0.333 Fam=0.682 Nav=0.625 Per=0.463 Res=0.381 Soc=0.530 Spi=0.538
+2026-03-18 22:22:20,336 [INFO] trainer:   per_theme P:    Asp=0.376 Att=0.268 Fam=0.694 Nav=0.486 Per=0.411 Res=0.356 Soc=0.457 Spi=0.500
+2026-03-18 22:22:20,336 [INFO] trainer:   per_theme R:    Asp=0.772 Att=0.441 Fam=0.670 Nav=0.875 Per=0.531 Res=0.410 Soc=0.631 Spi=0.583
+2026-03-18 22:22:20,336 [INFO] trainer:   per_theme PRAUC:Asp=0.508 Att=0.241 Fam=0.760 Nav=0.705 Per=0.503 Res=0.393 Soc=0.455 Spi=0.371
+2026-03-18 22:22:20,336 [INFO] trainer:   class_0: F1=0.622 P=0.863 R=0.486 (sup=903)
+2026-03-18 22:22:20,336 [INFO] trainer:   logit_sep (pos-neg): Asp=0.88 Nav=0.95 Res=1.11 Att=1.41 Per=1.48 Spi=1.50 Soc=1.58 Fam=2.56
+2026-03-18 22:22:20,336 [INFO] trainer:   pred_vs_true (mean): Asp=0.419/0.128 Att=0.242/0.019 Soc=0.270/0.048 Spi=0.261/0.041 Nav=0.474/0.254
+2026-03-18 22:24:44,093 [INFO] trainer: EPOCH P2 ep=31 train=0.6884 val=0.6775 f1=0.5068 prauc=0.4932
+2026-03-18 22:24:44,094 [INFO] trainer:   loss_breakdown: task=0.5340 kl=0.0762(×1.0=0.0762) essay=0.5213(×0.15=0.0782)
+2026-03-18 22:24:44,094 [INFO] trainer:   grad_norm: mean=2.193 max=4.670 (clip=1.0)
+2026-03-18 22:24:44,094 [INFO] trainer:   per_theme F1:   Asp=0.508 Att=0.341 Fam=0.705 Nav=0.610 Per=0.429 Res=0.381 Soc=0.535 Spi=0.545
+2026-03-18 22:24:44,094 [INFO] trainer:   per_theme P:    Asp=0.382 Att=0.278 Fam=0.718 Nav=0.463 Per=0.357 Res=0.406 Soc=0.458 Spi=0.549
+2026-03-18 22:24:44,094 [INFO] trainer:   per_theme R:    Asp=0.759 Att=0.441 Fam=0.693 Nav=0.893 Per=0.538 Res=0.359 Soc=0.643 Spi=0.542
+2026-03-18 22:24:44,094 [INFO] trainer:   per_theme PRAUC:Asp=0.510 Att=0.225 Fam=0.754 Nav=0.701 Per=0.507 Res=0.415 Soc=0.461 Spi=0.372
+2026-03-18 22:24:44,094 [INFO] trainer:   class_0: F1=0.587 P=0.856 R=0.446 (sup=903)
+2026-03-18 22:24:44,094 [INFO] trainer:   logit_sep (pos-neg): Asp=0.89 Nav=0.99 Res=1.01 Att=1.40 Spi=1.42 Per=1.60 Soc=1.72 Fam=2.58
+2026-03-18 22:24:44,094 [INFO] trainer:   pred_vs_true (mean): Asp=0.416/0.128 Nav=0.494/0.254 Per=0.313/0.074 Soc=0.272/0.048 Att=0.240/0.019
+2026-03-18 22:27:07,798 [INFO] trainer: EPOCH P2 ep=32 train=0.6726 val=0.6935 f1=0.5022 prauc=0.4918
+2026-03-18 22:27:07,799 [INFO] trainer:   loss_breakdown: task=0.5212 kl=0.0769(×1.0=0.0769) essay=0.4964(×0.15=0.0745)
+2026-03-18 22:27:07,799 [INFO] trainer:   grad_norm: mean=2.010 max=3.984 (clip=1.0)
+2026-03-18 22:27:07,799 [INFO] trainer:   per_theme F1:   Asp=0.490 Att=0.333 Fam=0.692 Nav=0.619 Per=0.433 Res=0.393 Soc=0.520 Spi=0.537
+2026-03-18 22:27:07,799 [INFO] trainer:   per_theme P:    Asp=0.357 Att=0.268 Fam=0.670 Nav=0.470 Per=0.363 Res=0.350 Soc=0.442 Spi=0.519
+2026-03-18 22:27:07,799 [INFO] trainer:   per_theme R:    Asp=0.781 Att=0.441 Fam=0.716 Nav=0.904 Per=0.538 Res=0.449 Soc=0.631 Spi=0.556
+2026-03-18 22:27:07,799 [INFO] trainer:   per_theme PRAUC:Asp=0.522 Att=0.232 Fam=0.749 Nav=0.708 Per=0.512 Res=0.386 Soc=0.444 Spi=0.382
+2026-03-18 22:27:07,799 [INFO] trainer:   class_0: F1=0.582 P=0.865 R=0.439 (sup=903)
+2026-03-18 22:27:07,799 [INFO] trainer:   logit_sep (pos-neg): Asp=0.94 Nav=0.97 Res=1.12 Att=1.57 Spi=1.57 Per=1.71 Soc=1.77 Fam=2.83
+2026-03-18 22:27:07,799 [INFO] trainer:   pred_vs_true (mean): Asp=0.422/0.128 Nav=0.490/0.254 Per=0.307/0.074 Soc=0.274/0.048 Att=0.239/0.019
+2026-03-18 22:29:31,456 [INFO] trainer: EPOCH P2 ep=33 train=0.6742 val=0.6922 f1=0.4943 prauc=0.4931
+2026-03-18 22:29:31,456 [INFO] trainer:   loss_breakdown: task=0.5238 kl=0.0769(×1.0=0.0769) essay=0.4899(×0.15=0.0735)
+2026-03-18 22:29:31,457 [INFO] trainer:   grad_norm: mean=2.027 max=3.795 (clip=1.0)
+2026-03-18 22:29:31,457 [INFO] trainer:   per_theme F1:   Asp=0.451 Att=0.360 Fam=0.681 Nav=0.602 Per=0.442 Res=0.418 Soc=0.500 Spi=0.500
+2026-03-18 22:29:31,457 [INFO] trainer:   per_theme P:    Asp=0.311 Att=0.291 Fam=0.649 Nav=0.438 Per=0.379 Res=0.342 Soc=0.396 Spi=0.455
+2026-03-18 22:29:31,457 [INFO] trainer:   per_theme R:    Asp=0.821 Att=0.471 Fam=0.716 Nav=0.964 Per=0.531 Res=0.538 Soc=0.679 Spi=0.556
+2026-03-18 22:29:31,457 [INFO] trainer:   per_theme PRAUC:Asp=0.505 Att=0.203 Fam=0.746 Nav=0.715 Per=0.520 Res=0.411 Soc=0.451 Spi=0.393
+2026-03-18 22:29:31,457 [INFO] trainer:   class_0: F1=0.513 P=0.895 R=0.360 (sup=903)
+2026-03-18 22:29:31,457 [INFO] trainer:   logit_sep (pos-neg): Asp=0.92 Nav=1.01 Res=1.28 Att=1.32 Per=1.71 Spi=1.75 Soc=1.89 Fam=2.86
+2026-03-18 22:29:31,457 [INFO] trainer:   pred_vs_true (mean): Asp=0.451/0.128 Nav=0.523/0.254 Soc=0.290/0.048 Att=0.256/0.019 Per=0.305/0.074
+2026-03-18 22:31:54,801 [INFO] trainer: EPOCH P2 ep=34 train=0.6707 val=0.6888 f1=0.4983 prauc=0.4912
+2026-03-18 22:31:54,801 [INFO] trainer:   loss_breakdown: task=0.5221 kl=0.0785(×1.0=0.0785) essay=0.4671(×0.15=0.0701)
+2026-03-18 22:31:54,801 [INFO] trainer:   grad_norm: mean=2.123 max=3.420 (clip=1.0)
+2026-03-18 22:31:54,801 [INFO] trainer:   per_theme F1:   Asp=0.522 Att=0.346 Fam=0.689 Nav=0.619 Per=0.444 Res=0.344 Soc=0.527 Spi=0.496
+2026-03-18 22:31:54,801 [INFO] trainer:   per_theme P:    Asp=0.401 Att=0.298 Fam=0.663 Nav=0.470 Per=0.374 Res=0.342 Soc=0.446 Spi=0.523
+2026-03-18 22:31:54,801 [INFO] trainer:   per_theme R:    Asp=0.746 Att=0.412 Fam=0.716 Nav=0.908 Per=0.546 Res=0.346 Soc=0.643 Spi=0.472
+2026-03-18 22:31:54,802 [INFO] trainer:   per_theme PRAUC:Asp=0.515 Att=0.217 Fam=0.743 Nav=0.704 Per=0.511 Res=0.414 Soc=0.445 Spi=0.380
+2026-03-18 22:31:54,802 [INFO] trainer:   class_0: F1=0.615 P=0.864 R=0.477 (sup=903)
+2026-03-18 22:31:54,802 [INFO] trainer:   logit_sep (pos-neg): Asp=0.91 Nav=1.02 Res=1.12 Att=1.35 Spi=1.46 Per=1.67 Soc=1.76 Fam=2.81
+2026-03-18 22:31:54,802 [INFO] trainer:   pred_vs_true (mean): Asp=0.406/0.128 Nav=0.496/0.254 Per=0.306/0.074 Soc=0.277/0.048 Att=0.240/0.019
+2026-03-18 22:34:17,957 [INFO] trainer: EPOCH P2 ep=35 train=0.6684 val=0.6968 f1=0.5089 prauc=0.4855
+2026-03-18 22:34:17,957 [INFO] trainer:   loss_breakdown: task=0.5190 kl=0.0806(×1.0=0.0806) essay=0.4588(×0.15=0.0688)
+2026-03-18 22:34:17,957 [INFO] trainer:   grad_norm: mean=2.032 max=3.318 (clip=1.0)
+2026-03-18 22:34:17,957 [INFO] trainer:   per_theme F1:   Asp=0.515 Att=0.380 Fam=0.693 Nav=0.614 Per=0.416 Res=0.412 Soc=0.509 Spi=0.532
+2026-03-18 22:34:17,957 [INFO] trainer:   per_theme P:    Asp=0.395 Att=0.333 Fam=0.693 Nav=0.462 Per=0.337 Res=0.333 Soc=0.403 Spi=0.500
+2026-03-18 22:34:17,957 [INFO] trainer:   per_theme R:    Asp=0.741 Att=0.441 Fam=0.693 Nav=0.913 Per=0.546 Res=0.538 Soc=0.691 Spi=0.569
+2026-03-18 22:34:17,957 [INFO] trainer:   per_theme PRAUC:Asp=0.513 Att=0.221 Fam=0.742 Nav=0.699 Per=0.501 Res=0.403 Soc=0.421 Spi=0.384
+2026-03-18 22:34:17,957 [INFO] trainer:   class_0: F1=0.599 P=0.883 R=0.453 (sup=903)
+2026-03-18 22:34:17,957 [INFO] trainer:   logit_sep (pos-neg): Asp=0.99 Nav=1.06 Res=1.31 Att=1.33 Per=1.58 Spi=1.76 Soc=1.83 Fam=2.78
+2026-03-18 22:34:17,957 [INFO] trainer:   pred_vs_true (mean): Asp=0.402/0.128 Per=0.324/0.074 Nav=0.499/0.254 Soc=0.291/0.048 Res=0.276/0.044
+2026-03-18 22:36:40,996 [INFO] trainer: EPOCH P2 ep=36 train=0.6443 val=0.7004 f1=0.5012 prauc=0.4885
+2026-03-18 22:36:40,997 [INFO] trainer:   loss_breakdown: task=0.4987 kl=0.0780(×1.0=0.0780) essay=0.4501(×0.15=0.0675)
+2026-03-18 22:36:40,997 [INFO] trainer:   grad_norm: mean=1.914 max=3.346 (clip=1.0)
+2026-03-18 22:36:40,997 [INFO] trainer:   per_theme F1:   Asp=0.486 Att=0.372 Fam=0.670 Nav=0.596 Per=0.470 Res=0.384 Soc=0.507 Spi=0.524
+2026-03-18 22:36:40,997 [INFO] trainer:   per_theme P:    Asp=0.352 Att=0.308 Fam=0.613 Nav=0.441 Per=0.417 Res=0.343 Soc=0.409 Spi=0.520
+2026-03-18 22:36:40,997 [INFO] trainer:   per_theme R:    Asp=0.786 Att=0.471 Fam=0.739 Nav=0.919 Per=0.538 Res=0.436 Soc=0.667 Spi=0.528
+2026-03-18 22:36:40,997 [INFO] trainer:   per_theme PRAUC:Asp=0.510 Att=0.244 Fam=0.730 Nav=0.705 Per=0.490 Res=0.406 Soc=0.441 Spi=0.383
+2026-03-18 22:36:40,997 [INFO] trainer:   class_0: F1=0.562 P=0.876 R=0.414 (sup=903)
+2026-03-18 22:36:40,997 [INFO] trainer:   logit_sep (pos-neg): Asp=0.96 Nav=1.03 Res=1.24 Att=1.43 Per=1.61 Spi=1.61 Soc=1.91 Fam=2.90
+2026-03-18 22:36:40,997 [INFO] trainer:   pred_vs_true (mean): Asp=0.430/0.128 Nav=0.517/0.254 Soc=0.288/0.048 Per=0.301/0.074 Att=0.243/0.019
+2026-03-18 22:39:04,040 [INFO] trainer: EPOCH P2 ep=37 train=0.6354 val=0.7033 f1=0.5058 prauc=0.4844
+2026-03-18 22:39:04,040 [INFO] trainer:   loss_breakdown: task=0.4935 kl=0.0770(×1.0=0.0770) essay=0.4326(×0.15=0.0649)
+2026-03-18 22:39:04,040 [INFO] trainer:   grad_norm: mean=1.896 max=2.986 (clip=1.0)
+2026-03-18 22:39:04,040 [INFO] trainer:   per_theme F1:   Asp=0.504 Att=0.357 Fam=0.674 Nav=0.602 Per=0.485 Res=0.415 Soc=0.530 Spi=0.478
+2026-03-18 22:39:04,040 [INFO] trainer:   per_theme P:    Asp=0.376 Att=0.300 Fam=0.656 Nav=0.449 Per=0.465 Res=0.333 Soc=0.435 Spi=0.500
+2026-03-18 22:39:04,040 [INFO] trainer:   per_theme R:    Asp=0.763 Att=0.441 Fam=0.693 Nav=0.915 Per=0.508 Res=0.551 Soc=0.679 Spi=0.458
+2026-03-18 22:39:04,040 [INFO] trainer:   per_theme PRAUC:Asp=0.499 Att=0.231 Fam=0.738 Nav=0.706 Per=0.503 Res=0.411 Soc=0.419 Spi=0.368
+2026-03-18 22:39:04,040 [INFO] trainer:   class_0: F1=0.605 P=0.878 R=0.462 (sup=903)
+2026-03-18 22:39:04,041 [INFO] trainer:   logit_sep (pos-neg): Asp=0.95 Nav=1.02 Res=1.39 Att=1.39 Spi=1.48 Per=1.57 Soc=1.81 Fam=2.71
+2026-03-18 22:39:04,041 [INFO] trainer:   pred_vs_true (mean): Asp=0.420/0.128 Nav=0.512/0.254 Soc=0.286/0.048 Res=0.282/0.044 Att=0.241/0.019
+2026-03-18 22:39:04,260 [INFO] trainer: Phase 2 early stop at epoch 37 (patience=8)
+2026-03-18 22:39:04,260 [INFO] trainer: ============================================================
+2026-03-18 22:39:04,260 [INFO] trainer: SWA: averaging 20 checkpoints...
+2026-03-18 22:39:14,053 [INFO] trainer: SWA averaged model: Val PR-AUC=0.4964, F1=0.4967 (vs best single=0.4950)
+2026-03-18 22:39:14,054 [INFO] trainer:   per_theme: Asp=0.503 Att=0.316 Fam=0.703 Nav=0.608 Per=0.424 Res=0.391 Soc=0.525 Spi=0.503
+2026-03-18 22:39:17,964 [INFO] trainer: SWA IMPROVED: 0.4964 → 0.4964. Saving as best.pt.
+2026-03-18 22:39:17,964 [INFO] trainer: ============================================================
+2026-03-18 22:39:22,249 [INFO] trainer: ============================================================
+2026-03-18 22:39:22,249 [INFO] trainer: PHASE 3: Head + BiLSTM retraining
+2026-03-18 22:39:22,249 [INFO] trainer:   lr=5.0e-06, epochs=5, patience=3, trainable_params=6351.9K
+2026-03-18 22:39:22,249 [INFO] trainer:   Phase 2 best PRAUC=0.4964 (must beat this to replace best.pt)
+2026-03-18 22:39:22,250 [INFO] trainer: ============================================================
+2026-03-18 22:39:59,278 [INFO] trainer: EPOCH P3 ep=38 train=0.6120 val=0.6911 f1=0.4921 prauc=0.4941
+2026-03-18 22:39:59,278 [INFO] trainer:   grad_norm: mean=0.751 max=1.333 (clip=1.0)
+2026-03-18 22:39:59,278 [INFO] trainer:   per_theme F1:   Asp=0.503 Att=0.292 Fam=0.699 Nav=0.611 Per=0.408 Res=0.391 Soc=0.527 Spi=0.506
+2026-03-18 22:39:59,278 [INFO] trainer:   per_theme P:    Asp=0.374 Att=0.226 Fam=0.663 Nav=0.458 Per=0.329 Res=0.340 Soc=0.421 Spi=0.465
+2026-03-18 22:39:59,278 [INFO] trainer:   per_theme R:    Asp=0.768 Att=0.412 Fam=0.739 Nav=0.917 Per=0.538 Res=0.462 Soc=0.702 Spi=0.556
+2026-03-18 22:39:59,278 [INFO] trainer:   per_theme PRAUC:Asp=0.520 Att=0.229 Fam=0.757 Nav=0.719 Per=0.484 Res=0.406 Soc=0.464 Spi=0.373
+2026-03-18 22:39:59,278 [INFO] trainer:   class_0: F1=0.537 P=0.853 R=0.392 (sup=903)
+2026-03-18 22:39:59,278 [INFO] trainer:   logit_sep (pos-neg): Asp=0.95 Nav=1.04 Res=1.24 Spi=1.53 Att=1.55 Per=1.56 Soc=1.77 Fam=2.86
+2026-03-18 22:39:59,278 [INFO] trainer:   pred_vs_true (mean): Asp=0.411/0.128 Per=0.315/0.074 Nav=0.493/0.254 Soc=0.279/0.048 Att=0.235/0.019
+2026-03-18 22:40:02,831 [INFO] trainer:   Phase 3 NEW BEST: PRAUC=0.4941 at ep 1
+2026-03-18 22:40:40,134 [INFO] trainer: EPOCH P3 ep=39 train=0.6023 val=0.7031 f1=0.4919 prauc=0.4933
+2026-03-18 22:40:40,134 [INFO] trainer:   grad_norm: mean=0.769 max=1.249 (clip=1.0)
+2026-03-18 22:40:40,134 [INFO] trainer:   per_theme F1:   Asp=0.498 Att=0.289 Fam=0.702 Nav=0.611 Per=0.402 Res=0.394 Soc=0.529 Spi=0.510
+2026-03-18 22:40:40,134 [INFO] trainer:   per_theme P:    Asp=0.370 Att=0.222 Fam=0.660 Nav=0.456 Per=0.321 Res=0.336 Soc=0.424 Spi=0.481
+2026-03-18 22:40:40,134 [INFO] trainer:   per_theme R:    Asp=0.763 Att=0.412 Fam=0.750 Nav=0.926 Per=0.538 Res=0.474 Soc=0.702 Spi=0.542
+2026-03-18 22:40:40,134 [INFO] trainer:   per_theme PRAUC:Asp=0.519 Att=0.231 Fam=0.755 Nav=0.718 Per=0.481 Res=0.409 Soc=0.462 Spi=0.371
+2026-03-18 22:40:40,134 [INFO] trainer:   class_0: F1=0.530 P=0.859 R=0.383 (sup=903)
+2026-03-18 22:40:40,134 [INFO] trainer:   logit_sep (pos-neg): Asp=1.00 Nav=1.11 Res=1.28 Spi=1.52 Att=1.64 Per=1.64 Soc=1.86 Fam=2.96
+2026-03-18 22:40:40,134 [INFO] trainer:   pred_vs_true (mean): Asp=0.408/0.128 Per=0.316/0.074 Nav=0.496/0.254 Soc=0.271/0.048 Att=0.227/0.019
+2026-03-18 22:40:40,134 [INFO] trainer:   Phase 3 ep 2: PRAUC=0.4933 (best=0.4941, patience=1/3)
+2026-03-18 22:41:16,876 [INFO] trainer: EPOCH P3 ep=40 train=0.6087 val=0.7041 f1=0.4924 prauc=0.4926
+2026-03-18 22:41:16,876 [INFO] trainer:   grad_norm: mean=0.760 max=1.161 (clip=1.0)
+2026-03-18 22:41:16,876 [INFO] trainer:   per_theme F1:   Asp=0.501 Att=0.289 Fam=0.702 Nav=0.610 Per=0.405 Res=0.390 Soc=0.533 Spi=0.510
+2026-03-18 22:41:16,876 [INFO] trainer:   per_theme P:    Asp=0.372 Att=0.222 Fam=0.660 Nav=0.457 Per=0.324 Res=0.330 Soc=0.425 Spi=0.481
+2026-03-18 22:41:16,876 [INFO] trainer:   per_theme R:    Asp=0.763 Att=0.412 Fam=0.750 Nav=0.917 Per=0.538 Res=0.474 Soc=0.714 Spi=0.542
+2026-03-18 22:41:16,876 [INFO] trainer:   per_theme PRAUC:Asp=0.519 Att=0.228 Fam=0.755 Nav=0.717 Per=0.480 Res=0.409 Soc=0.464 Spi=0.369
+2026-03-18 22:41:16,876 [INFO] trainer:   class_0: F1=0.538 P=0.859 R=0.392 (sup=903)
+2026-03-18 22:41:16,876 [INFO] trainer:   logit_sep (pos-neg): Asp=1.02 Nav=1.14 Res=1.27 Spi=1.53 Att=1.64 Per=1.64 Soc=1.88 Fam=3.00
+2026-03-18 22:41:16,876 [INFO] trainer:   pred_vs_true (mean): Asp=0.406/0.128 Per=0.311/0.074 Nav=0.492/0.254 Soc=0.273/0.048 Att=0.231/0.019
+2026-03-18 22:41:16,876 [INFO] trainer:   Phase 3 ep 3: PRAUC=0.4926 (best=0.4941, patience=2/3)
+2026-03-18 22:41:53,812 [INFO] trainer: EPOCH P3 ep=41 train=0.6022 val=0.7074 f1=0.4906 prauc=0.4926
+2026-03-18 22:41:53,812 [INFO] trainer:   grad_norm: mean=0.734 max=1.152 (clip=1.0)
+2026-03-18 22:41:53,812 [INFO] trainer:   per_theme F1:   Asp=0.495 Att=0.289 Fam=0.702 Nav=0.609 Per=0.404 Res=0.398 Soc=0.522 Spi=0.506
+2026-03-18 22:41:53,812 [INFO] trainer:   per_theme P:    Asp=0.365 Att=0.222 Fam=0.660 Nav=0.457 Per=0.323 Res=0.343 Soc=0.411 Spi=0.476
+2026-03-18 22:41:53,812 [INFO] trainer:   per_theme R:    Asp=0.768 Att=0.412 Fam=0.750 Nav=0.913 Per=0.538 Res=0.474 Soc=0.714 Spi=0.542
+2026-03-18 22:41:53,812 [INFO] trainer:   per_theme PRAUC:Asp=0.520 Att=0.228 Fam=0.754 Nav=0.717 Per=0.480 Res=0.410 Soc=0.464 Spi=0.368
+2026-03-18 22:41:53,812 [INFO] trainer:   class_0: F1=0.536 P=0.856 R=0.390 (sup=903)
+2026-03-18 22:41:53,812 [INFO] trainer:   logit_sep (pos-neg): Asp=1.03 Nav=1.16 Res=1.27 Spi=1.54 Per=1.65 Att=1.67 Soc=1.91 Fam=3.02
+2026-03-18 22:41:53,812 [INFO] trainer:   pred_vs_true (mean): Asp=0.409/0.128 Per=0.311/0.074 Nav=0.489/0.254 Soc=0.276/0.048 Att=0.231/0.019
+2026-03-18 22:41:53,812 [INFO] trainer:   Phase 3 ep 4: PRAUC=0.4926 (best=0.4941, patience=3/3)
+2026-03-18 22:41:53,812 [INFO] trainer: Phase 3 early stop at ep 4 (patience exhausted)
+2026-03-18 22:41:57,328 [INFO] trainer: Phase 3 did NOT improve (0.4941 vs 0.4964) — keeping phase2 best
+2026-03-18 22:42:08,199 [INFO] trainer: Running per-class Platt scaling calibration...
+2026-03-18 22:42:08,245 [INFO] metrics:   Platt Attainment: a=1.20, b=-3.00 (NLL=0.0740, n+=34)
+2026-03-18 22:42:08,289 [INFO] metrics:   Platt Aspirational: a=2.40, b=-1.80 (NLL=0.2738, n+=224)
+2026-03-18 22:42:08,334 [INFO] metrics:   Platt Navigational: a=2.90, b=-1.80 (NLL=0.3594, n+=447)
+2026-03-18 22:42:08,379 [INFO] metrics:   Platt Resistance: a=2.00, b=-1.60 (NLL=0.1288, n+=78)
+2026-03-18 22:42:08,423 [INFO] metrics:   Platt Perseverance: a=1.40, b=-2.00 (NLL=0.1902, n+=130)
+2026-03-18 22:42:08,468 [INFO] metrics:   Platt Social: a=1.80, b=-2.20 (NLL=0.1221, n+=84)
+2026-03-18 22:42:08,513 [INFO] metrics:   Platt Spiritual: a=1.40, b=-2.00 (NLL=0.1288, n+=72)
+2026-03-18 22:42:08,558 [INFO] metrics:   Platt Familial_Capital: a=1.90, b=-2.00 (NLL=0.0908, n+=88)
+2026-03-18 22:42:08,570 [INFO] trainer: Platt calibration params (b near 0 = well-calibrated):
+2026-03-18 22:42:08,570 [INFO] trainer:   Attainment           a=1.20 b=-3.00  [SEVERELY_BIASED]
+2026-03-18 22:42:08,570 [INFO] trainer:   Aspirational         a=2.40 b=-1.80  [BIASED]
+2026-03-18 22:42:08,570 [INFO] trainer:   Navigational         a=2.90 b=-1.80  [BIASED]
+2026-03-18 22:42:08,570 [INFO] trainer:   Resistance           a=2.00 b=-1.60  [BIASED]
+2026-03-18 22:42:08,570 [INFO] trainer:   Perseverance         a=1.40 b=-2.00  [SEVERELY_BIASED]
+2026-03-18 22:42:08,570 [INFO] trainer:   Social               a=1.80 b=-2.20  [SEVERELY_BIASED]
+2026-03-18 22:42:08,570 [INFO] trainer:   Spiritual            a=1.40 b=-2.00  [SEVERELY_BIASED]
+2026-03-18 22:42:08,570 [INFO] trainer:   Familial_Capital     a=1.90 b=-2.00  [SEVERELY_BIASED]
+2026-03-18 22:42:08,572 [INFO] metrics: Theme Attainment: t=0.060, F2=0.3684, P=0.259 (support=34, sep=0.112)
+2026-03-18 22:42:08,574 [INFO] metrics: Theme Aspirational: t=0.190, F1=0.5477, P=0.448 (support=224, sep=0.272)
+2026-03-18 22:42:08,576 [INFO] metrics: Theme Navigational: t=0.340, F1=0.6906, P=0.623 (support=447, sep=0.387)
+2026-03-18 22:42:08,577 [INFO] metrics: Theme Resistance: t=0.100, F2=0.5133, P=0.286 (support=78, sep=0.218)
+2026-03-18 22:42:08,579 [INFO] metrics: Theme Perseverance: t=0.480, F1=0.5102, P=0.758 (support=130, sep=0.267)
+2026-03-18 22:42:08,581 [INFO] metrics: Theme Social: t=0.170, F1=0.5376, P=0.490 (support=84, sep=0.314)
+2026-03-18 22:42:08,582 [INFO] metrics: Theme Spiritual: t=0.054, F2=0.6067, P=0.344 (support=72, sep=0.208)
+2026-03-18 22:42:08,584 [INFO] metrics: Theme Familial_Capital: t=0.220, F1=0.7239, P=0.787 (support=88, sep=0.544)
+2026-03-18 22:42:08,588 [INFO] trainer: Thresholds (calibrated): {'Attainment': 0.06, 'Aspirational': 0.19, 'Navigational': 0.34, 'Resistance': 0.1, 'Perseverance': 0.48, 'Social': 0.17, 'Spiritual': 0.054, 'Familial_Capital': 0.22}
+2026-03-18 22:42:08,588 [INFO] trainer: ============================================================
+2026-03-18 22:42:08,588 [INFO] trainer: CO-OCCURRENCE CONFUSION ANALYSIS (val set):
+2026-03-18 22:42:08,588 [INFO] trainer:   For each TRUE theme, shows which other themes are co-predicted.
+2026-03-18 22:42:08,588 [INFO] trainer:   High co-prediction with a wrong theme = theme confusion.
+2026-03-18 22:42:08,588 [INFO] trainer:   TRUE Attainment           (n= 34, recall=0.41): co-predicted: Asp=0.74 Nav=0.74 Fam=0.09 Res=0.06
+2026-03-18 22:42:08,588 [INFO] trainer:   TRUE Aspirational         (n=224, recall=0.71): co-predicted: Nav=0.45 Res=0.18 Soc=0.12 Att=0.09
+2026-03-18 22:42:08,588 [INFO] trainer:   TRUE Navigational         (n=447, recall=0.77): co-predicted: Asp=0.28 Res=0.15 Att=0.07 Soc=0.06
+2026-03-18 22:42:08,588 [INFO] trainer:   TRUE Resistance           (n= 78, recall=0.64): co-predicted: Asp=0.44 Nav=0.37 Soc=0.15 Spi=0.14
+2026-03-18 22:42:08,588 [INFO] trainer:   TRUE Perseverance         (n=130, recall=0.38): co-predicted: Asp=0.22 Res=0.22 Nav=0.21 Spi=0.08
+2026-03-18 22:42:08,588 [INFO] trainer:   TRUE Social               (n= 84, recall=0.60): co-predicted: Asp=0.31 Nav=0.24 Spi=0.24 Res=0.12
+2026-03-18 22:42:08,588 [INFO] trainer:   TRUE Spiritual            (n= 72, recall=0.72): co-predicted: Asp=0.28 Res=0.18 Soc=0.18
+2026-03-18 22:42:08,588 [INFO] trainer:   TRUE Familial_Capital     (n= 88, recall=0.67): co-predicted: Asp=0.50 Res=0.25 Nav=0.19 Spi=0.08
+2026-03-18 22:42:08,588 [INFO] trainer:   FALSE POSITIVE ANALYSIS (pred=1 but true=0):
+2026-03-18 22:42:08,588 [INFO] trainer:     Attainment           n_pred= 54 FP= 40 precision=0.259
+2026-03-18 22:42:08,588 [INFO] trainer:     Aspirational         n_pred=353 FP=195 precision=0.448
+2026-03-18 22:42:08,588 [INFO] trainer:     Navigational         n_pred=555 FP=209 precision=0.623
+2026-03-18 22:42:08,588 [INFO] trainer:     Resistance           n_pred=175 FP=125 precision=0.286
+2026-03-18 22:42:08,588 [INFO] trainer:     Perseverance         n_pred= 66 FP= 16 precision=0.758
+2026-03-18 22:42:08,588 [INFO] trainer:     Social               n_pred=102 FP= 52 precision=0.490
+2026-03-18 22:42:08,588 [INFO] trainer:     Spiritual            n_pred=149 FP= 97 precision=0.349
+2026-03-18 22:42:08,588 [INFO] trainer:     Familial_Capital     n_pred= 75 FP= 16 precision=0.787
+2026-03-18 22:42:08,588 [INFO] trainer: ============================================================
+2026-03-18 22:42:08,589 [INFO] trainer: Training complete. Best PRAUC: 0.4964 at epoch 37
+2026-03-18 22:42:08,592 [INFO] __main__: Done. Best PRAUC: 0.4964 at epoch 37
+>>> Evaluating val...
+2026-03-18 22:42:19,676 [INFO] model: Using AttentionPooling (learned token importance)
+2026-03-18 22:42:19,700 [INFO] model: Using GatedSentenceAttention (heads=4, gate_bias=-2.0)
+2026-03-18 22:42:19,707 [INFO] model: Using EssayConditioningLayer (top-down essay prior)
+2026-03-18 22:42:19,709 [INFO] model: AWAREModel: results/dapt_large/encoder, 442.5M params (442.5M trainable), bilstm=True, pos_emb=True, essay_head=True, prototype_head=False
+2026-03-18 22:42:23,604 [INFO] dataset: Loaded 268 essays from data/val_data.pkl
+2026-03-18 22:42:23,604 [INFO] dataset: AWAREDataset: 268 essays, augment=False, max_seq=512, max_sent=32
+
+======================================================================
+EVALUATION (VAL) — 1757 sentences
+======================================================================
+Macro F1 (optimized):  0.5243  [0.4953, 0.5528]
+Macro F1 (default@0.5): 0.4164
+PR-AUC (macro):         0.4964
+ROC-AUC (macro):        0.8945
+Hamming loss:           0.0803
+Exact match:            0.5481
+
+Theme                    F1      P      R  PRAUC ROCAUC   Sup   Thr
+--------------------------------------------------------------
+Attainment           0.3182 0.2593 0.4118 0.2331 0.9289    34 0.060
+Aspirational         0.5477 0.4476 0.7054 0.5201 0.8602   224 0.190
+Navigational         0.6906 0.6234 0.7740 0.7229 0.8854   447 0.340
+Resistance           0.3953 0.2857 0.6410 0.4076 0.8931    78 0.100
+Perseverance         0.5102 0.7576 0.3846 0.4864 0.8691   130 0.480
+Social               0.5376 0.4902 0.5952 0.4661 0.9090    84 0.170
+Spiritual            0.4706 0.3490 0.7222 0.3776 0.8709    72 0.054
+Familial_Capital     0.7239 0.7867 0.6705 0.7574 0.9396    88 0.220
+class_0              0.7463 0.8457 0.6678
+======================================================================
+>>> Evaluating test...
+2026-03-18 22:42:39,426 [INFO] model: Using AttentionPooling (learned token importance)
+2026-03-18 22:42:39,450 [INFO] model: Using GatedSentenceAttention (heads=4, gate_bias=-2.0)
+2026-03-18 22:42:39,458 [INFO] model: Using EssayConditioningLayer (top-down essay prior)
+2026-03-18 22:42:39,459 [INFO] model: AWAREModel: results/dapt_large/encoder, 442.5M params (442.5M trainable), bilstm=True, pos_emb=True, essay_head=True, prototype_head=False
+2026-03-18 22:42:43,144 [INFO] dataset: Loaded 273 essays from data/test_data.pkl
+2026-03-18 22:42:43,144 [INFO] dataset: AWAREDataset: 273 essays, augment=False, max_seq=512, max_sent=32
+
+======================================================================
+EVALUATION (TEST) — 1838 sentences
+======================================================================
+Macro F1 (optimized):  0.4554  [0.4231, 0.4825]
+Macro F1 (default@0.5): 0.3746
+PR-AUC (macro):         0.4660
+ROC-AUC (macro):        0.8853
+Hamming loss:           0.0898
+Exact match:            0.5071
+
+Theme                    F1      P      R  PRAUC ROCAUC   Sup   Thr
+--------------------------------------------------------------
+Attainment           0.3544 0.2979 0.4375 0.2166 0.9145    32 0.060
+Aspirational         0.5579 0.4816 0.6630 0.4673 0.8748   276 0.190
+Navigational         0.6824 0.6594 0.7070 0.7488 0.9063   430 0.340
+Resistance           0.3852 0.2826 0.6047 0.3661 0.9031    86 0.100
+Perseverance         0.2783 0.5926 0.1818 0.4617 0.8610   176 0.480
+Social               0.4335 0.3894 0.4889 0.4310 0.9213    90 0.170
+Spiritual            0.3529 0.2629 0.5368 0.4544 0.7444    95 0.054
+Familial_Capital     0.5987 0.5402 0.6714 0.5822 0.9572    70 0.220
+class_0              0.7244 0.7775 0.6781
+======================================================================
+>>> Evaluating train...
+2026-03-18 22:42:58,808 [INFO] model: Using AttentionPooling (learned token importance)
+2026-03-18 22:42:58,833 [INFO] model: Using GatedSentenceAttention (heads=4, gate_bias=-2.0)
+2026-03-18 22:42:58,841 [INFO] model: Using EssayConditioningLayer (top-down essay prior)
+2026-03-18 22:42:58,843 [INFO] model: AWAREModel: results/dapt_large/encoder, 442.5M params (442.5M trainable), bilstm=True, pos_emb=True, essay_head=True, prototype_head=False
+2026-03-18 22:43:02,309 [INFO] dataset: Loaded 2095 essays from data/train_data.pkl
+2026-03-18 22:43:02,309 [INFO] dataset: AWAREDataset: 2095 essays, augment=False, max_seq=512, max_sent=32
+
+======================================================================
+EVALUATION (TRAIN) — 14023 sentences
+======================================================================
+Macro F1 (optimized):  0.7177  [0.7098, 0.7251]
+Macro F1 (default@0.5): 0.7024
+PR-AUC (macro):         0.8741
+ROC-AUC (macro):        0.9747
+Hamming loss:           0.0566
+Exact match:            0.6322
+
+Theme                    F1      P      R  PRAUC ROCAUC   Sup   Thr
+--------------------------------------------------------------
+Attainment           0.7942 0.6735 0.9676 0.9548 0.9982   339 0.060
+Aspirational         0.6443 0.5558 0.7665 0.7202 0.9230  2158 0.190
+Navigational         0.7160 0.6946 0.7387 0.7815 0.9176  3368 0.340
+Resistance           0.6660 0.5020 0.9889 0.8945 0.9945   629 0.100
+Perseverance         0.6587 0.8879 0.5236 0.8376 0.9790  1165 0.480
+Social               0.7655 0.7626 0.7684 0.8594 0.9880   786 0.170
+Spiritual            0.6013 0.4299 1.0000 0.9762 0.9990   478 0.054
+Familial_Capital     0.8954 0.8798 0.9116 0.9688 0.9982   554 0.220
+class_0              0.7846 0.8352 0.7399
+======================================================================
+============================================================
+ DONE — Wed Mar 18 22:44:17 PDT 2026
+============================================================

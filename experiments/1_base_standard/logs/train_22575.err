@@ -1,0 +1,12 @@
+/Users/923673423/miniconda/envs/llm_env/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py:564: UserWarning: The sentencepiece tokenizer that you are converting to a fast tokenizer uses the byte fallback option which is not implemented in the fast tokenizers. In practice this means that the fast version of the tokenizer can produce unknown tokens whereas the sentencepiece version would have converted these unknown tokens into a sequence of byte tokens matching the original piece of text.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/Users/923673423/f2-models/Comparison/1_base_standard/scripts/train.py", line 45, in <module>
+    if __name__=="__main__": main()
+  File "/Users/923673423/f2-models/Comparison/1_base_standard/scripts/train.py", line 42, in main
+    trainer=StandardTrainer(model=model,train_loader=train_loader,val_loader=val_loader,output_dir=str(output_dir),config=config,device=a.device,theme_weights_list=tw_list)
+  File "/Users/923673423/f2-models/Comparison/1_base_standard/scripts/trainer.py", line 53, in __init__
+    self.criterion = build_loss_from_config(
+  File "/Users/923673423/f2-models/Comparison/1_base_standard/scripts/losses.py", line 24, in build_loss_from_config
+    return WeightedBCEWithLogitsLoss(theme_weights=tw)
+TypeError: WeightedBCEWithLogitsLoss.__init__() got an unexpected keyword argument 'theme_weights'

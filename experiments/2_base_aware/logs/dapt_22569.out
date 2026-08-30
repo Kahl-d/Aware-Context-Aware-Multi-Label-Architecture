@@ -1,0 +1,51 @@
+============================================================
+ DAPT — DeBERTa-v3-base MLM pre-training
+ Job: 22569 | Wed Mar 18 12:53:00 PDT 2026
+============================================================
+2026-03-18 12:53:14,488 [INFO] __main__: DAPT corpus: 2636 essays, 1958.2 KB
+2026-03-18 12:53:16,322 [WARNING] accelerate.utils.other: Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2026-03-18 12:53:16,371 [INFO] __main__: Starting DAPT...
+{'loss': 11.7933, 'grad_norm': 12.419085502624512, 'learning_rate': 1.633333333333333e-05, 'epoch': 0.34}
+{'loss': 6.7068, 'grad_norm': 8.440089225769043, 'learning_rate': 2.9807142857142858e-05, 'epoch': 0.67}
+{'eval_loss': 4.431990623474121, 'eval_runtime': 0.8386, 'eval_samples_per_second': 313.63, 'eval_steps_per_second': 20.273, 'epoch': 1.0}
+{'loss': 5.1285, 'grad_norm': 8.750060081481934, 'learning_rate': 2.8735714285714288e-05, 'epoch': 1.01}
+{'loss': 4.4415, 'grad_norm': 8.576398849487305, 'learning_rate': 2.7664285714285714e-05, 'epoch': 1.34}
+{'loss': 4.1395, 'grad_norm': 7.199759006500244, 'learning_rate': 2.6592857142857145e-05, 'epoch': 1.68}
+{'eval_loss': 3.540088176727295, 'eval_runtime': 0.8403, 'eval_samples_per_second': 312.996, 'eval_steps_per_second': 20.232, 'epoch': 2.0}
+{'loss': 3.7906, 'grad_norm': 6.400742530822754, 'learning_rate': 2.5521428571428575e-05, 'epoch': 2.01}
+{'loss': 3.6413, 'grad_norm': 7.254526615142822, 'learning_rate': 2.4449999999999998e-05, 'epoch': 2.35}
+{'loss': 3.5447, 'grad_norm': 6.706744194030762, 'learning_rate': 2.3378571428571428e-05, 'epoch': 2.68}
+{'eval_loss': 3.1140098571777344, 'eval_runtime': 0.8629, 'eval_samples_per_second': 304.797, 'eval_steps_per_second': 19.702, 'epoch': 3.0}
+{'loss': 3.4073, 'grad_norm': 6.447963237762451, 'learning_rate': 2.2307142857142858e-05, 'epoch': 3.02}
+{'loss': 3.272, 'grad_norm': 7.053593158721924, 'learning_rate': 2.1235714285714285e-05, 'epoch': 3.36}
+{'loss': 3.2726, 'grad_norm': 6.720235824584961, 'learning_rate': 2.0164285714285715e-05, 'epoch': 3.69}
+{'eval_loss': 2.9712579250335693, 'eval_runtime': 0.8486, 'eval_samples_per_second': 309.916, 'eval_steps_per_second': 20.033, 'epoch': 4.0}
+{'loss': 3.1814, 'grad_norm': 6.592922210693359, 'learning_rate': 1.9092857142857145e-05, 'epoch': 4.03}
+{'loss': 3.086, 'grad_norm': 6.161304473876953, 'learning_rate': 1.8021428571428572e-05, 'epoch': 4.36}
+{'loss': 3.0752, 'grad_norm': 6.118444919586182, 'learning_rate': 1.695e-05, 'epoch': 4.7}
+{'eval_loss': 2.812136173248291, 'eval_runtime': 0.841, 'eval_samples_per_second': 312.734, 'eval_steps_per_second': 20.215, 'epoch': 5.0}
+{'loss': 3.0532, 'grad_norm': 7.15914249420166, 'learning_rate': 1.587857142857143e-05, 'epoch': 5.03}
+{'loss': 2.9534, 'grad_norm': 7.403049945831299, 'learning_rate': 1.4807142857142857e-05, 'epoch': 5.37}
+{'loss': 2.8885, 'grad_norm': 6.950354099273682, 'learning_rate': 1.3735714285714286e-05, 'epoch': 5.7}
+{'eval_loss': 2.7418220043182373, 'eval_runtime': 0.869, 'eval_samples_per_second': 302.646, 'eval_steps_per_second': 19.563, 'epoch': 6.0}
+{'loss': 2.9045, 'grad_norm': 7.3763322830200195, 'learning_rate': 1.2664285714285716e-05, 'epoch': 6.04}
+{'loss': 2.8276, 'grad_norm': 6.705744743347168, 'learning_rate': 1.1592857142857144e-05, 'epoch': 6.38}
+{'loss': 2.9128, 'grad_norm': 6.604716777801514, 'learning_rate': 1.0521428571428571e-05, 'epoch': 6.71}
+{'eval_loss': 2.745656967163086, 'eval_runtime': 0.8614, 'eval_samples_per_second': 305.326, 'eval_steps_per_second': 19.736, 'epoch': 7.0}
+{'loss': 2.7872, 'grad_norm': 6.308063507080078, 'learning_rate': 9.450000000000001e-06, 'epoch': 7.05}
+{'loss': 2.8031, 'grad_norm': 7.4403910636901855, 'learning_rate': 8.37857142857143e-06, 'epoch': 7.38}
+{'loss': 2.7651, 'grad_norm': 6.591160774230957, 'learning_rate': 7.307142857142858e-06, 'epoch': 7.72}
+{'eval_loss': 2.5802419185638428, 'eval_runtime': 0.8552, 'eval_samples_per_second': 307.516, 'eval_steps_per_second': 19.877, 'epoch': 8.0}
+{'loss': 2.7004, 'grad_norm': 6.598170280456543, 'learning_rate': 6.2357142857142854e-06, 'epoch': 8.05}
+{'loss': 2.724, 'grad_norm': 7.065337181091309, 'learning_rate': 5.164285714285715e-06, 'epoch': 8.39}
+{'loss': 2.7269, 'grad_norm': 7.2204437255859375, 'learning_rate': 4.092857142857143e-06, 'epoch': 8.72}
+{'eval_loss': 2.654407262802124, 'eval_runtime': 0.8574, 'eval_samples_per_second': 306.731, 'eval_steps_per_second': 19.827, 'epoch': 9.0}
+{'loss': 2.6881, 'grad_norm': 6.859977722167969, 'learning_rate': 3.0214285714285715e-06, 'epoch': 9.06}
+{'loss': 2.7315, 'grad_norm': 7.5527849197387695, 'learning_rate': 1.95e-06, 'epoch': 9.4}
+{'loss': 2.6974, 'grad_norm': 6.741438388824463, 'learning_rate': 8.785714285714286e-07, 'epoch': 9.73}
+{'eval_loss': 2.623809814453125, 'eval_runtime': 0.8504, 'eval_samples_per_second': 309.283, 'eval_steps_per_second': 19.992, 'epoch': 10.0}
+{'train_runtime': 225.1707, 'train_samples_per_second': 105.387, 'train_steps_per_second': 6.617, 'train_loss': 3.585763360349924, 'epoch': 10.0}
+2026-03-18 12:57:01,731 [INFO] __main__: DAPT done. Loss: 3.5858
+2026-03-18 12:57:02,765 [INFO] __main__: DAPT eval loss: 2.6548, perplexity: 14.22
+2026-03-18 12:57:04,385 [INFO] __main__: Saved DAPT encoder → results/dapt_base/encoder
+DONE — Wed Mar 18 12:57:05 PDT 2026

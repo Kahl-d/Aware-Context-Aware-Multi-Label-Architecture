@@ -1,0 +1,93 @@
+# AWARE v2 — DeBERTa-v3-large quick iteration config (A100 80GB)
+#
+# Based on Q006 proven config (best: test macro F1 = 0.390 with v3-base)
+# with adjustments for v3-large (304M params, 24 layers, 1024 hidden).
+#
+# Key changes from v3-base (quick.yaml):
+#   - encoder_name: v3-large (3.5x params → richer representations)
+#   - hidden_size: 768 → 1024 (auto-detected, explicit for clarity)
+#   - encoder_lr: 2e-5 → 6e-6 (3x lower — large models more sensitive)
+#   - llrd_decay: 0.95 (per-layer LR: lower layers preserve pretrained knowledge)
+#   - gradient_checkpointing: true (trade ~30% speed for ~40% memory savings)
+#   - dropout: 0.35 → 0.40 (3.5x more params → needs more regularization)
+#   - weight_decay: 0.02 → 0.03 (same reasoning)
+#   - DAPT: batch_size 16→8, lr 5e-5→2e-5 (OOM prevention + LR sensitivity)
+#   - theme_weights: slightly reduced (larger model learns rare themes better)
+#
+# Estimated timing (A100 80GB):
+#   DAPT:     ~5 min × 1 epoch = ~5 min
+#   Phase 1:  ~3 min × 4 epochs = ~12 min
+#   Phase 2:  ~3 min × 20 epochs = ~60 min (early stop likely ~15 epochs)
+#   Tau-norm: ~5 min (6 val sweeps)
+#   Phase 3:  ~3 min × 5 epochs = ~15 min
+#   Eval:     ~5 min
+#   Total:    ~100 min (fits gpuquick 1:55:00 without DAPT)
+#
+# Run history:
+#   quick_large_012: TBD — pipeline verification (no DAPT)
+#   quick_large_013: TBD — with DAPT
+#
+# Submit: edit run_job.sh → RUN_MODE="quick_large", RUN_NUMBER="012", USE_DAPT="--no-dapt"
+#         mkdir -p cModels/results/quick_large_012 && sbatch run_job.sh
+
+mode: full
+seed: 42
+
+model:
+  encoder_name: microsoft/deberta-v3-large
+  hidden_size: 1024               # v3-large: 24 layers, 1024 hidden, 16 heads
+  lstm_hidden: 256                # Unchanged — BiLSTM is small relative to encoder
+  lstm_layers: 2
+  max_sentences: 32
+  max_seq_length: 512
+  num_labels: 11
+  dropout: 0.40                   # Up from 0.35 — 3.5x more params need more regularization
+
+loss:
+  asl_gamma_pos: 1.0              # Q006 proven value (Q008 showed gamma_pos=0 hurts Phase 2)
+  asl_gamma_neg: 4.0              # Q006 proven value (Q007 showed gamma_neg=6 suppresses too much)
+  asl_clip: 0.05
+  label_smoothing: 0.05
+  theme_weights: [1.0, 1.2, 1.24, 1.29, 4.5, 6.0, 5.5, 2.0, 4.5, 8.0, 9.0]
+  # Order:        Nav  Att  Per   Asp   Soc  FP   Spi  Fam  Res  CC   FG
+  # Slightly reduced from base Q006 [1.0,1.2,1.24,1.29,5.0,7.0,6.0,2.0,5.0,9.0,10.0]
+  # Larger model should learn rare themes better → less aggressive boosting needed.
+  # If rare themes still struggle, increase FP/CC/FG weights in next run.
+
+training:
+  phase1_epochs: 4                # Q002 proven frozen warmup
+  phase2_epochs: 20               # Same as base quick — early stop if plateaus
+  batch_size: 8
+  gradient_accumulation: 4
+  encoder_lr: 6.0e-6              # 3x lower than base (2e-5). v3-large is more LR-sensitive.
+  decoder_lr: 1.0e-4              # BiLSTM+head unchanged
+  phase2_encoder_lr_scale: 0.1    # Phase 2 effective: 6e-7 base (with LLRD on top)
+  weight_decay: 0.03              # Up from 0.02 — more params → more L2 regularization
+  max_grad_norm: 1.0
+  warmup_ratio: 0.10              # Q002+ proven
+  early_stopping_patience: 7
+  phase2_early_stopping_patience: 10
+  fp16: true
+  num_workers: 4
+  rdrop_alpha: 0.5                # Safe regularization, proven compatible in Q011
+  ema_decay: 0.0                  # DISABLED — not proven safe yet
+  llrd_decay: 0.95                # NEW: per-layer LR decay for 24 encoder layers
+                                   # Embeddings: 6e-7 × 0.95^24 = 1.7e-7
+                                   # Layer 0:    6e-7 × 0.95^24 = 1.8e-7
+                                   # Layer 23:   6e-7 × 0.95^1  = 5.7e-7
+                                   # Decoder:    1e-4 (unchanged)
+  gradient_checkpointing: true    # NEW: ~40% memory savings, ~30% slower per step
+
+augmentation:
+  enabled: true
+  aeda_prob: 0.3                  # Q002 level
+
+dapt:
+  mlm_probability: 0.15
+  epochs: 1                       # Q002 proven optimal
+  batch_size: 8                   # Halved from 16 — v3-large needs more memory for MLM
+  learning_rate: 2.0e-5           # Reduced from 5e-5 — large model more sensitive
+  warmup_ratio: 0.1
+  fp16: true
+  eval_split: 0.1
+  weight_decay: 0.01

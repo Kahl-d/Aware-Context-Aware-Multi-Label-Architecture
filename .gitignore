@@ -1,0 +1,57 @@
+# ============================================================================
+# AWARE — what must never enter this repository
+# Guardrails first: this repo is intended to be shared, and once something is
+# committed it lives in git history even if deleted later.
+# ============================================================================
+
+# --- Student data (Alma Project, human subjects) ---------------------------
+# The full corpus is 2,636 essays / 17,622 sentences of student reflective
+# writing. Only pseudonymized samples belong here.
+*.csv
+!**/*sample*.csv
+data/raw/
+data/full/
+essays.json
+sentences.json
+**/public/data/essays.json
+**/public/data/sentences.json
+
+# --- Credentials -----------------------------------------------------------
+*token*.md
+*.env
+.env*
+*credentials*
+*secret*
+*.pem
+*.key
+!**/*.public.key
+
+# --- Model weights (4.7 GB — host on Hugging Face, not here) ---------------
+Models_inference/
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+*.onnx
+*.h5
+
+# --- Embeddings / large artifacts ------------------------------------------
+*.npy
+*.npz
+*.pkl
+
+# --- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# --- Node ------------------------------------------------------------------
+node_modules/
+dist/
+build/
+*.log
+
+# --- OS --------------------------------------------------------------------
+.DS_Store

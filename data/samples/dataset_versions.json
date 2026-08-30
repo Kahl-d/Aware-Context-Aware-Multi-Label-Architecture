@@ -1,0 +1,30 @@
+[
+  {
+    "version": "v1",
+    "sentences": 18019,
+    "essays": 2698,
+    "themes": 11,
+    "description": "Original processed dataset with all 11 themes"
+  },
+  {
+    "version": "v2",
+    "sentences": 17859,
+    "essays": 2675,
+    "themes": 9,
+    "description": "Merged Familial+Filial_Piety, dropped First_Gen"
+  },
+  {
+    "version": "v3",
+    "sentences": 16395,
+    "essays": 2665,
+    "themes": 9,
+    "description": "Aggressive boundary cleaning (-1,464 sentences)"
+  },
+  {
+    "version": "v4",
+    "sentences": 17622,
+    "essays": 2636,
+    "themes": 8,
+    "description": "Dropped Community_Consciousness \u2014 final training dataset"
+  }
+]

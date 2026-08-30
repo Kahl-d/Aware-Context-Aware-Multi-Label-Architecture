@@ -1,0 +1,15 @@
+============================================================
+ STANDARD BASELINE — DeBERTa-v3-base (no AWARE)
+ Job: 22575 | Node: gpu01 | Wed Mar 18 13:00:12 PDT 2026
+============================================================
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+2026-03-18 13:00:20,750 [INFO] dataset: Loaded 2095 essays from data/train_data.pkl
+2026-03-18 13:00:20,752 [INFO] dataset: Loaded 268 essays from data/val_data.pkl
+2026-03-18 13:00:20,752 [INFO] __main__: Train: 2095 essays, Val: 268 essays
+2026-03-18 13:00:20,755 [INFO] __main__: Theme weights (inverse-sqrt): {'Attainment': 3.152, 'Aspirational': 1.249, 'Navigational': 1.0, 'Resistance': 2.314, 'Perseverance': 1.7, 'Social': 2.07, 'Spiritual': 2.654, 'Familial_Capital': 2.466}
+2026-03-18 13:00:20,755 [INFO] dataset: StandardDataset: 2095 essays, max_seq=512, max_sent=32
+2026-03-18 13:00:20,756 [INFO] dataset: StandardDataset: 268 essays, max_seq=512, max_sent=32
+2026-03-18 13:00:21,388 [INFO] model: StandardModel: microsoft/deberta-v3-base, 183.8M params (183.8M trainable)

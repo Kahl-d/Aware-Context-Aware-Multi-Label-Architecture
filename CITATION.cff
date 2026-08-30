@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the thesis."
+title: "AWARE: A Framework for Automated Classification of Community Cultural Wealth Themes"
+authors:
+  - family-names: Khan
+    given-names: Khalid Mehtab
+type: thesis
+thesis-type: "M.S. thesis"
+institution:
+  name: San Francisco State University
+department: "Data Science and Artificial Intelligence"
+year: 2026
+abstract: >-
+  AWARE is a framework for sentence-level multi-label classification of Community Cultural
+  Wealth themes in student reflective essays. It combines domain-adaptive pre-training,
+  essay-level context encoding, asymmetric loss, and per-class threshold optimization on a
+  DeBERTa-v3 backbone, achieving Macro-F1 0.494 (a 30.8% improvement over a TF-IDF baseline)
+  and F1 0.568-0.896 with perfect precision on single-theme sentences.
+keywords:
+  - multi-label text classification
+  - community cultural wealth
+  - educational NLP
+  - DeBERTa
+  - domain-adaptive pre-training
+  - STEM education research
+license: MIT

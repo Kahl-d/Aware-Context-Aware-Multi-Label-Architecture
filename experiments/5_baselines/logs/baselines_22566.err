@@ -1,0 +1,43 @@
+2026-03-18 12:53:01,586 [INFO] Loading data...
+2026-03-18 12:53:01,619 [INFO] Train: 14023 sentences, Val: 1757, Test: 1842
+2026-03-18 12:53:01,619 [INFO] Training frequencies:
+2026-03-18 12:53:01,619 [INFO]   Attainment: 2.4% (339/14023)
+2026-03-18 12:53:01,619 [INFO]   Aspirational: 15.4% (2158/14023)
+2026-03-18 12:53:01,619 [INFO]   Navigational: 24.0% (3368/14023)
+2026-03-18 12:53:01,619 [INFO]   Resistance: 4.5% (629/14023)
+2026-03-18 12:53:01,619 [INFO]   Perseverance: 8.3% (1165/14023)
+2026-03-18 12:53:01,619 [INFO]   Social: 5.6% (786/14023)
+2026-03-18 12:53:01,619 [INFO]   Spiritual: 3.4% (478/14023)
+2026-03-18 12:53:01,619 [INFO]   Familial_Capital: 4.0% (554/14023)
+2026-03-18 12:53:01,619 [INFO] 
+=== Baseline 1: Majority Class ===
+2026-03-18 12:53:01,642 [INFO] 
+=== Baseline 2: Random (Prior) ===
+2026-03-18 12:53:07,916 [INFO] 
+=== Baseline 3: Most Common Label Set ===
+2026-03-18 12:53:07,925 [INFO] Most common label set: [0, 0, 0, 0, 0, 0, 0, 0] (50.0% of training data)
+2026-03-18 12:53:07,942 [INFO] 
+=== Baseline 4: TF-IDF + Logistic Regression ===
+2026-03-18 12:53:07,942 [INFO] Training TF-IDF + LogReg...
+2026-03-18 12:53:10,149 [INFO] 
+=== Baseline 5: TF-IDF + Random Forest ===
+2026-03-18 12:53:10,149 [INFO] Training TF-IDF + RandomForest...
+2026-03-18 12:53:22,134 [INFO] 
+=== Baseline 6: TF-IDF + SVM ===
+2026-03-18 12:53:22,134 [INFO] Training TF-IDF + SVM...
+/Users/923673423/miniconda/envs/llm_env/lib/python3.10/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
+/Users/923673423/miniconda/envs/llm_env/lib/python3.10/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
+/Users/923673423/miniconda/envs/llm_env/lib/python3.10/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
+/Users/923673423/miniconda/envs/llm_env/lib/python3.10/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
+/Users/923673423/miniconda/envs/llm_env/lib/python3.10/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
+/Users/923673423/miniconda/envs/llm_env/lib/python3.10/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
+/Users/923673423/miniconda/envs/llm_env/lib/python3.10/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
+/Users/923673423/miniconda/envs/llm_env/lib/python3.10/site-packages/sklearn/svm/_classes.py:32: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(

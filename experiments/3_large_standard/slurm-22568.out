@@ -1,0 +1,6 @@
+============================================================
+ STANDARD BASELINE — DeBERTa-v3-large (no AWARE)
+ Job: 22568 | Node: lmn01 | Wed Mar 18 12:52:59 PDT 2026
+============================================================
+NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+

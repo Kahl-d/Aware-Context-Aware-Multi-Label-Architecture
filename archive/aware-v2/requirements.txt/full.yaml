@@ -1,0 +1,72 @@
+# AWARE v2 — Full training config for HPC (A100 80GB)
+#
+# Based on Q006 (best: test macro F1 = 0.390) + proven improvements from Q001-Q011.
+# Q009-Q011 experimental features (CB Loss, logit adjustment, LSAN, EMA) all regressed
+# and are DISABLED here. Only proven-safe additions included.
+#
+# Estimated timing (A100 80GB):
+#   DAPT:     ~2.5 min × 1 epoch = ~3 min
+#   Phase 1:  ~1.4 min × 4 epochs = ~6 min
+#   Phase 2:  ~1.4 min × 30 epochs = ~42 min (early stop likely ~20-25 epochs)
+#   Tau-norm: ~3 min (6 val sweeps, zero training cost)
+#   Phase 3:  ~1.4 min × 5 epochs = ~7 min
+#   Eval:     ~3 min
+#   Total:    ~65 min (well within 7:55:00 limit)
+#
+# Submit: edit run_job.sh → RUN_MODE="full", RUN_NUMBER="001", USE_DAPT=""
+#         mkdir -p cModels/results/full_001 && sbatch run_job.sh
+
+mode: full
+seed: 42
+
+model:
+  encoder_name: microsoft/deberta-v3-base
+  hidden_size: 768
+  lstm_hidden: 256
+  lstm_layers: 2
+  max_sentences: 32
+  max_seq_length: 512
+  num_labels: 11
+  dropout: 0.35               # Q002 proved 0.35 > 0.30 (Q001) and < 0.42 (Q003)
+
+loss:
+  asl_gamma_pos: 1.0          # Q006 proven (Q008 showed gamma_pos=0 hurts Phase 2)
+  asl_gamma_neg: 4.0          # Q006 proven (Q007 showed gamma_neg=6 suppresses too much)
+  asl_clip: 0.05
+  label_smoothing: 0.05
+  theme_weights: [1.0, 1.2, 1.24, 1.29, 5.0, 7.0, 6.0, 2.0, 5.0, 9.0, 10.0]
+  # Order:        Nav  Att  Per   Asp   Soc  FP   Spi  Fam  Res  CC   FG
+  # Q006 proven moderate weights. CB Loss (Q011) caused gradient explosion — DO NOT USE.
+  # logit_adjustment: false  (Q011 proved toxic — gradient norms 87k for rare themes)
+
+training:
+  phase1_epochs: 4            # Q002 level — proven frozen head warmup
+  phase2_epochs: 30           # Extended from quick's 20 — model was still climbing
+  batch_size: 8
+  gradient_accumulation: 4
+  encoder_lr: 2.0e-5
+  decoder_lr: 1.0e-4
+  phase2_encoder_lr_scale: 0.1
+  weight_decay: 0.02          # Q002 proved 0.02 > 0.01 (Q001) and < 0.03 (Q003)
+  max_grad_norm: 1.0
+  warmup_ratio: 0.10          # Q002+: stabilizes early training (was 0.06 in Q001)
+  early_stopping_patience: 7  # Quick runs proved 5 too aggressive
+  phase2_early_stopping_patience: 15  # Extended for 30 epochs — more room to explore
+  fp16: true
+  num_workers: 4
+  rdrop_alpha: 0.5            # Safe regularization — dual forward pass with KL consistency
+                               # alpha=0.5 (Q011 reduced from 1.0). Low risk, may stabilize rare themes.
+  ema_decay: 0.0              # DISABLED. Q009 per-epoch bug, Q010 still unstable. Not proven.
+
+augmentation:
+  enabled: true
+  aeda_prob: 0.3              # Q002 level (Q003's 0.5 added too much noise)
+
+dapt:
+  mlm_probability: 0.15
+  epochs: 1                   # Proven optimal: +0.040 macro F1 (Q002). 2 epochs = no benefit (Q003).
+  batch_size: 16
+  learning_rate: 5.0e-5
+  warmup_ratio: 0.1
+  fp16: true
+  eval_split: 0.1

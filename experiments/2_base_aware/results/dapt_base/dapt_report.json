@@ -1,0 +1,10 @@
+{
+  "encoder_name": "microsoft/deberta-v3-base",
+  "corpus_essays": 2636,
+  "train_size": 2373,
+  "eval_size": 263,
+  "epochs": 10,
+  "train_loss": 3.5858,
+  "eval_loss": 2.6548,
+  "perplexity": 14.22
+}

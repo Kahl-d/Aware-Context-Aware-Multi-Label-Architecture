@@ -1,0 +1,213 @@
+============================================================
+ STANDARD BASELINE — DeBERTa-v3-base (no AWARE)
+ Job: 22619 | Node: gpu01 | Wed Mar 18 20:23:15 PDT 2026
+============================================================
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+2026-03-18 20:23:31,306 [INFO] dataset: Loaded 2095 essays from data/train_data.pkl
+2026-03-18 20:23:31,309 [INFO] dataset: Loaded 268 essays from data/val_data.pkl
+2026-03-18 20:23:31,309 [INFO] __main__: Train: 2095 essays, Val: 268 essays
+2026-03-18 20:23:31,311 [INFO] __main__: Theme weights (inverse-sqrt): {'Attainment': 3.152, 'Aspirational': 1.249, 'Navigational': 1.0, 'Resistance': 2.314, 'Perseverance': 1.7, 'Social': 2.07, 'Spiritual': 2.654, 'Familial_Capital': 2.466}
+2026-03-18 20:23:31,311 [INFO] dataset: StandardDataset: 2095 essays, max_seq=512, max_sent=32
+2026-03-18 20:23:31,311 [INFO] dataset: StandardDataset: 268 essays, max_seq=512, max_sent=32
+2026-03-18 20:23:32,333 [INFO] model: StandardModel: microsoft/deberta-v3-base, 183.8M params (183.8M trainable)
+2026-03-18 20:23:32,653 [INFO] trainer: StandardTrainer: epochs=30, lr=2.00e-05, wd=0.0100, patience=5, fp16=True
+2026-03-18 20:23:32,656 [INFO] trainer: Training: steps=1980, warmup=198
+2026-03-18 20:24:00,899 [INFO] trainer: Epoch 1: loss=8.4346, val_F1=0.0000, val_PRAUC=0.1172, patience=0/5
+2026-03-18 20:24:00,900 [INFO] trainer:   Attainment           F1=0.0000  PRAUC=0.0169
+2026-03-18 20:24:00,900 [INFO] trainer:   Aspirational         F1=0.0000  PRAUC=0.1981
+2026-03-18 20:24:00,900 [INFO] trainer:   Navigational         F1=0.0000  PRAUC=0.3665
+2026-03-18 20:24:00,900 [INFO] trainer:   Resistance           F1=0.0000  PRAUC=0.0465
+2026-03-18 20:24:00,900 [INFO] trainer:   Perseverance         F1=0.0000  PRAUC=0.1243
+2026-03-18 20:24:00,900 [INFO] trainer:   Social               F1=0.0000  PRAUC=0.0419
+2026-03-18 20:24:00,900 [INFO] trainer:   Spiritual            F1=0.0000  PRAUC=0.0626
+2026-03-18 20:24:00,900 [INFO] trainer:   Familial_Capital     F1=0.0000  PRAUC=0.0812
+2026-03-18 20:24:02,415 [INFO] trainer:   ** New best PR-AUC: 0.1172 at epoch 1 **
+2026-03-18 20:24:28,664 [INFO] trainer: Epoch 2: loss=3.3834, val_F1=0.0986, val_PRAUC=0.2957, patience=0/5
+2026-03-18 20:24:28,664 [INFO] trainer:   Attainment           F1=0.0000  PRAUC=0.2096
+2026-03-18 20:24:28,664 [INFO] trainer:   Aspirational         F1=0.0593  PRAUC=0.3656
+2026-03-18 20:24:28,664 [INFO] trainer:   Navigational         F1=0.5212  PRAUC=0.6180
+2026-03-18 20:24:28,664 [INFO] trainer:   Resistance           F1=0.0000  PRAUC=0.1228
+2026-03-18 20:24:28,664 [INFO] trainer:   Perseverance         F1=0.2081  PRAUC=0.2285
+2026-03-18 20:24:28,664 [INFO] trainer:   Social               F1=0.0000  PRAUC=0.1558
+2026-03-18 20:24:28,664 [INFO] trainer:   Spiritual            F1=0.0000  PRAUC=0.2345
+2026-03-18 20:24:28,664 [INFO] trainer:   Familial_Capital     F1=0.0000  PRAUC=0.4308
+2026-03-18 20:24:30,233 [INFO] trainer:   ** New best PR-AUC: 0.2957 at epoch 2 **
+2026-03-18 20:24:56,686 [INFO] trainer: Epoch 3: loss=2.9048, val_F1=0.2319, val_PRAUC=0.4013, patience=0/5
+2026-03-18 20:24:56,686 [INFO] trainer:   Attainment           F1=0.0000  PRAUC=0.2374
+2026-03-18 20:24:56,686 [INFO] trainer:   Aspirational         F1=0.4478  PRAUC=0.4789
+2026-03-18 20:24:56,686 [INFO] trainer:   Navigational         F1=0.6653  PRAUC=0.6777
+2026-03-18 20:24:56,686 [INFO] trainer:   Resistance           F1=0.0000  PRAUC=0.1857
+2026-03-18 20:24:56,686 [INFO] trainer:   Perseverance         F1=0.1783  PRAUC=0.2991
+2026-03-18 20:24:56,686 [INFO] trainer:   Social               F1=0.0682  PRAUC=0.3512
+2026-03-18 20:24:56,686 [INFO] trainer:   Spiritual            F1=0.0000  PRAUC=0.3193
+2026-03-18 20:24:56,686 [INFO] trainer:   Familial_Capital     F1=0.4959  PRAUC=0.6613
+2026-03-18 20:24:58,328 [INFO] trainer:   ** New best PR-AUC: 0.4013 at epoch 3 **
+2026-03-18 20:25:25,153 [INFO] trainer: Epoch 4: loss=2.4787, val_F1=0.3613, val_PRAUC=0.4806, patience=0/5
+2026-03-18 20:25:25,154 [INFO] trainer:   Attainment           F1=0.2791  PRAUC=0.3284
+2026-03-18 20:25:25,154 [INFO] trainer:   Aspirational         F1=0.5488  PRAUC=0.5352
+2026-03-18 20:25:25,154 [INFO] trainer:   Navigational         F1=0.5992  PRAUC=0.7095
+2026-03-18 20:25:25,154 [INFO] trainer:   Resistance           F1=0.0723  PRAUC=0.3181
+2026-03-18 20:25:25,154 [INFO] trainer:   Perseverance         F1=0.0805  PRAUC=0.3397
+2026-03-18 20:25:25,154 [INFO] trainer:   Social               F1=0.5029  PRAUC=0.4688
+2026-03-18 20:25:25,154 [INFO] trainer:   Spiritual            F1=0.1412  PRAUC=0.4063
+2026-03-18 20:25:25,154 [INFO] trainer:   Familial_Capital     F1=0.6667  PRAUC=0.7386
+2026-03-18 20:25:26,736 [INFO] trainer:   ** New best PR-AUC: 0.4806 at epoch 4 **
+2026-03-18 20:25:53,582 [INFO] trainer: Epoch 5: loss=2.2058, val_F1=0.4426, val_PRAUC=0.4948, patience=0/5
+2026-03-18 20:25:53,582 [INFO] trainer:   Attainment           F1=0.2353  PRAUC=0.3284
+2026-03-18 20:25:53,582 [INFO] trainer:   Aspirational         F1=0.5657  PRAUC=0.5583
+2026-03-18 20:25:53,582 [INFO] trainer:   Navigational         F1=0.6549  PRAUC=0.7152
+2026-03-18 20:25:53,582 [INFO] trainer:   Resistance           F1=0.2056  PRAUC=0.2942
+2026-03-18 20:25:53,582 [INFO] trainer:   Perseverance         F1=0.4781  PRAUC=0.3793
+2026-03-18 20:25:53,582 [INFO] trainer:   Social               F1=0.5492  PRAUC=0.5054
+2026-03-18 20:25:53,582 [INFO] trainer:   Spiritual            F1=0.1905  PRAUC=0.4407
+2026-03-18 20:25:53,582 [INFO] trainer:   Familial_Capital     F1=0.6617  PRAUC=0.7370
+2026-03-18 20:25:55,182 [INFO] trainer:   ** New best PR-AUC: 0.4948 at epoch 5 **
+2026-03-18 20:26:22,014 [INFO] trainer: Epoch 6: loss=1.9162, val_F1=0.4751, val_PRAUC=0.5216, patience=0/5
+2026-03-18 20:26:22,014 [INFO] trainer:   Attainment           F1=0.2759  PRAUC=0.3213
+2026-03-18 20:26:22,014 [INFO] trainer:   Aspirational         F1=0.5945  PRAUC=0.5935
+2026-03-18 20:26:22,014 [INFO] trainer:   Navigational         F1=0.6513  PRAUC=0.7191
+2026-03-18 20:26:22,014 [INFO] trainer:   Resistance           F1=0.3857  PRAUC=0.4080
+2026-03-18 20:26:22,014 [INFO] trainer:   Perseverance         F1=0.4672  PRAUC=0.4203
+2026-03-18 20:26:22,014 [INFO] trainer:   Social               F1=0.5542  PRAUC=0.5693
+2026-03-18 20:26:22,014 [INFO] trainer:   Spiritual            F1=0.1915  PRAUC=0.3970
+2026-03-18 20:26:22,014 [INFO] trainer:   Familial_Capital     F1=0.6803  PRAUC=0.7445
+2026-03-18 20:26:23,600 [INFO] trainer:   ** New best PR-AUC: 0.5216 at epoch 6 **
+2026-03-18 20:26:50,233 [INFO] trainer: Epoch 7: loss=1.7094, val_F1=0.5216, val_PRAUC=0.5160, patience=0/5
+2026-03-18 20:26:50,234 [INFO] trainer:   Attainment           F1=0.2857  PRAUC=0.2370
+2026-03-18 20:26:50,234 [INFO] trainer:   Aspirational         F1=0.5509  PRAUC=0.5740
+2026-03-18 20:26:50,234 [INFO] trainer:   Navigational         F1=0.6756  PRAUC=0.7140
+2026-03-18 20:26:50,234 [INFO] trainer:   Resistance           F1=0.4366  PRAUC=0.3466
+2026-03-18 20:26:50,234 [INFO] trainer:   Perseverance         F1=0.4454  PRAUC=0.4227
+2026-03-18 20:26:50,234 [INFO] trainer:   Social               F1=0.6127  PRAUC=0.6332
+2026-03-18 20:26:50,234 [INFO] trainer:   Spiritual            F1=0.5222  PRAUC=0.4564
+2026-03-18 20:26:50,234 [INFO] trainer:   Familial_Capital     F1=0.6437  PRAUC=0.7439
+2026-03-18 20:27:17,140 [INFO] trainer: Epoch 8: loss=1.5004, val_F1=0.4800, val_PRAUC=0.5267, patience=1/5
+2026-03-18 20:27:17,140 [INFO] trainer:   Attainment           F1=0.0526  PRAUC=0.2219
+2026-03-18 20:27:17,140 [INFO] trainer:   Aspirational         F1=0.5761  PRAUC=0.6105
+2026-03-18 20:27:17,140 [INFO] trainer:   Navigational         F1=0.6710  PRAUC=0.7036
+2026-03-18 20:27:17,140 [INFO] trainer:   Resistance           F1=0.4027  PRAUC=0.3447
+2026-03-18 20:27:17,140 [INFO] trainer:   Perseverance         F1=0.4775  PRAUC=0.4630
+2026-03-18 20:27:17,140 [INFO] trainer:   Social               F1=0.5561  PRAUC=0.6165
+2026-03-18 20:27:17,140 [INFO] trainer:   Spiritual            F1=0.4333  PRAUC=0.5155
+2026-03-18 20:27:17,140 [INFO] trainer:   Familial_Capital     F1=0.6708  PRAUC=0.7377
+2026-03-18 20:27:18,749 [INFO] trainer:   ** New best PR-AUC: 0.5267 at epoch 8 **
+2026-03-18 20:27:45,459 [INFO] trainer: Epoch 9: loss=1.2973, val_F1=0.5161, val_PRAUC=0.5189, patience=0/5
+2026-03-18 20:27:45,459 [INFO] trainer:   Attainment           F1=0.3056  PRAUC=0.2698
+2026-03-18 20:27:45,459 [INFO] trainer:   Aspirational         F1=0.6000  PRAUC=0.5863
+2026-03-18 20:27:45,459 [INFO] trainer:   Navigational         F1=0.6348  PRAUC=0.6867
+2026-03-18 20:27:45,459 [INFO] trainer:   Resistance           F1=0.4096  PRAUC=0.3433
+2026-03-18 20:27:45,459 [INFO] trainer:   Perseverance         F1=0.5188  PRAUC=0.4821
+2026-03-18 20:27:45,459 [INFO] trainer:   Social               F1=0.5864  PRAUC=0.5876
+2026-03-18 20:27:45,459 [INFO] trainer:   Spiritual            F1=0.4194  PRAUC=0.4739
+2026-03-18 20:27:45,459 [INFO] trainer:   Familial_Capital     F1=0.6541  PRAUC=0.7214
+2026-03-18 20:28:11,809 [INFO] trainer: Epoch 10: loss=1.1327, val_F1=0.4900, val_PRAUC=0.4983, patience=1/5
+2026-03-18 20:28:11,809 [INFO] trainer:   Attainment           F1=0.2000  PRAUC=0.2297
+2026-03-18 20:28:11,809 [INFO] trainer:   Aspirational         F1=0.5924  PRAUC=0.5848
+2026-03-18 20:28:11,809 [INFO] trainer:   Navigational         F1=0.6854  PRAUC=0.6807
+2026-03-18 20:28:11,809 [INFO] trainer:   Resistance           F1=0.3780  PRAUC=0.3242
+2026-03-18 20:28:11,809 [INFO] trainer:   Perseverance         F1=0.5096  PRAUC=0.4502
+2026-03-18 20:28:11,809 [INFO] trainer:   Social               F1=0.5579  PRAUC=0.5462
+2026-03-18 20:28:11,809 [INFO] trainer:   Spiritual            F1=0.3571  PRAUC=0.4471
+2026-03-18 20:28:11,809 [INFO] trainer:   Familial_Capital     F1=0.6400  PRAUC=0.7231
+2026-03-18 20:28:38,517 [INFO] trainer: Epoch 11: loss=1.0213, val_F1=0.4961, val_PRAUC=0.5173, patience=2/5
+2026-03-18 20:28:38,517 [INFO] trainer:   Attainment           F1=0.2338  PRAUC=0.2644
+2026-03-18 20:28:38,517 [INFO] trainer:   Aspirational         F1=0.5964  PRAUC=0.5881
+2026-03-18 20:28:38,517 [INFO] trainer:   Navigational         F1=0.6840  PRAUC=0.6796
+2026-03-18 20:28:38,517 [INFO] trainer:   Resistance           F1=0.3967  PRAUC=0.3426
+2026-03-18 20:28:38,517 [INFO] trainer:   Perseverance         F1=0.5000  PRAUC=0.4527
+2026-03-18 20:28:38,517 [INFO] trainer:   Social               F1=0.5699  PRAUC=0.5991
+2026-03-18 20:28:38,517 [INFO] trainer:   Spiritual            F1=0.3093  PRAUC=0.4811
+2026-03-18 20:28:38,517 [INFO] trainer:   Familial_Capital     F1=0.6788  PRAUC=0.7304
+2026-03-18 20:29:05,328 [INFO] trainer: Epoch 12: loss=0.9129, val_F1=0.5102, val_PRAUC=0.5172, patience=3/5
+2026-03-18 20:29:05,328 [INFO] trainer:   Attainment           F1=0.2597  PRAUC=0.2598
+2026-03-18 20:29:05,328 [INFO] trainer:   Aspirational         F1=0.6012  PRAUC=0.5971
+2026-03-18 20:29:05,328 [INFO] trainer:   Navigational         F1=0.6798  PRAUC=0.6582
+2026-03-18 20:29:05,328 [INFO] trainer:   Resistance           F1=0.4247  PRAUC=0.3431
+2026-03-18 20:29:05,328 [INFO] trainer:   Perseverance         F1=0.4863  PRAUC=0.4748
+2026-03-18 20:29:05,328 [INFO] trainer:   Social               F1=0.5463  PRAUC=0.5999
+2026-03-18 20:29:05,328 [INFO] trainer:   Spiritual            F1=0.4211  PRAUC=0.4808
+2026-03-18 20:29:05,328 [INFO] trainer:   Familial_Capital     F1=0.6627  PRAUC=0.7243
+2026-03-18 20:29:31,498 [INFO] trainer: Epoch 13: loss=0.8227, val_F1=0.4794, val_PRAUC=0.5102, patience=4/5
+2026-03-18 20:29:31,498 [INFO] trainer:   Attainment           F1=0.2258  PRAUC=0.2695
+2026-03-18 20:29:31,498 [INFO] trainer:   Aspirational         F1=0.5967  PRAUC=0.5861
+2026-03-18 20:29:31,498 [INFO] trainer:   Navigational         F1=0.6797  PRAUC=0.6613
+2026-03-18 20:29:31,498 [INFO] trainer:   Resistance           F1=0.3538  PRAUC=0.3204
+2026-03-18 20:29:31,498 [INFO] trainer:   Perseverance         F1=0.5161  PRAUC=0.4770
+2026-03-18 20:29:31,498 [INFO] trainer:   Social               F1=0.5576  PRAUC=0.5861
+2026-03-18 20:29:31,498 [INFO] trainer:   Spiritual            F1=0.2474  PRAUC=0.4524
+2026-03-18 20:29:31,498 [INFO] trainer:   Familial_Capital     F1=0.6581  PRAUC=0.7293
+2026-03-18 20:29:31,498 [INFO] trainer: Early stopping at epoch 13 (patience=5)
+2026-03-18 20:29:34,990 [INFO] trainer: Calibrating (Platt scaling)...
+2026-03-18 20:29:35,035 [INFO] metrics:   Platt Attainment: a=0.80, b=-0.20 (NLL=0.0702, n+=34)
+2026-03-18 20:29:35,080 [INFO] metrics:   Platt Aspirational: a=0.80, b=-0.80 (NLL=0.2380, n+=224)
+2026-03-18 20:29:35,125 [INFO] metrics:   Platt Navigational: a=0.70, b=-0.40 (NLL=0.3619, n+=447)
+2026-03-18 20:29:35,170 [INFO] metrics:   Platt Resistance: a=0.70, b=-1.20 (NLL=0.1300, n+=78)
+2026-03-18 20:29:35,216 [INFO] metrics:   Platt Perseverance: a=0.80, b=-0.40 (NLL=0.1785, n+=130)
+2026-03-18 20:29:35,261 [INFO] metrics:   Platt Social: a=0.80, b=-1.40 (NLL=0.0994, n+=84)
+2026-03-18 20:29:35,306 [INFO] metrics:   Platt Spiritual: a=0.90, b=0.00 (NLL=0.0962, n+=72)
+2026-03-18 20:29:35,351 [INFO] metrics:   Platt Familial_Capital: a=0.80, b=-0.20 (NLL=0.0929, n+=88)
+2026-03-18 20:29:35,358 [INFO] trainer: Optimizing thresholds...
+2026-03-18 20:29:35,360 [INFO] metrics: Theme Attainment: t=0.060, F2=0.4126, P=0.243 (support=34, sep=0.121)
+2026-03-18 20:29:35,361 [INFO] metrics: Theme Aspirational: t=0.400, F1=0.5899, P=0.610 (support=224, sep=0.371)
+2026-03-18 20:29:35,363 [INFO] metrics: Theme Navigational: t=0.310, F1=0.6834, P=0.602 (support=447, sep=0.400)
+2026-03-18 20:29:35,365 [INFO] metrics: Theme Resistance: t=0.070, F2=0.4927, P=0.229 (support=78, sep=0.192)
+2026-03-18 20:29:35,366 [INFO] metrics: Theme Perseverance: t=0.230, F1=0.5643, P=0.527 (support=130, sep=0.287)
+2026-03-18 20:29:35,368 [INFO] metrics: Theme Social: t=0.320, F1=0.5868, P=0.590 (support=84, sep=0.378)
+2026-03-18 20:29:35,370 [INFO] metrics: Theme Spiritual: t=0.060, F2=0.6818, P=0.362 (support=72, sep=0.343)
+2026-03-18 20:29:35,371 [INFO] metrics: Theme Familial_Capital: t=0.440, F1=0.6708, P=0.740 (support=88, sep=0.541)
+2026-03-18 20:29:35,374 [INFO] trainer: Post-training complete. Thresholds: {'Attainment': 0.06, 'Aspirational': 0.4, 'Navigational': 0.31, 'Resistance': 0.07, 'Perseverance': 0.23, 'Social': 0.32, 'Spiritual': 0.06, 'Familial_Capital': 0.44}
+2026-03-18 20:29:35,379 [INFO] __main__: Done. Best PRAUC: 0.5267 at epoch 8
+>>> Evaluating val...
+2026-03-18 20:29:42,199 [INFO] model: StandardModel: microsoft/deberta-v3-base, 183.8M params (183.8M trainable)
+2026-03-18 20:29:44,576 [INFO] dataset: Loaded 268 essays from data/val_data.pkl
+2026-03-18 20:29:44,576 [INFO] dataset: StandardDataset: 268 essays, max_seq=512, max_sent=32
+======================================================================
+EVAL VAL 1757 sentences
+F1: 0.5348 PRAUC: 0.526 ROCAUC: 0.9127
+Attainment 0.3269 0.2216
+Aspirational 0.5899 0.6104
+Navigational 0.6834 0.7035
+Resistance 0.3439 0.3449
+Perseverance 0.5643 0.4629
+Social 0.5868 0.616
+Spiritual 0.5122 0.5109
+Familial_Capital 0.6708 0.7376
+======================================================================
+>>> Evaluating test...
+2026-03-18 20:29:53,963 [INFO] model: StandardModel: microsoft/deberta-v3-base, 183.8M params (183.8M trainable)
+2026-03-18 20:29:55,626 [INFO] dataset: Loaded 273 essays from data/test_data.pkl
+2026-03-18 20:29:55,626 [INFO] dataset: StandardDataset: 273 essays, max_seq=512, max_sent=32
+======================================================================
+EVAL TEST 1838 sentences
+F1: 0.4868 PRAUC: 0.507 ROCAUC: 0.9052
+Attainment 0.2222 0.1613
+Aspirational 0.558 0.6161
+Navigational 0.6843 0.7772
+Resistance 0.3473 0.3465
+Perseverance 0.5103 0.5937
+Social 0.5 0.5099
+Spiritual 0.4314 0.3829
+Familial_Capital 0.641 0.668
+======================================================================
+>>> Evaluating train...
+2026-03-18 20:30:05,170 [INFO] model: StandardModel: microsoft/deberta-v3-base, 183.8M params (183.8M trainable)
+2026-03-18 20:30:06,661 [INFO] dataset: Loaded 2095 essays from data/train_data.pkl
+2026-03-18 20:30:06,661 [INFO] dataset: StandardDataset: 2095 essays, max_seq=512, max_sent=32
+======================================================================
+EVAL TRAIN 14023 sentences
+F1: 0.7273 PRAUC: 0.8842 ROCAUC: 0.9809
+Attainment 0.576 0.8177
+Aspirational 0.7418 0.8386
+Navigational 0.8005 0.8804
+Resistance 0.5804 0.8842
+Perseverance 0.8164 0.8777
+Social 0.8257 0.9037
+Spiritual 0.5896 0.9191
+Familial_Capital 0.8879 0.9526
+======================================================================
+============================================================
+ DONE — Wed Mar 18 20:30:32 PDT 2026
+============================================================

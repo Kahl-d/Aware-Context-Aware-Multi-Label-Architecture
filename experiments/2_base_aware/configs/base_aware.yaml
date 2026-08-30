@@ -1,0 +1,76 @@
+# AWARE — DeBERTa-v3-base with ALL innovations
+#
+# Full AWARE pipeline: DAPT + 3-phase training + BiLSTM + position embedding
+# + essay head + ASL loss + R-Drop + LLRD + AEDA + CB weights + multi-sample dropout
+#
+# Purpose: Show what AWARE adds to DeBERTa-v3-base beyond standard fine-tuning.
+
+mode: full
+seed: 42
+
+model:
+  encoder_name: microsoft/deberta-v3-base
+  hidden_size: 768
+  lstm_hidden: 256
+  lstm_layers: 2
+  max_sentences: 32
+  max_seq_length: 512
+  num_labels: 8
+  dropout: 0.20
+  use_bilstm: true
+  bilstm_dropout: 0.15
+  use_position_embedding: true
+  use_prototype_head: false
+  n_dropout_samples: 3
+
+loss:
+  loss_type: asl
+  asl_gamma_pos: 0.0
+  asl_gamma_neg: 2.5
+  asl_clip: 0.03
+  label_smoothing: 0.02
+  theme_weights: null
+  use_cb_weights: true
+
+training:
+  phase1_epochs: 5
+  phase2_epochs: 30
+  batch_size: 8
+  gradient_accumulation: 4
+  encoder_lr: 2.0e-5
+  decoder_lr: 5.0e-5
+  phase2_encoder_lr_scale: 1.0  # CRITICAL: default is 0.25, must be 1.0 for base (LLRD handles per-layer)
+  weight_decay: 0.04
+  max_grad_norm: 1.0
+  warmup_ratio: 0.10
+  early_stopping_patience: 6
+  phase2_early_stopping_patience: 6
+  fp16: true
+  num_workers: 4
+  rdrop_alpha: 1.5
+  phase1_rdrop: 0.0
+  phase3_epochs: 5
+  phase3_lr: 1.0e-5
+  phase3_patience: 3
+  phase3_unfreeze_bilstm: true
+  adam_beta2: 0.999
+  gradient_checkpointing: false
+  use_llrd: true
+  llrd_decay: 0.85
+  essay_aux_weight: 0.10
+  swa_start_ratio: 0.30
+  progressive_unfreeze: false
+
+augmentation:
+  enabled: true
+  aeda_prob: 0.35
+
+dapt:
+  mlm_probability: 0.15
+  epochs: 10
+  batch_size: 16
+  learning_rate: 3.0e-5
+  warmup_ratio: 0.06
+  fp16: true
+  eval_split: 0.1
+  weight_decay: 0.01

@@ -1,0 +1,88 @@
+{
+  "seed": 42,
+  "total_essays": 2636,
+  "total_sentences": 17622,
+  "total_students": 2138,
+  "theme_order": [
+    "Attainment",
+    "Aspirational",
+    "Navigational",
+    "Resistance",
+    "Perseverance",
+    "Social",
+    "Spiritual",
+    "Familial_Capital"
+  ],
+  "theme_weights": {
+    "Attainment": 3.152,
+    "Aspirational": 1.2493,
+    "Navigational": 1.0,
+    "Resistance": 2.314,
+    "Perseverance": 1.7003,
+    "Social": 2.07,
+    "Spiritual": 2.6544,
+    "Familial_Capital": 2.4656
+  },
+  "train_class_counts": {
+    "Attainment": 339,
+    "Aspirational": 2158,
+    "Navigational": 3368,
+    "Resistance": 629,
+    "Perseverance": 1165,
+    "Social": 786,
+    "Spiritual": 478,
+    "Familial_Capital": 554
+  },
+  "train_total_sentences": 14023,
+  "train": {
+    "essays": 2095,
+    "sentences": 14023,
+    "students": 1708,
+    "theme_counts": {
+      "Attainment": 339,
+      "Aspirational": 2158,
+      "Navigational": 3368,
+      "Resistance": 629,
+      "Perseverance": 1165,
+      "Social": 786,
+      "Spiritual": 478,
+      "Familial_Capital": 554
+    },
+    "class_0": 7005
+  },
+  "val": {
+    "essays": 268,
+    "sentences": 1757,
+    "students": 210,
+    "theme_counts": {
+      "Attainment": 34,
+      "Aspirational": 224,
+      "Navigational": 447,
+      "Resistance": 78,
+      "Perseverance": 130,
+      "Social": 84,
+      "Spiritual": 72,
+      "Familial_Capital": 88
+    },
+    "class_0": 903
+  },
+  "test": {
+    "essays": 273,
+    "sentences": 1842,
+    "students": 220,
+    "theme_counts": {
+      "Attainment": 32,
+      "Aspirational": 276,
+      "Navigational": 430,
+      "Resistance": 86,
+      "Perseverance": 180,
+      "Social": 90,
+      "Spiritual": 95,
+      "Familial_Capital": 70
+    },
+    "class_0": 907
+  },
+  "leakage_train_val": 0,
+  "leakage_train_test": 0,
+  "leakage_val_test": 0
+}

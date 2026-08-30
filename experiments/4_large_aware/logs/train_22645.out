@@ -1,0 +1,32 @@
+============================================================
+ AWARE — DeBERTa-v3-large (full AWARE pipeline, v4)
+ Job: 22645 | Node: gpu01 | Wed Mar 18 21:14:24 PDT 2026
+============================================================
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+NVIDIA A100 80GB PCIe, 81920 MiB
+Config: configs/large_aware.yaml
+DAPT encoder: results/dapt_large/encoder (FRESH)
+Output: results/final
+2026-03-18 21:14:32,042 [INFO] dataset: Loaded 2095 essays from data/train_data.pkl
+2026-03-18 21:14:32,043 [INFO] dataset: Loaded 268 essays from data/val_data.pkl
+2026-03-18 21:14:32,043 [INFO] __main__: Train: 2095 essays, Val: 268 essays
+2026-03-18 21:14:32,043 [INFO] __main__: Weighted sampling: 2095/2095 essays have non-uniform weight
+2026-03-18 21:14:32,044 [INFO] __main__: Train class counts: {'Attainment': 339, 'Aspirational': 2158, 'Navigational': 3368, 'Resistance': 629, 'Perseverance': 1165, 'Social': 786, 'Spiritual': 478, 'Familial_Capital': 554}
+2026-03-18 21:14:32,044 [INFO] dataset: AWAREDataset: 2095 essays, augment=True, max_seq=512, max_sent=32
+2026-03-18 21:14:32,045 [INFO] dataset: AWAREDataset: 268 essays, augment=False, max_seq=512, max_sent=32
+2026-03-18 21:14:32,834 [INFO] model: Using AttentionPooling (learned token importance)
+2026-03-18 21:14:32,858 [INFO] model: Using GatedSentenceAttention (heads=4, gate_bias=-2.0)
+2026-03-18 21:14:32,860 [INFO] model: AWAREModel: results/dapt_large/encoder, 440.4M params (440.4M trainable), bilstm=True, pos_emb=True, essay_head=True, prototype_head=False
+2026-03-18 21:14:37,678 [INFO] trainer: Using device: cuda
+2026-03-18 21:14:37,678 [INFO] losses: CB theme weights (beta=0.9999): {'t0': 2.045, 't1': 0.351, 't2': 0.238, 't3': 1.118, 't4': 0.62, 't5': 0.902, 't6': 1.46, 't7': 1.265}
+2026-03-18 21:14:37,678 [INFO] losses: Auto-computed CB theme weights from training data (n_themes=8)
+2026-03-18 21:14:37,679 [INFO] losses: ASL Loss: gamma_pos=0.0, gamma_neg=2.5, clip=0.03, smoothing=0.02, weights=cb_auto
+2026-03-18 21:14:37,679 [INFO] trainer: AWARETrainer init: phases=(8, 40), fp16=True, rdrop=1.0, essay_aux=0.15, swa_start_ratio=0.25, cb_weights=True
+2026-03-18 21:14:37,683 [INFO] trainer: Starting 3-phase training (P1=8, P2=40, device=cuda, fp16=True, rdrop=1.0, essay_aux=0.15)
+2026-03-18 21:14:37,684 [INFO] model: Encoder frozen
+2026-03-18 21:14:37,685 [INFO] trainer: ============================================================
+2026-03-18 21:14:37,685 [INFO] trainer: PHASE 1: Frozen encoder, training BiLSTM + head
+2026-03-18 21:14:37,685 [INFO] trainer:   lr=1.00e-04, rdrop=0.0, epochs=8, steps=528, warmup=52
+2026-03-18 21:14:37,685 [INFO] trainer: ============================================================

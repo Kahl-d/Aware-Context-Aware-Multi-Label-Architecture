@@ -1,0 +1,190 @@
+{
+  "metrics_optimized": {
+    "f1_macro": 0.5243,
+    "f1_micro": 0.58,
+    "precision_macro": 0.4999,
+    "recall_macro": 0.6131,
+    "f1_per_theme": {
+      "Attainment": 0.3182,
+      "Aspirational": 0.5477,
+      "Navigational": 0.6906,
+      "Resistance": 0.3953,
+      "Perseverance": 0.5102,
+      "Social": 0.5376,
+      "Spiritual": 0.4706,
+      "Familial_Capital": 0.7239
+    },
+    "precision_per_theme": {
+      "Attainment": 0.2593,
+      "Aspirational": 0.4476,
+      "Navigational": 0.6234,
+      "Resistance": 0.2857,
+      "Perseverance": 0.7576,
+      "Social": 0.4902,
+      "Spiritual": 0.349,
+      "Familial_Capital": 0.7867
+    },
+    "recall_per_theme": {
+      "Attainment": 0.4118,
+      "Aspirational": 0.7054,
+      "Navigational": 0.774,
+      "Resistance": 0.641,
+      "Perseverance": 0.3846,
+      "Social": 0.5952,
+      "Spiritual": 0.7222,
+      "Familial_Capital": 0.6705
+    },
+    "support_per_theme": {
+      "Attainment": 34,
+      "Aspirational": 224,
+      "Navigational": 447,
+      "Resistance": 78,
+      "Perseverance": 130,
+      "Social": 84,
+      "Spiritual": 72,
+      "Familial_Capital": 88
+    },
+    "class_0": {
+      "f1": 0.7463,
+      "precision": 0.8457,
+      "recall": 0.6678,
+      "support": 903
+    },
+    "prauc_macro": 0.4964,
+    "prauc_per_theme": {
+      "Attainment": 0.2331,
+      "Aspirational": 0.5201,
+      "Navigational": 0.7229,
+      "Resistance": 0.4076,
+      "Perseverance": 0.4864,
+      "Social": 0.4661,
+      "Spiritual": 0.3776,
+      "Familial_Capital": 0.7574
+    },
+    "rocauc_macro": 0.8945,
+    "rocauc_per_theme": {
+      "Attainment": 0.9289,
+      "Aspirational": 0.8602,
+      "Navigational": 0.8854,
+      "Resistance": 0.8931,
+      "Perseverance": 0.8691,
+      "Social": 0.909,
+      "Spiritual": 0.8709,
+      "Familial_Capital": 0.9396
+    },
+    "hamming_loss": 0.0803,
+    "exact_match_ratio": 0.5481
+  },
+  "metrics_default_05": {
+    "f1_macro": 0.4164,
+    "f1_micro": 0.5203,
+    "precision_macro": 0.606,
+    "recall_macro": 0.3269,
+    "f1_per_theme": {
+      "Attainment": 0.1333,
+      "Aspirational": 0.4195,
+      "Navigational": 0.6352,
+      "Resistance": 0.2991,
+      "Perseverance": 0.4896,
+      "Social": 0.4496,
+      "Spiritual": 0.2245,
+      "Familial_Capital": 0.6803
+    },
+    "precision_per_theme": {
+      "Attainment": 0.2727,
+      "Aspirational": 0.6571,
+      "Navigational": 0.6931,
+      "Resistance": 0.5517,
+      "Perseverance": 0.7581,
+      "Social": 0.6444,
+      "Spiritual": 0.4231,
+      "Familial_Capital": 0.8475
+    },
+    "recall_per_theme": {
+      "Attainment": 0.0882,
+      "Aspirational": 0.308,
+      "Navigational": 0.5861,
+      "Resistance": 0.2051,
+      "Perseverance": 0.3615,
+      "Social": 0.3452,
+      "Spiritual": 0.1528,
+      "Familial_Capital": 0.5682
+    },
+    "support_per_theme": {
+      "Attainment": 34,
+      "Aspirational": 224,
+      "Navigational": 447,
+      "Resistance": 78,
+      "Perseverance": 130,
+      "Social": 84,
+      "Spiritual": 72,
+      "Familial_Capital": 88
+    },
+    "class_0": {
+      "f1": 0.7854,
+      "precision": 0.7096,
+      "recall": 0.8793,
+      "support": 903
+    }
+  },
+  "thresholds_used": {
+    "Attainment": 0.06,
+    "Aspirational": 0.19,
+    "Navigational": 0.34,
+    "Resistance": 0.1,
+    "Perseverance": 0.48,
+    "Social": 0.17,
+    "Spiritual": 0.054,
+    "Familial_Capital": 0.22
+  },
+  "bootstrap_ci": {
+    "f1_macro": [
+      0.5236,
+      0.4953,
+      0.5528
+    ],
+    "f1_per_theme": {
+      "Attainment": [
+        0.3154,
+        0.1892,
+        0.4314
+      ],
+      "Aspirational": [
+        0.5479,
+        0.4991,
+        0.5979
+      ],
+      "Navigational": [
+        0.6902,
+        0.6573,
+        0.7217
+      ],
+      "Resistance": [
+        0.3965,
+        0.322,
+        0.473
+      ],
+      "Perseverance": [
+        0.5099,
+        0.4293,
+        0.5918
+      ],
+      "Social": [
+        0.5356,
+        0.4419,
+        0.6222
+      ],
+      "Spiritual": [
+        0.4682,
+        0.3824,
+        0.55
+      ],
+      "Familial_Capital": [
+        0.7249,
+        0.6444,
+        0.7956
+      ]
+    }
+  },
+  "n_sentences": 1757
+}
